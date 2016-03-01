@@ -45,11 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameObjects\Heroes\Enemy.cs" />
-    <Compile Include="HeroesFight.cs">
+    <Compile Include="HeroesFightForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeroesFight.Designer.cs">
-      <DependentUpon>HeroesFight.cs</DependentUpon>
+    <Compile Include="HeroesFightForm.Designer.cs">
+      <DependentUpon>HeroesFightForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Heroes\Hero.cs" />
