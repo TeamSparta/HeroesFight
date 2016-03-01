@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HeroesFight.Interfaces
+﻿namespace HeroesFight.Interfaces
 {
+    /// <summary>
+    /// Interface implements logic for Magic
+    /// </summary>
     public interface IMagic
     {
-        int AttackDamage { get; set; }
+        /// <summary>
+        /// Damage the magic will deal to the opponent.
+        /// </summary>
+        int AttackDamage { get; }
 
-        int AttackCost { get; set; }
+        /// <summary>
+        /// Cost to perform the chosen magic in mana points.
+        /// </summary>
+        int ManaCost { get; }
+
+        /// <summary>
+        /// Cost to perform the chosen magic in health points.
+        /// </summary>
+        int HealthCost { get; }
     }
 }

@@ -44,23 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObjects\Enemy.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="GameObjects\Heroes\Enemy.cs" />
+    <Compile Include="HeroesFight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="HeroesFight.Designer.cs">
+      <DependentUpon>HeroesFight.cs</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\GameObject.cs" />
-    <Compile Include="GameObjects\Hero.cs" />
-    <Compile Include="GameObjects\Player.cs" />
+    <Compile Include="GameObjects\Heroes\Hero.cs" />
+    <Compile Include="GameObjects\Heroes\Player.cs" />
     <Compile Include="GameObjects\Level.cs" />
     <Compile Include="GameObjects\Magic.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IHero.cs" />
     <Compile Include="Interfaces\IMagic.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="HeroesFightEntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

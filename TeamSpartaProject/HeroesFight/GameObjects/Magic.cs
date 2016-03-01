@@ -2,7 +2,6 @@
 {
     using System.Drawing;
 
-    using HeroesFight.GameObjects;
     using HeroesFight.Interfaces;
 
     public class Magic : GameObject, IMagic
@@ -19,19 +18,34 @@
             {
                 throw new System.NotImplementedException();
             }
-            set
+
+            private set
             {
                 throw new System.NotImplementedException();
             }
         }
 
-        public int AttackCost
+        public int ManaCost
         {
             get
             {
                 throw new System.NotImplementedException();
             }
-            set
+
+            private set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+
+        public int HealthCost
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            private set
             {
                 throw new System.NotImplementedException();
             }

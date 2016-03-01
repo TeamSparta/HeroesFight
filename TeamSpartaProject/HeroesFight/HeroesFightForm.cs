@@ -2,9 +2,9 @@
 {
     using System.Windows.Forms;
 
-    public partial class Form1 : Form
+    public partial class HeroesFightForm : Form
     {
-        public Form1()
+        public HeroesFightForm()
         {
             this.InitializeComponent();
         }

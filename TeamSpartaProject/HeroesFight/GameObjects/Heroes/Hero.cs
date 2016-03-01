@@ -1,8 +1,8 @@
-﻿namespace HeroesFight.GameObjects
+﻿namespace HeroesFight.GameObjects.Heroes
 {
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using global::HeroesFight.Interfaces;
 
     public abstract class Hero : GameObject, IHero
     {
@@ -23,12 +23,12 @@
 
         public int ShieldPower { get; set; }
         
-        public void Attack(IHero enemy)
+        public virtual void PerformAttack(IHero enemy)
         {
             enemy.HealthPoints -= this.AttackPoints - enemy.ShieldPower;
         }
 
-        public void UseMagic(IHero enemy)
+        public virtual void PerformMagic(IHero enemy)
         {
             throw new System.NotImplementedException();
         }
