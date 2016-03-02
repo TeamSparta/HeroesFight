@@ -2,6 +2,8 @@
 {
     using System.Drawing;
 
+    using HeroesFight.Utilities;
+
     public class Archer : Player
     {
         private const int StartingHealthPoints = 400;
@@ -10,13 +12,17 @@
 
         private const int StartingManaPoints = 180;
 
-        private const int StartingShiledPower = 65;
+        private const int StartingShieldPower = 65;
 
-        // trqbva da se sloji image
-        private static Image image;
+        private static readonly Image Image = Image.FromFile(Constants.ArcherImagePath);
 
         public Archer()
-            : base(image, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShiledPower)
+            : base(
+                  Image,
+                  StartingAttackPoints,
+                  StartingHealthPoints,
+                  StartingManaPoints,
+                  StartingShieldPower)
         {
         }
     }

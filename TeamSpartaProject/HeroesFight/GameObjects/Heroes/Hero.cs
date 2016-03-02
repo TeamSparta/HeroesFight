@@ -2,7 +2,7 @@
 {
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using global::HeroesFight.Interfaces;
 
     public abstract class Hero : GameObject, IHero
     {

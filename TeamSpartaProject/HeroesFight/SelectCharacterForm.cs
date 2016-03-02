@@ -3,9 +3,6 @@
     using System;
     using System.Windows.Forms;
 
-    using HeroesFight.Data;
-    using HeroesFight.GameObjects.Heroes;
-
     public partial class SelectCharacterForm : Form
     {
         private static SelectCharacterForm instance;
@@ -38,17 +35,27 @@
 
         private void InitializeCharacter(string characterType)
         {
-            switch (characterType)
-            {
-                case "Warrior":
-                    GameDatabase.Player = new Warrior();
-                    break;
-                case "Archer":
-                    GameDatabase.Player = new Archer();
-                    break;
-                default:
-                    throw new ArgumentException("There is no such character.");
-            }
+            ////switch (characterType)
+            ////{
+            ////    case "Warrior":
+            ////        GameDatabase.Player = new Warrior();
+            ////        break;
+            ////    case "Archer":
+            ////        GameDatabase.Player = new Archer();
+            ////        break;
+            ////    default:
+            ////        throw new ArgumentException("There is no such character.");
+            ////}
+        }
+
+        private void SelectCharacterForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

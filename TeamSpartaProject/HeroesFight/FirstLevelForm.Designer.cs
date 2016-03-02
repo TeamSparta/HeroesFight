@@ -1,6 +1,6 @@
 ﻿namespace HeroesFight
 {
-    partial class FirstLevelForm
+    partial class HeroesFightForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Attack = new System.Windows.Forms.Button();
+            this.Btn_Attack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_Attack
+            // Btn_Attack
             // 
-            this.btn_Attack.Location = new System.Drawing.Point(128, 454);
-            this.btn_Attack.Name = "btn_Attack";
-            this.btn_Attack.Size = new System.Drawing.Size(75, 23);
-            this.btn_Attack.TabIndex = 0;
-            this.btn_Attack.Text = "Attack";
-            this.btn_Attack.UseVisualStyleBackColor = true;
-            this.btn_Attack.Click += new System.EventHandler(this.button1_Click);
+            this.Btn_Attack.Location = new System.Drawing.Point(340, 221);
+            this.Btn_Attack.Name = "Btn_Attack";
+            this.Btn_Attack.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Attack.TabIndex = 0;
+            this.Btn_Attack.Text = "Battle!";
+            this.Btn_Attack.UseVisualStyleBackColor = true;
+            this.Btn_Attack.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FirstLevelForm
+            // HeroesFightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::HeroesFight.Properties.Resources.LevelOneBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
-            this.Controls.Add(this.btn_Attack);
-            this.Name = "FirstLevelForm";
+            this.Controls.Add(this.Btn_Attack);
+            this.Name = "HeroesFight";
             this.Text = "FirstLevelForm";
+            this.Load += new System.EventHandler(this.FirstLevelForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btn_Attack;
+        private System.Windows.Forms.Button Btn_Attack;
     }
 }

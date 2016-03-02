@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using global::HeroesFight.Interfaces;
 
     public class Warrior : Player
     {

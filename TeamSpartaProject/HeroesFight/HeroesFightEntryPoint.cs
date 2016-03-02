@@ -1,7 +1,9 @@
 ﻿namespace HeroesFight
 {
     using System;
-    using System.Windows.Forms;
+
+    using HeroesFight.Core;
+    using HeroesFight.Interfaces;
 
     internal static class HeroesFightEntryPoint
     {
@@ -11,9 +13,9 @@
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HeroesFightStartForm());
+            IDataBase gameData = new GameDatabase();
+            IRunnable engine = new HeroesFightEngine(gameData);
+            engine.Run();
         }
     }
 }

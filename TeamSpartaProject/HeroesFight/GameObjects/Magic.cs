@@ -3,7 +3,7 @@
     using System;
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using global::HeroesFight.Interfaces;
 
     public class Magic : GameObject, IMagic
     {
