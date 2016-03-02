@@ -2,7 +2,7 @@
 {
     using System.Drawing;
 
-    using global::HeroesFight.Interfaces;
+    using HeroesFight.Interfaces;
 
     public abstract class Hero : GameObject, IHero
     {
@@ -22,15 +22,17 @@
         public int ManaPoints { get; set; }
 
         public int ShieldPower { get; set; }
-        
+
         public virtual void PerformAttack(IHero enemy)
         {
             enemy.HealthPoints -= this.AttackPoints - enemy.ShieldPower;
         }
 
-        public virtual void PerformMagic(IHero enemy)
+        public virtual void PerformMagic(IHero enemy, IMagic magic)
         {
-            throw new System.NotImplementedException();
+            enemy.HealthPoints -= magic.AttackDamage - enemy.ShieldPower;
+            this.HealthPoints -= magic.HealthCost;
+            this.ManaPoints -= magic.ManaCost;
         }
     }
 }

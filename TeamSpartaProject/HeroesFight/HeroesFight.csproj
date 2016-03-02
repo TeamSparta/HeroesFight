@@ -44,12 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObjects\Heroes\Enemy.cs" />
-    <Compile Include="HeroesFightForm.cs">
+    <Compile Include="Data\GameDatabase.cs" />
+    <Compile Include="FirstLevelForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeroesFightForm.Designer.cs">
-      <DependentUpon>HeroesFightForm.cs</DependentUpon>
+    <Compile Include="FirstLevelForm.Designer.cs">
+      <DependentUpon>FirstLevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameObjects\Heroes\Archer.cs" />
+    <Compile Include="GameObjects\Heroes\Enemy.cs" />
+    <Compile Include="GameObjects\Heroes\Warrior.cs" />
+    <Compile Include="HeroesFightStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeroesFightStartForm.Designer.cs">
+      <DependentUpon>HeroesFightStartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Heroes\Hero.cs" />
@@ -62,6 +71,18 @@
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="HeroesFightEntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectCharacterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectCharacterForm.Designer.cs">
+      <DependentUpon>SelectCharacterForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FirstLevelForm.resx">
+      <DependentUpon>FirstLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeroesFightStartForm.resx">
+      <DependentUpon>HeroesFightStartForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -71,6 +92,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SelectCharacterForm.resx">
+      <DependentUpon>SelectCharacterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="HeroesFightClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

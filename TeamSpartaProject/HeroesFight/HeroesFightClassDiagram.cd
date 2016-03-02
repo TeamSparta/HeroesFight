@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="HeroesFight.GameObjects.GameObject">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\GameObject.cs</FileName>
@@ -30,15 +30,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="HeroesFight.GameObjects.Magic">
-    <Position X="5.25" Y="2" Width="1.5" />
+    <Position X="5.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAA=</HashCode>
       <FileName>GameObjects\Magic.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="HeroesFight.GameObjects.Level">
-    <Position X="7.25" Y="2" Width="1.5" />
+    <Position X="7.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Level.cs</FileName>

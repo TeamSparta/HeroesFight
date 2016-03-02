@@ -2,7 +2,7 @@
 {
     using System.Drawing;
 
-    using global::HeroesFight.Interfaces;
+    using HeroesFight.Interfaces;
 
     public abstract class Player : Hero, IPlayer
     {

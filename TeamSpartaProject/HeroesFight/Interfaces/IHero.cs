@@ -35,6 +35,7 @@
         /// Performs magic attack logic on given enemy.
         /// </summary>
         /// <param name="enemy">Enemy to be attacked.</param>
-        void PerformMagic(IHero enemy);
+        /// <param name="magic">Magic to be performed.</param>
+        void PerformMagic(IHero enemy, IMagic magic);
     }
 }
