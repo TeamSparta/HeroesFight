@@ -43,7 +43,7 @@
             // 
             this.label_Warrior.AutoSize = true;
             this.label_Warrior.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Warrior.Location = new System.Drawing.Point(129, 122);
+            this.label_Warrior.Location = new System.Drawing.Point(140, 122);
             this.label_Warrior.Name = "label_Warrior";
             this.label_Warrior.Size = new System.Drawing.Size(55, 17);
             this.label_Warrior.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.label_Archer.AutoSize = true;
             this.label_Archer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Archer.Location = new System.Drawing.Point(522, 122);
+            this.label_Archer.Location = new System.Drawing.Point(608, 122);
             this.label_Archer.Name = "label_Archer";
             this.label_Archer.Size = new System.Drawing.Size(50, 17);
             this.label_Archer.TabIndex = 1;
@@ -62,7 +62,7 @@
             // radioBtn_Warrior
             // 
             this.radioBtn_Warrior.AutoSize = true;
-            this.radioBtn_Warrior.Location = new System.Drawing.Point(120, 402);
+            this.radioBtn_Warrior.Location = new System.Drawing.Point(143, 470);
             this.radioBtn_Warrior.Name = "radioBtn_Warrior";
             this.radioBtn_Warrior.Size = new System.Drawing.Size(59, 17);
             this.radioBtn_Warrior.TabIndex = 2;
@@ -73,7 +73,7 @@
             // radioBtn_Archer
             // 
             this.radioBtn_Archer.AutoSize = true;
-            this.radioBtn_Archer.Location = new System.Drawing.Point(513, 402);
+            this.radioBtn_Archer.Location = new System.Drawing.Point(592, 470);
             this.radioBtn_Archer.Name = "radioBtn_Archer";
             this.radioBtn_Archer.Size = new System.Drawing.Size(56, 17);
             this.radioBtn_Archer.TabIndex = 3;
@@ -86,33 +86,35 @@
             this.pictureBox1.Image = global::HeroesFight.Properties.Resources.Warrior;
             this.pictureBox1.Location = new System.Drawing.Point(83, 155);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 228);
+            this.pictureBox1.Size = new System.Drawing.Size(186, 295);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.OnWarriorPictureBoxClick);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::HeroesFight.Properties.Resources.Archer;
-            this.pictureBox2.Location = new System.Drawing.Point(466, 155);
+            this.pictureBox2.Location = new System.Drawing.Point(536, 155);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(152, 228);
+            this.pictureBox2.Size = new System.Drawing.Size(186, 295);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.OnArcherPictureBoxClick);
             // 
             // Lbl_PickClass
             // 
             this.Lbl_PickClass.AutoSize = true;
             this.Lbl_PickClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Lbl_PickClass.Location = new System.Drawing.Point(305, 93);
+            this.Lbl_PickClass.Location = new System.Drawing.Point(324, 93);
             this.Lbl_PickClass.Name = "Lbl_PickClass";
             this.Lbl_PickClass.Size = new System.Drawing.Size(116, 20);
             this.Lbl_PickClass.TabIndex = 7;
             this.Lbl_PickClass.Text = "Pick your class:";
             this.Lbl_PickClass.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // SelectCharacterForm
+            // SelectCharacterState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -3,29 +3,17 @@
     using System;
     using System.Windows.Forms;
 
+    using HeroesFight.Interfaces;
+
     public partial class SelectCharacterState : State
     {
-        private static SelectCharacterState instance;
-
-        public SelectCharacterState()
+        public SelectCharacterState(ICommandDispatcher commandDispatcher) 
+            : base(commandDispatcher)
         {
             this.InitializeComponent();
 
             string characterType = this.radioBtn_Warrior.Checked ? "Warrior" : "Archer";
             this.InitializeCharacter(characterType);
-        }
-
-        public static SelectCharacterState Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new SelectCharacterState();
-                }
-
-                return instance;
-            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -49,6 +37,15 @@
         }
 
         private void SelectCharacterForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void OnWarriorPictureBoxClick(object sender, EventArgs e)
+        {
+            thi
+        }
+
+        private void OnArcherPictureBoxClick(object sender, EventArgs e)
         {
         }
     }

@@ -2,18 +2,21 @@
 {
     using System.Drawing;
 
-    using global::HeroesFight.Interfaces;
+    using HeroesFight.Interfaces;
 
     public abstract class Hero : GameObject, IHero
     {
-        protected Hero(Image image, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
+        protected Hero(Image image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
             : base(image)
         {
+            this.Name = name;
             this.AttackPoints = attackPoints;
             this.HealthPoints = healthPoints;
             this.ManaPoints = manaPoints;
             this.ShieldPower = shieldPower;
         }
+
+        public string Name { get; }
 
         public int AttackPoints { get; set; }
 

@@ -2,10 +2,12 @@
 {
     using System.Drawing;
 
-    public abstract class Enemy : Hero
+    using HeroesFight.Interfaces;
+
+    public class Enemy : Hero, IEnemy
     {
-        protected Enemy(Image image, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
-            : base(image, attackPoints, healthPoints, manaPoints, shieldPower)
+        public Enemy(Image image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
+            : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower)
         {
         }
     }

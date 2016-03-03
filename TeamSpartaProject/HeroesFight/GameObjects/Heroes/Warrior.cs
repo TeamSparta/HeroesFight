@@ -15,13 +15,13 @@
 
         private const int StartingShiledPower = 80;
 
-        // TODO: trqbva da se sloji image
-        private static readonly Image image = null;
+        // TODO: trqbva da se sloji Image
+        private static readonly Image Image = null;
 
         private List<IMagic> magics = new List<IMagic>();
 
-        public Warrior()
-            : base(image, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShiledPower)
+        public Warrior(string name)
+            : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShiledPower)
         {
         }
     }

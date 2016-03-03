@@ -32,7 +32,7 @@
 
             Regex nameRegex = new Regex(@"([\w]+){3,20}$");
             string playerName = (currentState as StartGameState).PlayerNameTextBox.Text;
-
+            database.PlayerName = playerName;
             if (!nameRegex.IsMatch(playerName))
             {
                 MessageBox.Show(

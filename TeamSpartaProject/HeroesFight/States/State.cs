@@ -2,14 +2,19 @@
 {
     using System.Windows.Forms;
 
+    using HeroesFight.Interfaces;
+
     public class State : Form
     {
-        public State()
+        public State(ICommandDispatcher commandDispatcher)
         {
+            this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
         }
 
-#region
+        protected ICommandDispatcher CommandDispatcher { get; }
+
+        #region
         private void InitializeComponent()
         {
             this.SuspendLayout();

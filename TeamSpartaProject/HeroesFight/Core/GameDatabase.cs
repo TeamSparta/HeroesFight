@@ -4,8 +4,8 @@
 
     public class GameDatabase : IDataBase
     {
-        public string PlayerName { get; set; }
-
         public IHero Player { get; set; }
+
+        public string PlayerName { get; set; }
     }
 }

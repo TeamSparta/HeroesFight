@@ -15,13 +15,11 @@
         private Label lbl_EnterYourName;
 
 
-        public StartGameState(ICommandDispatcher commandDispatcher)
+        public StartGameState(ICommandDispatcher commandDispatcher) 
+            : base(commandDispatcher)
         {
-            this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
         }
-
-        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         public Button StartGameButton => this.btn_StartGame;
 

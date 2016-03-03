@@ -6,9 +6,14 @@
     public interface IHero
     {
         /// <summary>
+        /// Name used inside the game
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Attack power of the hero.
         /// </summary>
-        int AttackPoints { get; set; }
+        int AttackPoints { get; }
 
         /// <summary>
         /// Health points of the hero.
@@ -18,12 +23,12 @@
         /// <summary>
         /// Mana points of the hero.
         /// </summary>
-        int ManaPoints { get; set; }
+        int ManaPoints { get; }
 
         /// <summary>
         /// Shield to reduce every attack power.
         /// </summary>
-        int ShieldPower { get; set; }
+        int ShieldPower { get; }
 
         /// <summary>
         /// Performs attack logic on given enemy.

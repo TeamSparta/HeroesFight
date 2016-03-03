@@ -16,9 +16,10 @@
 
         private static readonly Image Image = Image.FromFile(Constants.ArcherImagePath);
 
-        public Archer()
+        public Archer(string name)
             : base(
                   Image,
+                  name,
                   StartingAttackPoints,
                   StartingHealthPoints,
                   StartingManaPoints,
