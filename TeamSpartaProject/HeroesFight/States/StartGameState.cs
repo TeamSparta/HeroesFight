@@ -1,11 +1,11 @@
-﻿namespace HeroesFight
+﻿namespace HeroesFight.States
 {
     using System;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
-    using HeroesFight.Core;
-    using HeroesFight.Utilities;
+    using Interfaces;
+    using Utilities;
 
     public class StartGameState : State
     {
@@ -16,10 +16,23 @@
         private Label lbl_EnterYourName;
 
 
-        public StartGameState()
+        public StartGameState(ICommandDispatcher commandDispatcher)
         {
+            this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
         }
+
+        public ICommandDispatcher CommandDispatcher { get; private set; }
+
+        public Button StartGameButton => this.btn_StartGame;
+
+        public TextBox PlayerNameTextBox => this.txtBox_PlayerName;
+
+        public Button ContinueButton => this.btn_Continue;
+
+        public Button ExitGameButton => this.btn_ExitGame;
+
+        public Label EnterYourNameLabel => this.lbl_EnterYourName;
 
         #region
         private void InitializeComponent()
@@ -31,7 +44,7 @@
             this.btn_ExitGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btn_StartGame
+            // StartGameButton
             // 
             this.btn_StartGame.Location = new System.Drawing.Point(324, 200);
             this.btn_StartGame.Name = "btn_StartGame";
@@ -98,9 +111,14 @@
         }
         #endregion
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            OnExitButtonClick(null, e);
+        }
+
         private void OnExitButtonClick(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.CommandDispatcher.ProcessCommand(Constants.EndGameCommandName, null, this);
         }
 
         private void OnContinueButtonClick(object sender, EventArgs e)
@@ -109,7 +127,7 @@
 
             // This logic have to be isolated.
             {
-                Regex nameRegex = new Regex(@"([\w]+){3,20}");
+                Regex nameRegex = new Regex(@"([\w]+){3,20}$");
 
 
                 if (!nameRegex.IsMatch(playerName))
@@ -134,27 +152,19 @@
 
         private void HeroesFightStartState_Load(object sender, EventArgs e)
         {
-            // ToDo: Separate this logic.
-            {
-                this.lbl_EnterYourName.Visible = false;
-                this.txtBox_PlayerName.Visible = false;
-                this.btn_Continue.Visible = false;
+            this.lbl_EnterYourName.Visible = false;
+            this.txtBox_PlayerName.Visible = false;
+            this.btn_Continue.Visible = false;
 
-                this.btn_StartGame.Click += this.OnStartGameButtonClick;
-                this.btn_ExitGame.Click += this.OnExitButtonClick;
-                this.lbl_EnterYourName.Click += this.OnEnterNameLabelClick;
-                this.btn_Continue.Click += this.OnContinueButtonClick;
-            }
+            this.btn_StartGame.Click += this.OnStartGameButtonClick;
+            this.btn_ExitGame.Click += this.OnExitButtonClick;
+            this.lbl_EnterYourName.Click += this.OnEnterNameLabelClick;
+            this.btn_Continue.Click += this.OnContinueButtonClick;
         }
 
         private void OnStartGameButtonClick(object sender, EventArgs e)
-        {
-            this.btn_StartGame.Visible = false;
-            this.btn_ExitGame.Visible = false;
-
-            this.lbl_EnterYourName.Visible = true;
-            this.txtBox_PlayerName.Visible = true;
-            this.btn_Continue.Visible = true;
+        {   
+            this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null, this);
         }
     }
 }

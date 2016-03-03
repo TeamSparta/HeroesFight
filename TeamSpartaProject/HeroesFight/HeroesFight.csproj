@@ -44,12 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\ExitGameCommand.cs" />
+    <Compile Include="Commands\StartGameCommand.cs" />
+    <Compile Include="Core\CommandDispatcher.cs" />
     <Compile Include="Core\CommandInfo.cs" />
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
     <Compile Include="Core\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
+    <Compile Include="Interfaces\ICommandDispatcher.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Interfaces\IStateManager.cs" />
     <Compile Include="States\StartGameState.cs">
@@ -94,6 +98,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="Utilities\InvalidStateException.cs" />
     <EmbeddedResource Include="States\StartGameState.resx">
       <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,9 +186,7 @@
   <ItemGroup>
     <None Include="Resources\Warrior.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,8 @@
 ﻿namespace HeroesFight.Core.Factories
 {
-    using HeroesFight.Interfaces;
+    using Commands;
+    using Interfaces;
+    using Utilities;
 
     public class CommandFactory : ICommandFactory
     {
@@ -9,7 +11,12 @@
             ICommand command = null;
             switch (commandInfo.CommandName)
             {
-                    // ToDo: Create commands.
+                case Constants.StartGameCommandName:
+                    command = new StartGameCommand();
+                    break;
+                case Constants.EndGameCommandName:
+                    command = new ExitGameCommand();
+                    break;
             }
 
             return command;

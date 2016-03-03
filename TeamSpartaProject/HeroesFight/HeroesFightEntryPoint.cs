@@ -15,9 +15,10 @@
         private static void Main()
         {
             IDataBase gameData = new GameDatabase();
-            IStateManager stateManager = new StateManager();
             ICommandFactory commandFactory = new CommandFactory();
-            IRunnable engine = new HeroesFightEngine(gameData, stateManager, commandFactory);
+            ICommandDispatcher commandDispatcher = new CommandDispatcher(gameData, commandFactory);
+            IStateManager stateManager = new StateManager(commandDispatcher);
+            IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
         }
     }

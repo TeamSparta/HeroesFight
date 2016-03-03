@@ -6,6 +6,12 @@
 
         public const string ContinueToBattleCommandName = "ContinueToBattle";
 
+        public const string StartGameCommandName = "StartGame";
+
+        public const string EndGameCommandName = "EndGame";
+
         public const string CommandSuffix = "Command";
+
+        public const string InvalidStateExceptionMessage = "Not expected state was passed!";
     }
 }
