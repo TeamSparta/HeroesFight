@@ -118,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HeroesFight.Properties.Resources.PickClassBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(708, 487);
+            this.ClientSize = new System.Drawing.Size(793, 584);
             this.Controls.Add(this.Lbl_PickClass);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

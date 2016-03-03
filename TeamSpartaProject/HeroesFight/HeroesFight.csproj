@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\CommandInfo.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
-    <Compile Include="HeroesFightStartState.cs">
+    <Compile Include="Core\StateManager.cs" />
+    <Compile Include="Enum\StateEnum.cs" />
+    <Compile Include="State.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FirstLevelForm.cs">
@@ -69,6 +72,7 @@
     <Compile Include="GameObjects\Heroes\Player.cs" />
     <Compile Include="GameObjects\Level.cs" />
     <Compile Include="GameObjects\Magic.cs" />
+    <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IDataBase.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IHero.cs" />
@@ -84,8 +88,8 @@
       <DependentUpon>SelectCharacterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Constants.cs" />
-    <EmbeddedResource Include="HeroesFightStartState.resx">
-      <DependentUpon>HeroesFightStartState.cs</DependentUpon>
+    <EmbeddedResource Include="State.resx">
+      <DependentUpon>State.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstLevelForm.resx">
       <DependentUpon>FirstLevelForm.cs</DependentUpon>
