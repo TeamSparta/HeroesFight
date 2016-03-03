@@ -6,18 +6,18 @@
 
     public class HeroesFightEngine : IRunnable
     {
-        public HeroesFightEngine(IStateManager stateManager)
+        public HeroesFightEngine(StateManager stateManager)
         {
             this.StateManager = stateManager;
         }
 
-        public IStateManager StateManager { get; private set; }
+        public StateManager StateManager { get; private set; }
 
         public void Run()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(this.StateManager.InitialState);
+            Application.Run(StateManager.InitialState);
 
             // Application.Run(new State());
             // How a usual game engine state goes:

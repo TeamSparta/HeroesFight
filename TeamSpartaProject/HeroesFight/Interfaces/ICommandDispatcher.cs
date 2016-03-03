@@ -2,6 +2,6 @@
 {
     public interface ICommandDispatcher
     {
-        void ProcessCommand(string commandName, object[] commandParameters, State currentState);
+        void ProcessCommand(string commandName, object[] commandParameters);
     }
 }

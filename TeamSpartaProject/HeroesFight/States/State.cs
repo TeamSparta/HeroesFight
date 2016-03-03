@@ -1,37 +1,30 @@
-﻿namespace HeroesFight
+﻿namespace HeroesFight.States
 {
     using System.Windows.Forms;
 
-    using HeroesFight.Core;
-
     public class State : Form
     {
-        private CommandInfo commandInfo;
-
-        public CommandInfo CommandInfo
+        public State()
         {
-            get
-            {
-                if (this.IsInputInserted)
-                {
-                    return this.commandInfo;
-                }
-
-                return null;
-            }
-
-            protected set
-            {
-                this.IsInputInserted = true;
-                this.commandInfo = value;
-            }
+            this.InitializeComponent();
         }
 
-        public bool IsInputInserted { get; private set; }
-
-        protected void SetCommandInfo(string commandName, object[] commandParameters)
+#region
+        private void InitializeComponent()
         {
-            this.CommandInfo = new CommandInfo(commandName, commandParameters);
+            this.SuspendLayout();
+            // 
+            // State
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "State";
+            this.Load += new System.EventHandler(this.State_Load);
+            this.ResumeLayout(false);
+
+        }
+#endregion
+        private void State_Load(object sender, System.EventArgs e)
+        {
         }
     }
 }

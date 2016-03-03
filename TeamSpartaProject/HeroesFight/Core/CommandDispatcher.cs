@@ -1,6 +1,7 @@
 ﻿namespace HeroesFight.Core
 {
     using HeroesFight.Interfaces;
+    using HeroesFight.States;
 
     public class CommandDispatcher : ICommandDispatcher
     {
@@ -14,7 +15,7 @@
 
         public ICommandFactory CommandFactory { get; private set; }
 
-        public void ProcessCommand(string commandName, object[] commandParameters, State currentState)
+        public void ProcessCommand(string commandName, object[] commandParameters)
         {
             var commandInfo = new CommandInfo(commandName, commandParameters);
 
@@ -22,7 +23,7 @@
             var command = this.CommandFactory.CreateCommand(commandInfo);
 
             // Executes command and updates the database.
-            command.Execute(this.DataBase, currentState);
+            command.Execute(this.DataBase, StateManager.CurrentState);
         }
     }
 }

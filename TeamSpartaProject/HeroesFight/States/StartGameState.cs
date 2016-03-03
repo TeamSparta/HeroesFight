@@ -1,7 +1,6 @@
 ﻿namespace HeroesFight.States
 {
     using System;
-    using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
     using Interfaces;
@@ -118,32 +117,13 @@
 
         private void OnExitButtonClick(object sender, EventArgs e)
         {
-            this.CommandDispatcher.ProcessCommand(Constants.EndGameCommandName, null, this);
+            this.CommandDispatcher.ProcessCommand(Constants.EndGameCommandName, null);
         }
 
         private void OnContinueButtonClick(object sender, EventArgs e)
         {
             string playerName = this.txtBox_PlayerName.Text;
-
-            // This logic have to be isolated.
-            {
-                Regex nameRegex = new Regex(@"([\w]+){3,20}$");
-
-
-                if (!nameRegex.IsMatch(playerName))
-                {
-                    MessageBox.Show(
-                        @"Name should be between 3 and 20 characters long and should consist only letters and digits. Please try again!");
-                    this.txtBox_PlayerName.Clear();
-                }
-                else
-                {
-                    this.Hide();
-                    SelectCharacterForm.Instance.Show();
-                }
-            }
-
-            this.SetCommandInfo(Constants.ContinueToBattleCommandName, new object[] { playerName });
+            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] {playerName});
         }
 
         private void OnEnterNameLabelClick(object sender, EventArgs e)
@@ -164,7 +144,7 @@
 
         private void OnStartGameButtonClick(object sender, EventArgs e)
         {   
-            this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null, this);
+            this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null);
         }
     }
 }

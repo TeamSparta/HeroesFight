@@ -1,13 +1,13 @@
-﻿namespace HeroesFight
+﻿namespace HeroesFight.States
 {
     using System;
     using System.Windows.Forms;
 
-    public partial class SelectCharacterForm : Form
+    public partial class SelectCharacterState : State
     {
-        private static SelectCharacterForm instance;
+        private static SelectCharacterState instance;
 
-        public SelectCharacterForm()
+        public SelectCharacterState()
         {
             this.InitializeComponent();
 
@@ -15,13 +15,13 @@
             this.InitializeCharacter(characterType);
         }
 
-        public static SelectCharacterForm Instance
+        public static SelectCharacterState Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new SelectCharacterForm();
+                    instance = new SelectCharacterState();
                 }
 
                 return instance;
@@ -50,12 +50,6 @@
 
         private void SelectCharacterForm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

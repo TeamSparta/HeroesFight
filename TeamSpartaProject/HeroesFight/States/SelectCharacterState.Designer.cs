@@ -1,6 +1,6 @@
-﻿namespace HeroesFight
+﻿namespace HeroesFight.States
 {
-    partial class SelectCharacterForm
+    partial class SelectCharacterState
     {
         /// <summary>
         /// Required designer variable.
@@ -13,9 +13,9 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (this.components != null))
             {
-                components.Dispose();
+                this.components.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -126,7 +126,7 @@
             this.Controls.Add(this.radioBtn_Warrior);
             this.Controls.Add(this.label_Archer);
             this.Controls.Add(this.label_Warrior);
-            this.Name = "SelectCharacterForm";
+            this.Name = "SelectCharacterState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HeroesFightForm";
             this.Load += new System.EventHandler(this.SelectCharacterForm_Load);

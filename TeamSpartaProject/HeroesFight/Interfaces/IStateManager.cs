@@ -1,6 +1,7 @@
 ﻿namespace HeroesFight.Interfaces
 {
     using HeroesFight.Enum;
+    using HeroesFight.States;
 
     public interface IStateManager
     {

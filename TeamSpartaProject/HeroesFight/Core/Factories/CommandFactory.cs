@@ -1,5 +1,7 @@
 ﻿namespace HeroesFight.Core.Factories
 {
+    using System;
+
     using Commands;
     using Interfaces;
     using Utilities;
@@ -8,15 +10,20 @@
     {
         public virtual ICommand CreateCommand(CommandInfo commandInfo)
         {
-            ICommand command = null;
+            ICommand command;
             switch (commandInfo.CommandName)
             {
                 case Constants.StartGameCommandName:
-                    command = new StartGameCommand();
+                    command = new StartGameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
                 case Constants.EndGameCommandName:
-                    command = new ExitGameCommand();
+                    command = new ExitGameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
+                case Constants.LogUserNameCommandName:
+                    command = new LogUserNameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    break;
+                default:
+                    throw new ArgumentException("Command not supported!");
             }
 
             return command;

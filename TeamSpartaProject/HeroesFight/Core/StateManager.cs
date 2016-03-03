@@ -4,39 +4,46 @@
     using HeroesFight.Interfaces;
     using HeroesFight.States;
 
-    public class StateManager : IStateManager
+    public class StateManager
     {
-        private State initialState;
+        private static State initialState;
 
         public StateManager(ICommandDispatcher commandDispatcher)
         {
-            this.CommandDispatcher = commandDispatcher;
+            CommandDispatcher = commandDispatcher;
         }
 
-        public ICommandDispatcher CommandDispatcher { get; private set; }
+        public static ICommandDispatcher CommandDispatcher { get; private set; }
 
-        public State InitialState
+        public static State InitialState
         {
             get
             {
-                if (this.initialState == null)
+                if (initialState == null)
                 {
-                    this.initialState = new StartGameState(this.CommandDispatcher);
-                    this.CurrentState = this.initialState;
+                    initialState = new StartGameState(CommandDispatcher);
+                    CurrentState = initialState;
                 }
 
-                return this.initialState;
+                return initialState;
             }
         }
 
-        public State CurrentState { get; private set; }
+        public static State CurrentState { get; private set; }
 
-        public void ChangeCurrentState(StateEnum state)
+        public static void ChangeCurrentState(StateEnum state)
         {
             switch (state)
             {
                 case StateEnum.PickNameState:
-                    this.CurrentState = new StartGameState(this.CommandDispatcher);
+                    CurrentState.Hide();
+                    CurrentState = new StartGameState(CommandDispatcher);
+                    CurrentState.Show();
+                    break;
+                case StateEnum.PickClassState:
+                    CurrentState.Hide();
+                    CurrentState = new SelectCharacterState();
+                    CurrentState.Show();
                     break;
             }
         }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ExitGameCommand.cs" />
+    <Compile Include="Commands\LogUserNameCommand.cs" />
     <Compile Include="Commands\StartGameCommand.cs" />
     <Compile Include="Core\CommandDispatcher.cs" />
     <Compile Include="Core\CommandInfo.cs" />
@@ -88,11 +89,11 @@
     <Compile Include="HeroesFightEntryPoint.cs" />
     <Compile Include="Interfaces\IRunnable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectCharacterForm.cs">
+    <Compile Include="States\SelectCharacterState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectCharacterForm.Designer.cs">
-      <DependentUpon>SelectCharacterForm.cs</DependentUpon>
+    <Compile Include="States\SelectCharacterState.Designer.cs">
+      <DependentUpon>SelectCharacterState.cs</DependentUpon>
     </Compile>
     <Compile Include="States\State.cs">
       <SubType>Form</SubType>
@@ -118,8 +119,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SelectCharacterForm.resx">
-      <DependentUpon>SelectCharacterForm.cs</DependentUpon>
+    <EmbeddedResource Include="States\SelectCharacterState.resx">
+      <DependentUpon>SelectCharacterState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="States\State.resx">
+      <DependentUpon>State.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HeroesFightClassDiagram.cd" />
     <None Include="Properties\Settings.settings">

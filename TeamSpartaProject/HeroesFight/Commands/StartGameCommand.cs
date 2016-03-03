@@ -7,6 +7,16 @@
 
     public class StartGameCommand : ICommand
     {
+        public StartGameCommand(string commandName, object[] commandParameters)
+        {
+            this.CommandName = commandName;
+            this.CommandParameters = commandParameters;
+        }
+
+        public string CommandName { get; }
+
+        public object[] CommandParameters { get; }
+
         public void Execute(IDataBase database, State currentState)
         {
             var startGameState = currentState as StartGameState;

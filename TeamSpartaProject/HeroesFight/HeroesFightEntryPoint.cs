@@ -17,7 +17,7 @@
             IDataBase gameData = new GameDatabase();
             ICommandFactory commandFactory = new CommandFactory();
             ICommandDispatcher commandDispatcher = new CommandDispatcher(gameData, commandFactory);
-            IStateManager stateManager = new StateManager(commandDispatcher);
+            StateManager stateManager = new StateManager(commandDispatcher);
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
         }

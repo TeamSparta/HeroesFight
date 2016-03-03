@@ -4,6 +4,8 @@
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
+    using HeroesFight.States;
+
     public partial class HeroesFightStartForm : Form
     {
         public HeroesFightStartForm()
@@ -62,7 +64,7 @@
             {
                 // ToDo: Log playerName information.
                 this.Hide();
-                SelectCharacterForm.Instance.Show();
+                SelectCharacterState.Instance.Show();
             }
         }
     }

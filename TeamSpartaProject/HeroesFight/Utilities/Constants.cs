@@ -10,6 +10,8 @@
 
         public const string EndGameCommandName = "EndGame";
 
+        public const string LogUserNameCommandName = "LogUserName";
+
         public const string CommandSuffix = "Command";
 
         public const string InvalidStateExceptionMessage = "Not expected state was passed!";
