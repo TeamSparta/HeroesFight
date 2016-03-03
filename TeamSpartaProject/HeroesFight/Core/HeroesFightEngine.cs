@@ -2,29 +2,44 @@
 {
     using System.Windows.Forms;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Core.Factories;
     using HeroesFight.Interfaces;
 
     public class HeroesFightEngine : IRunnable
     {
-        public HeroesFightEngine(IDataBase gameData)
+        public HeroesFightEngine(IDataBase gameData, IStateManager stateManager, ICommandFactory commandFactory)
         {
             this.DataBase = gameData;
+            this.StateManager = stateManager;
+            this.CommandFactory = commandFactory;
         }
 
         public IDataBase DataBase { get; private set; }
+
+        public IStateManager StateManager { get; private set; }
+
+        public ICommandFactory CommandFactory { get; private set; }
 
         public void Run()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new State(new GameDatabase()));
+            Application.Run(this.StateManager.InitialState);
 
             //while (true)
             //{
-            //    var commandInfo = StateManager.CurrentState.GetCurrentCommandInfo;
-            //    var command = CommandFactory(commandInfo);
-            //    command.Execute(this.DataBase, StateManager.CurrentState);
+            //    // Returns the input.
+            //    var commandInfo = this.StateManager.CurrentState.CommandInfo; 
+            //    if (commandInfo == null)
+            //    {
+            //        continue;
+            //    }
+
+            //    // Parses the input and transforms it into a command.
+            //    var command = this.CommandFactory.CreateCommand(commandInfo);
+
+            //    // Executes command and updates the database.
+            //    command.Execute(this.DataBase, this.StateManager.CurrentState);
             //}
 
             // Application.Run(new State());

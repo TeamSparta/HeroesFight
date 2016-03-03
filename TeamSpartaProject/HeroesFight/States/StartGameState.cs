@@ -5,9 +5,9 @@
     using System.Windows.Forms;
 
     using HeroesFight.Core;
-    using HeroesFight.Interfaces;
+    using HeroesFight.Utilities;
 
-    public class State : Form
+    public class StartGameState : State
     {
         private Button btn_StartGame;
         private TextBox txtBox_PlayerName;
@@ -15,21 +15,11 @@
         private Button btn_ExitGame;
         private Label lbl_EnterYourName;
 
-        public State(IDataBase dataBase)
+
+        public StartGameState()
         {
-            this.DataBase = dataBase;
             this.InitializeComponent();
         }
-
-        public IDataBase DataBase { get; }
-
-        public CommandInfo GetCommandInfo(string commandName, object[] commandParameters)
-        {
-            CommandInfo currentCommandInfo = new CommandInfo(commandName, commandParameters);
-
-            return currentCommandInfo;
-        }
-
 
         #region
         private void InitializeComponent()
@@ -99,7 +89,7 @@
             this.Controls.Add(this.lbl_EnterYourName);
             this.Controls.Add(this.btn_StartGame);
             this.DoubleBuffered = true;
-            this.Name = "State";
+            this.Name = "StartGameState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.HeroesFightStartState_Load);
             this.ResumeLayout(false);
@@ -130,11 +120,12 @@
                 }
                 else
                 {
-                    this.DataBase.PlayerName = playerName;
                     this.Hide();
                     SelectCharacterForm.Instance.Show();
                 }
             }
+
+            this.SetCommandInfo(Constants.ContinueToBattleCommandName, new object[] { playerName });
         }
 
         private void OnEnterNameLabelClick(object sender, EventArgs e)

@@ -2,6 +2,6 @@
 {
     public interface ICommand
     {
-        void Execute(IDataBase database);
+        void Execute(IDataBase database, State currentState);
     }
 }

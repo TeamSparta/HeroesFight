@@ -3,6 +3,7 @@
     using System;
 
     using HeroesFight.Core;
+    using HeroesFight.Core.Factories;
     using HeroesFight.Interfaces;
 
     internal static class HeroesFightEntryPoint
@@ -14,7 +15,9 @@
         private static void Main()
         {
             IDataBase gameData = new GameDatabase();
-            IRunnable engine = new HeroesFightEngine(gameData);
+            IStateManager stateManager = new StateManager();
+            ICommandFactory commandFactory = new CommandFactory();
+            IRunnable engine = new HeroesFightEngine(gameData, stateManager, commandFactory);
             engine.Run();
         }
     }

@@ -45,11 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\CommandInfo.cs" />
+    <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
     <Compile Include="Core\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
-    <Compile Include="State.cs">
+    <Compile Include="Interfaces\ICommandFactory.cs" />
+    <Compile Include="Interfaces\IStateManager.cs" />
+    <Compile Include="States\StartGameState.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FirstLevelForm.cs">
@@ -87,9 +90,12 @@
     <Compile Include="SelectCharacterForm.Designer.cs">
       <DependentUpon>SelectCharacterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="States\State.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilities\Constants.cs" />
-    <EmbeddedResource Include="State.resx">
-      <DependentUpon>State.cs</DependentUpon>
+    <EmbeddedResource Include="States\StartGameState.resx">
+      <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstLevelForm.resx">
       <DependentUpon>FirstLevelForm.cs</DependentUpon>
@@ -174,6 +180,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Warrior.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
