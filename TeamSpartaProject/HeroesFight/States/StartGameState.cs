@@ -23,15 +23,45 @@
 
         public ICommandDispatcher CommandDispatcher { get; private set; }
 
-        public Button StartGameButton => this.btn_StartGame;
+        public Button StartGameButton
+        {
+            get
+            {
+                return this.btn_StartGame;
+            }
+        }
 
-        public TextBox PlayerNameTextBox => this.txtBox_PlayerName;
+        public TextBox PlayerNameTextBox
+        {
+            get
+            {
+                return this.txtBox_PlayerName;
+            }
+        }
 
-        public Button ContinueButton => this.btn_Continue;
+        public Button ContinueButton
+        {
+            get
+            {
+                return this.btn_Continue;
+            }
+        }
 
-        public Button ExitGameButton => this.btn_ExitGame;
+        public Button ExitGameButton
+        {
+            get
+            {
+                return this.btn_ExitGame;
+            }
+        }
 
-        public Label EnterYourNameLabel => this.lbl_EnterYourName;
+        public Label EnterYourNameLabel
+        {
+            get
+            {
+                return this.lbl_EnterYourName;
+            }
+        }
 
         #region
         private void InitializeComponent()
@@ -123,7 +153,7 @@
         private void OnContinueButtonClick(object sender, EventArgs e)
         {
             string playerName = this.txtBox_PlayerName.Text;
-            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] {playerName});
+            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] { playerName });
         }
 
         private void OnEnterNameLabelClick(object sender, EventArgs e)
@@ -143,7 +173,7 @@
         }
 
         private void OnStartGameButtonClick(object sender, EventArgs e)
-        {   
+        {
             this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null);
         }
     }
