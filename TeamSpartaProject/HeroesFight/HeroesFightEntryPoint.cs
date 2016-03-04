@@ -5,6 +5,7 @@
     using HeroesFight.Core;
     using HeroesFight.Core.Factories;
     using HeroesFight.Interfaces;
+    using HeroesFight.States;
 
     internal static class HeroesFightEntryPoint
     {
@@ -14,8 +15,9 @@
         [STAThread]
         private static void Main()
         {
-            IDataBase gameData = new GameDatabase();
-            ICommandFactory commandFactory = new CommandFactory();
+            IDatabase gameData = new GameDatabase();
+            IHeroFactory heroFactory = new HeroFactory();
+            ICommandFactory commandFactory = new CommandFactory(heroFactory);
             ICommandDispatcher commandDispatcher = new CommandDispatcher(gameData, commandFactory);
             StateManager stateManager = new StateManager(commandDispatcher);
             IRunnable engine = new HeroesFightEngine(stateManager);

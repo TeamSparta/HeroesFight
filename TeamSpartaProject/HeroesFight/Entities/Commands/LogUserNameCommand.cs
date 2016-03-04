@@ -22,7 +22,7 @@
 
         public object[] CommandParameters { get; }
 
-        public void Execute(IDataBase database, State currentState)
+        public void Execute(IDatabase database, State currentState)
         {
             currentState = currentState as StartGameState;
             if (currentState == null)
@@ -32,7 +32,7 @@
 
             Regex nameRegex = new Regex(@"([\w]+){3,20}$");
             string playerName = (currentState as StartGameState).PlayerNameTextBox.Text;
-            database.PlayerName = playerName;
+            database.AddPlayerName(playerName);
             if (!nameRegex.IsMatch(playerName))
             {
                 MessageBox.Show(

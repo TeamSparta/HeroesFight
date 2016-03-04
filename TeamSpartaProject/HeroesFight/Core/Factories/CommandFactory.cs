@@ -3,11 +3,21 @@
     using System;
 
     using Commands;
+
+    using HeroesFight.Entities.Commands;
+
     using Interfaces;
     using Utilities;
 
     public class CommandFactory : ICommandFactory
     {
+        public CommandFactory(IHeroFactory heroFactory)
+        {
+            this.HeroFactory = heroFactory;
+        }
+
+        public IHeroFactory HeroFactory { get; private set; }
+
         public virtual ICommand CreateCommand(CommandInfo commandInfo)
         {
             ICommand command;
@@ -21,6 +31,9 @@
                     break;
                 case Constants.LogUserNameCommandName:
                     command = new LogUserNameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    break;
+                case Constants.CreatePlayerCommandName:
+                    command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters, this.HeroFactory);
                     break;
                 default:
                     throw new ArgumentException("Command not supported!");

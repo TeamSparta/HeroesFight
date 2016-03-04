@@ -54,7 +54,7 @@
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
-    <Compile Include="Core\StateManager.cs" />
+    <Compile Include="States\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
     <Compile Include="Interfaces\ICommandDispatcher.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
@@ -71,12 +71,6 @@
     <Compile Include="GameObjects\Heroes\Archer.cs" />
     <Compile Include="GameObjects\Heroes\Enemy.cs" />
     <Compile Include="GameObjects\Heroes\Warrior.cs" />
-    <Compile Include="HeroesFightStartForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HeroesFightStartForm.Designer.cs">
-      <DependentUpon>HeroesFightStartForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Heroes\Hero.cs" />
     <Compile Include="GameObjects\Heroes\Player.cs" />
@@ -107,9 +101,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstLevelForm.resx">
       <DependentUpon>FirstLevelForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HeroesFightStartForm.resx">
-      <DependentUpon>HeroesFightStartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

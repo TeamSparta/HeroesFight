@@ -6,14 +6,10 @@
 
     public class State : Form
     {
-        public State(ICommandDispatcher commandDispatcher)
+        public State()
         {
-            this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
         }
-
-        protected ICommandDispatcher CommandDispatcher { get; }
-
         #region
         private void InitializeComponent()
         {

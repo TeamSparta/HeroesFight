@@ -1,9 +1,13 @@
 ﻿namespace HeroesFight.Interfaces
 {
-    public interface IDataBase
+    public interface IDatabase
     {
-        string PlayerName { get; set; }
+        string PlayerName { get; }
 
         IHero Player { get; }
+
+        void AddPlayer(IHero player);
+
+        void AddPlayerName(string playerName);
     }
 }

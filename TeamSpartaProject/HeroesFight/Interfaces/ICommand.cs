@@ -8,6 +8,6 @@
 
         object[] CommandParameters { get; }
 
-        void Execute(IDataBase database, State currentState);
+        void Execute(IDatabase database, State currentState);
     }
 }

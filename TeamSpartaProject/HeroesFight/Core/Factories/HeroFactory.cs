@@ -20,7 +20,7 @@
                     hero = new Archer(heroName);
                     break;
                 case "Enemy":
-                    hero = CreateEnemy(heroName);
+                    hero = this.CreateEnemy(heroName);
                     break;
                 default:
                     throw new ArgumentException("Unknown type of hero.");

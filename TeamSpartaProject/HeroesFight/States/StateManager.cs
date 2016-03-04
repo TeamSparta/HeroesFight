@@ -1,8 +1,7 @@
-﻿namespace HeroesFight.Core
+﻿namespace HeroesFight.States
 {
     using HeroesFight.Enum;
     using HeroesFight.Interfaces;
-    using HeroesFight.States;
 
     public class StateManager
     {
@@ -42,7 +41,7 @@
                     break;
                 case StateEnum.PickClassState:
                     CurrentState.Hide();
-                    CurrentState = new SelectCharacterState();
+                    CurrentState = new SelectCharacterState(CommandDispatcher);
                     CurrentState.Show();
                     break;
             }

@@ -17,7 +17,7 @@
 
         public object[] CommandParameters { get; }
 
-        public void Execute(IDataBase database, State currentState)
+        public void Execute(IDatabase database, State currentState)
         {
             var startGameState = currentState as StartGameState;
             if (startGameState == null)

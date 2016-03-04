@@ -12,6 +12,8 @@
 
         public const string LogUserNameCommandName = "LogUserName";
 
+        public const string CreatePlayerCommandName = "CreatePlayer";
+
         public const string CommandSuffix = "Command";
 
         public const string InvalidStateExceptionMessage = "Not expected state was passed!";

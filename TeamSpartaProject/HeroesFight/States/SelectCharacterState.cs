@@ -7,14 +7,15 @@
 
     public partial class SelectCharacterState : State
     {
-        public SelectCharacterState(ICommandDispatcher commandDispatcher) 
-            : base(commandDispatcher)
+        public SelectCharacterState(ICommandDispatcher commandDispatcher)
         {
             this.InitializeComponent();
-
+            this.CommandDispatcher = commandDispatcher;
             string characterType = this.radioBtn_Warrior.Checked ? "Warrior" : "Archer";
             this.InitializeCharacter(characterType);
         }
+
+        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -42,11 +43,12 @@
 
         private void OnWarriorPictureBoxClick(object sender, EventArgs e)
         {
-            thi
+            this.CommandDispatcher.ProcessCommand("CreatePlayer", new object[] { "Warrior" });
         }
 
         private void OnArcherPictureBoxClick(object sender, EventArgs e)
         {
+            this.CommandDispatcher.ProcessCommand("CreatePlayer", new object[] { "Archer" });
         }
     }
 }

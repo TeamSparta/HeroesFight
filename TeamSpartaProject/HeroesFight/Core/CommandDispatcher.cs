@@ -5,13 +5,13 @@
 
     public class CommandDispatcher : ICommandDispatcher
     {
-        public CommandDispatcher(IDataBase dataBase, ICommandFactory commandFactory)
+        public CommandDispatcher(IDatabase database, ICommandFactory commandFactory)
         {
             this.CommandFactory = commandFactory;
-            this.DataBase = dataBase;
+            this.Database = database;
         }
 
-        public IDataBase DataBase { get; private set; }
+        public IDatabase Database { get; private set; }
 
         public ICommandFactory CommandFactory { get; private set; }
 
@@ -23,7 +23,7 @@
             var command = this.CommandFactory.CreateCommand(commandInfo);
 
             // Executes command and updates the database.
-            command.Execute(this.DataBase, StateManager.CurrentState);
+            command.Execute(this.Database, StateManager.CurrentState);
         }
     }
 }
