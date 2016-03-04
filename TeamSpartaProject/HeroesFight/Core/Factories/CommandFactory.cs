@@ -2,8 +2,7 @@
 {
     using System;
 
-    using Commands;
-
+    using HeroesFight.Entities;
     using HeroesFight.Entities.Commands;
 
     using Interfaces;

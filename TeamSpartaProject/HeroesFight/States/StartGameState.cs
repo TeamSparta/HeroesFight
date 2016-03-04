@@ -92,7 +92,7 @@
             // 
             // State
             // 
-            this.BackgroundImage = global::HeroesFight.Properties.Resources.StartGameBackground;
+            this.BackgroundImage = Properties.Resources.StartGameBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
             this.Controls.Add(this.btn_ExitGame);

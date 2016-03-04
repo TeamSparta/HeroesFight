@@ -1,5 +1,6 @@
 ﻿namespace HeroesFight.Core
 {
+    using HeroesFight.Entities;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
 

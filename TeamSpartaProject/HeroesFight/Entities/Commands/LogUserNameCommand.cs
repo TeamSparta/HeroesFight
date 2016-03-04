@@ -1,10 +1,8 @@
-﻿namespace HeroesFight.Commands
+﻿namespace HeroesFight.Entities.Commands
 {
-    using System;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
-    using HeroesFight.Core;
     using HeroesFight.Enum;
     using HeroesFight.Interfaces;
     using HeroesFight.States;

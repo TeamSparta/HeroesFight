@@ -1,9 +1,9 @@
-﻿namespace HeroesFight.Commands
+﻿namespace HeroesFight.Entities.Commands
 {
     using System;
 
-    using Interfaces;
-    using States;
+    using HeroesFight.Interfaces;
+    using HeroesFight.States;
 
     public class StartGameCommand : ICommand
     {

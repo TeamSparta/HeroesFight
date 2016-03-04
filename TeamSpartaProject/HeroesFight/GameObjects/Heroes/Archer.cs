@@ -1,8 +1,10 @@
 ﻿namespace HeroesFight.GameObjects.Heroes
 {
+    using System.Collections.Generic;
     using System.Drawing;
 
-    using HeroesFight.Utilities;
+    using HeroesFight.Interfaces;
+    using HeroesFight.Properties;
 
     public class Archer : Player
     {
@@ -14,7 +16,9 @@
 
         private const int StartingShieldPower = 65;
 
-        private static readonly Image Image = Image.FromFile(Constants.ArcherImagePath);
+        private static readonly Bitmap Image = Resources.Archer;
+
+        private List<IMagic> magics = new List<IMagic>();
 
         public Archer(string name)
             : base(

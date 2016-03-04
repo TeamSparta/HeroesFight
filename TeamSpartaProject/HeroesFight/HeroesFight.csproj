@@ -62,11 +62,11 @@
     <Compile Include="States\StartGameState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstLevelForm.cs">
+    <Compile Include="States\FirstLevelRoundOneState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstLevelForm.Designer.cs">
-      <DependentUpon>FirstLevelForm.cs</DependentUpon>
+    <Compile Include="States\FirstLevelRoundOneState.Designer.cs">
+      <DependentUpon>FirstLevelRoundOneState.cs</DependentUpon>
     </Compile>
     <Compile Include="GameObjects\Heroes\Archer.cs" />
     <Compile Include="GameObjects\Heroes\Enemy.cs" />
@@ -99,8 +99,8 @@
     <EmbeddedResource Include="States\StartGameState.resx">
       <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstLevelForm.resx">
-      <DependentUpon>FirstLevelForm.cs</DependentUpon>
+    <EmbeddedResource Include="States\FirstLevelRoundOneState.resx">
+      <DependentUpon>FirstLevelRoundOneState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

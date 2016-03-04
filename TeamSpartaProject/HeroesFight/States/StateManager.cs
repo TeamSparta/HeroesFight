@@ -44,6 +44,11 @@
                     CurrentState = new SelectCharacterState(CommandDispatcher);
                     CurrentState.Show();
                     break;
+                case StateEnum.FirstLevelRoundOneState:
+                    CurrentState.Hide();
+                    CurrentState = new FirstLevelRoundOneState(CommandDispatcher);
+                    CurrentState.Show();
+                    break;
             }
         }
     }

@@ -130,7 +130,7 @@
             this.Controls.Add(this.label_Warrior);
             this.Name = "SelectCharacterState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HeroesFightForm";
+            this.Text = "FirstLevelRoundOneState";
             this.Load += new System.EventHandler(this.SelectCharacterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

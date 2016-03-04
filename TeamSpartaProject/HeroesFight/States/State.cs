@@ -10,6 +10,12 @@
         {
             this.InitializeComponent();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         #region
         private void InitializeComponent()
         {

@@ -2,6 +2,7 @@
 {
     using System;
 
+    using HeroesFight.Enum;
     using HeroesFight.GameObjects.Heroes;
 
     using Interfaces;
@@ -39,6 +40,7 @@
 
             IHero player = this.HeroFactory.CreateHero(heroType, database.PlayerName);
             database.AddPlayer(player);
+            StateManager.ChangeCurrentState(StateEnum.FirstLevelRoundOneState);
         }
     }
 }

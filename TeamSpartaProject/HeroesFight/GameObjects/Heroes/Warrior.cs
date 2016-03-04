@@ -3,7 +3,8 @@
     using System.Collections.Generic;
     using System.Drawing;
 
-    using global::HeroesFight.Interfaces;
+    using HeroesFight.Interfaces;
+    using HeroesFight.Properties;
 
     public class Warrior : Player
     {
@@ -13,15 +14,14 @@
 
         private const int StartingManaPoints = 150;
 
-        private const int StartingShiledPower = 80;
-
-        // TODO: trqbva da se sloji Image
-        private static readonly Image Image = null;
+        private const int StartingShieldPower = 80;
+        
+        private static readonly Bitmap Image = Resources.Warrior;
 
         private List<IMagic> magics = new List<IMagic>();
 
         public Warrior(string name)
-            : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShiledPower)
+            : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShieldPower)
         {
         }
     }

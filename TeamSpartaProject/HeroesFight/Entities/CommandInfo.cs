@@ -1,4 +1,4 @@
-﻿namespace HeroesFight.Core
+﻿namespace HeroesFight.Entities
 {
     public class CommandInfo
     {

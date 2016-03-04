@@ -1,6 +1,6 @@
-﻿namespace HeroesFight
+﻿namespace HeroesFight.States
 {
-    partial class HeroesFightForm
+    partial class FirstLevelRoundOneState
     {
         /// <summary>
         /// Required designer variable.
@@ -13,9 +13,9 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && (this.components != null))
             {
-                components.Dispose();
+                this.components.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -33,15 +33,15 @@
             // 
             // Btn_Attack
             // 
-            this.Btn_Attack.Location = new System.Drawing.Point(340, 221);
+            this.Btn_Attack.Location = new System.Drawing.Point(342, 246);
             this.Btn_Attack.Name = "Btn_Attack";
             this.Btn_Attack.Size = new System.Drawing.Size(75, 23);
             this.Btn_Attack.TabIndex = 0;
             this.Btn_Attack.Text = "Battle!";
             this.Btn_Attack.UseVisualStyleBackColor = true;
-            this.Btn_Attack.Click += new System.EventHandler(this.button1_Click);
+            this.Btn_Attack.Click += new System.EventHandler(this.OnBattleButtonClick);
             // 
-            // HeroesFightForm
+            // FirstLevelRoundOneState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -49,7 +49,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
             this.Controls.Add(this.Btn_Attack);
-            this.Name = "HeroesFight";
+            this.Name = "FirstLevelRoundOneState";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelForm";
             this.Load += new System.EventHandler(this.FirstLevelForm_Load);
             this.ResumeLayout(false);

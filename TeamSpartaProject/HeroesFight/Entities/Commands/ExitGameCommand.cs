@@ -1,4 +1,4 @@
-﻿namespace HeroesFight.Commands
+﻿namespace HeroesFight.Entities.Commands
 {
     using System.Windows.Forms;
 
