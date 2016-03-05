@@ -15,11 +15,14 @@
         [STAThread]
         private static void Main()
         {
-            IDatabase gameData = new GameDatabase();
+            IMagicFactory magicFactory = new MagicFactory();
             IHeroFactory heroFactory = new HeroFactory();
-            ICommandFactory commandFactory = new CommandFactory(heroFactory);
-            ICommandDispatcher commandDispatcher = new CommandDispatcher(gameData, commandFactory);
+            ICommandFactory commandFactory = new CommandFactory();
+            IDatabase gameData = new GameDatabase(commandFactory, heroFactory, magicFactory);
+            ICommandDispatcher commandDispatcher = new CommandDispatcher(gameData);
             StateManager stateManager = new StateManager(commandDispatcher);
+
+            // ToDo: find better relationship here: the StateManager class is static which means our engine runs only on static class. :/
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
         }

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Factories\HeroFactory.cs" />
+    <Compile Include="Core\Factories\MagicFactory.cs" />
     <Compile Include="Entities\Commands\CreatePlayerCommand.cs" />
     <Compile Include="Entities\Commands\ExitGameCommand.cs" />
     <Compile Include="Entities\Commands\LogUserNameCommand.cs" />
@@ -55,6 +56,10 @@
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
+    <Compile Include="Enum\ClassHeroEnum.cs" />
+    <Compile Include="Interfaces\IEnemyDatabase.cs" />
+    <Compile Include="Interfaces\IMagicFactory.cs" />
+    <Compile Include="Interfaces\IPlayerDatabase.cs" />
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
     <Compile Include="Interfaces\ICommandDispatcher.cs" />
@@ -78,7 +83,7 @@
     <Compile Include="GameObjects\Level.cs" />
     <Compile Include="GameObjects\Magic.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
-    <Compile Include="Interfaces\IDataBase.cs" />
+    <Compile Include="Interfaces\IDatabase.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IHero.cs" />
     <Compile Include="Interfaces\IMagic.cs" />
@@ -97,6 +102,7 @@
     </Compile>
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\InvalidStateException.cs" />
+    <Compile Include="Utilities\MagicNotFoundException.cs" />
     <EmbeddedResource Include="States\StartGameState.resx">
       <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +126,6 @@
       <DependentUpon>State.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HeroesFightClassDiagram.cd" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

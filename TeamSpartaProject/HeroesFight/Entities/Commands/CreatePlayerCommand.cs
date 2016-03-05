@@ -10,14 +10,11 @@
 
     public class CreatePlayerCommand : ICommand
     {
-        public CreatePlayerCommand(string commandName, object[] commandParameters, IHeroFactory heroFactory)
+        public CreatePlayerCommand(string commandName, object[] commandParameters)
         {
             this.CommandName = commandName;
             this.CommandParameters = commandParameters;
-            this.HeroFactory = heroFactory;
         }
-
-        public IHeroFactory HeroFactory { get; private set; }
 
         public string CommandName { get; }
 
@@ -38,8 +35,8 @@
                     throw new ArgumentException("Unknown hero type.");
             }
 
-            IHero player = this.HeroFactory.CreateHero(heroType, database.PlayerName);
-            database.AddPlayer(player);
+            IHero player = database.HeroFactory.CreateHero(heroType, database.PlayerName);
+            database.AddPlayer(player as IPlayer);
             StateManager.ChangeCurrentState(StateEnum.FirstLevelRoundOneState);
         }
     }

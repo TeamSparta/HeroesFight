@@ -3,17 +3,23 @@
     using System;
     using System.Drawing;
 
-    using global::HeroesFight.Interfaces;
+    using HeroesFight.Enum;
+    using HeroesFight.Interfaces;
 
     public class Magic : GameObject, IMagic
     {
-        public Magic(Image image, int attacKDamage, int manaCost, int healthCost)
+        public Magic(Image image, string name, int attackDamage, int manaCost, int healthCost, StateEnum magicLevelWanted, ClassHeroEnum classHeroWanted)
             : base(image)
         {
-            this.AttackDamage = attacKDamage;
+            this.Name = name;
+            this.AttackDamage = attackDamage;
             this.ManaCost = manaCost;
             this.HealthCost = healthCost;
+            this.LevelWanted = magicLevelWanted;
+            this.ClassHeroWanted = classHeroWanted;
         }
+
+        public string Name { get; }
 
         public int AttackDamage
         {
@@ -53,5 +59,9 @@
                 throw new NotImplementedException();
             }
         }
+
+        public StateEnum LevelWanted { get; private set; }
+
+        public ClassHeroEnum ClassHeroWanted { get; private set; }
     }
 }

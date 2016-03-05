@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
 
+    using HeroesFight.Enum;
     using HeroesFight.GameObjects.Heroes;
     using HeroesFight.Interfaces;
 
@@ -36,7 +37,7 @@
             switch (heroName)
             {
                 case "UnholyWarrior":
-                    enemy = new Enemy(Image.FromFile("UnholyWarrior"), "Unholy Warrior", 100, 600, 50, 70);
+                    enemy = new Enemy(Image.FromFile("UnholyWarrior"), "Unholy Warrior", 100, 600, 50, 70, StateEnum.FirstLevelRoundOneState);
                     break;
 
                 default:

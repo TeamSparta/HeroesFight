@@ -1,14 +1,22 @@
 ﻿namespace HeroesFight.Interfaces
 {
-    public interface IDatabase
+    /// <summary>
+    /// Used to collect all the game information.
+    /// </summary>
+    public interface IDatabase : IPlayerDatabase, IEnemyDatabase
     {
-        string PlayerName { get; }
+        /// <summary>
+        /// Factory used to initialize all magic instances.
+        /// </summary>
+        IMagicFactory MagicFactory { get; }
+        
+        ICommandFactory CommandFactory { get; }
 
-        IHero Player { get; }
+        IHeroFactory HeroFactory { get; }
 
-        // TODO: Not sure if the 2 methods below are needed
-        void AddPlayer(IHero player);
-
-        void AddPlayerName(string playerName);
+        /// <summary>
+        /// Method used to update database.
+        /// </summary>
+        void Update();
     }
 }

@@ -10,13 +10,6 @@
 
     public class CommandFactory : ICommandFactory
     {
-        public CommandFactory(IHeroFactory heroFactory)
-        {
-            this.HeroFactory = heroFactory;
-        }
-
-        public IHeroFactory HeroFactory { get; private set; }
-
         public virtual ICommand CreateCommand(CommandInfo commandInfo)
         {
             ICommand command;
@@ -32,7 +25,7 @@
                     command = new LogUserNameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
                 case Constants.CreatePlayerCommandName:
-                    command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters, this.HeroFactory);
+                    command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
                 default:
                     throw new ArgumentException("Command not supported!");
