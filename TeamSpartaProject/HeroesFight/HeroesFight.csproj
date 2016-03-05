@@ -59,6 +59,7 @@
     <Compile Include="Enum\ClassHeroEnum.cs" />
     <Compile Include="Interfaces\IEnemyDatabase.cs" />
     <Compile Include="Interfaces\IMagicFactory.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IPlayerDatabase.cs" />
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Interfaces\IHero.cs" />
     <Compile Include="Interfaces\IMagic.cs" />
-    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="HeroesFightEntryPoint.cs" />
     <Compile Include="Interfaces\IRunnable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

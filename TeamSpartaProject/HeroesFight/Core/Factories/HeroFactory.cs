@@ -43,7 +43,7 @@
                     // enemy = new Enemy(Resources.FireArcher, "Unholy Warrior", 140, 550, 140, 50, StateEnum.FirstLevelRoundTwoState);
                     enemy = new Enemy(Resources.FireArcher, heroName, 140, 550, 140, 50, StateEnum.FirstLevelRoundTwoState);
                     break;
-                case "BloodlineMagician":
+                case "BloodLineMagician":
                     //enemy = new Enemy(Resources.BloodlineMagician, "Unholy Warrior", 140, 550, 140, 50, StateEnum.FirstLevelRoundTwoState);
                     enemy = new Enemy(Resources.BloodlineMagician, heroName, 140, 550, 140, 50, StateEnum.FirstLevelRoundThreeState);
                     break;

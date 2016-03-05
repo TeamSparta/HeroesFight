@@ -1,7 +1,7 @@
 ﻿namespace HeroesFight.Interfaces
 {
     /// <summary>
-    /// Interface made to extend the player logic.
+    /// The interface that defines a player
     /// </summary>
     public interface IPlayer : IHero
     {

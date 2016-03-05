@@ -13,8 +13,7 @@
         private Button btn_Continue;
         private Button btn_ExitGame;
         private Label lbl_EnterYourName;
-
-
+        
         public StartGameState(ICommandDispatcher commandDispatcher)
         {
             this.CommandDispatcher = commandDispatcher;
@@ -142,7 +141,7 @@
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            OnExitButtonClick(null, e);
+            this.OnExitButtonClick(null, e);
         }
 
         private void OnExitButtonClick(object sender, EventArgs e)

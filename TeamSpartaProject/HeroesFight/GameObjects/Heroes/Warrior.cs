@@ -18,7 +18,7 @@
         
         private static readonly Bitmap Image = Resources.Warrior;
 
-        private List<IMagic> magics = new List<IMagic>();
+        private IList<IMagic> magics = new List<IMagic>();
 
         public Warrior(string name)
             : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShieldPower)

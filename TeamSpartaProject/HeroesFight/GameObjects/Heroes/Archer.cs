@@ -18,7 +18,7 @@
 
         private static readonly Bitmap Image = Resources.Archer;
 
-        private List<IMagic> magics = new List<IMagic>();
+        private IList<IMagic> magics = new List<IMagic>();
 
         public Archer(string name)
             : base(
