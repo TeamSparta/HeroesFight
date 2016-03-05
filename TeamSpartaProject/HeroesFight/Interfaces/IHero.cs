@@ -1,5 +1,7 @@
 ﻿namespace HeroesFight.Interfaces
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Base interface for all hero units.
     /// </summary>
@@ -29,6 +31,17 @@
         /// Shield to reduce every attack power.
         /// </summary>
         int ShieldPower { get; }
+
+        /// <summary>
+        /// Contains all magics for the current hero.
+        /// </summary>
+        IEnumerable<IMagic> Magics { get; }
+
+        /// <summary>
+        /// Method used to add magic to current hero champion pool.
+        /// </summary>
+        /// <param name="magic">Magic to be added.</param>
+        void AddMagic(IMagic magic);
 
         /// <summary>
         /// Performs attack logic on given enemy.

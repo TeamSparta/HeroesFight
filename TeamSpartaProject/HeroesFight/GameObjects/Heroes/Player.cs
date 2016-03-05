@@ -2,11 +2,9 @@
 {
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
-
-    public abstract class Player : Hero, IPlayer
+    public abstract class Player : Hero
     {
-        protected Player(Image image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
+        protected Player(Bitmap image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
             : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower)
         {
         }

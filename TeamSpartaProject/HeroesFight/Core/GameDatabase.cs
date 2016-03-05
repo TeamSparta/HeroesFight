@@ -6,6 +6,7 @@
     using System.Text.RegularExpressions;
 
     using HeroesFight.Enum;
+    using HeroesFight.GameObjects;
     using HeroesFight.Interfaces;
     using HeroesFight.Utilities;
 
@@ -13,7 +14,7 @@
     {
         private string playerName;
 
-        private IList<IEnemy> enemies;
+        private readonly IList<IEnemy> enemies;
 
         private IList<IMagic> enemiesMagics;
 
@@ -27,6 +28,7 @@
             this.WarriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.ArchersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.CurrentPlayerProgress = StateEnum.FirstLevelRoundOneState;
+            this.Initialize();
         }
 
         public IPlayer Player { get; private set; }
@@ -52,7 +54,8 @@
                 }
             }
         }
-
+        
+        // Probably useless.
         public IEnumerable<IEnemy> Enemies
         {
             get
@@ -61,6 +64,7 @@
             }
         }
 
+        // Probably useless.
         public IEnumerable<IMagic> EnemyMagics
         {
             get
@@ -121,7 +125,52 @@
 
         private void Initialize()
         {
-            // ToDo: Initialize db.
+            this.InitializeFirstBoss();
+
+            this.InitializeSecondBoss();
+
+            this.InitializeThirdBoss();
+        }
+
+        private void InitializeThirdBoss()
+        {
+            IEnemy bloodlineMagician = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "BloodLineMagician") as IEnemy;
+
+            IMagic bloodDrain = this.MagicFactory.CreateMagic("BloodDrain");
+            bloodlineMagician.AddMagic(bloodDrain);
+            IMagic bloodPool = this.MagicFactory.CreateMagic("BloodPool");
+            bloodlineMagician.AddMagic(bloodPool);
+            IMagic magicArc = this.MagicFactory.CreateMagic("MagicArc");
+            bloodlineMagician.AddMagic(magicArc);
+            IMagic bloodFire = this.MagicFactory.CreateMagic("BloodFire");
+            bloodlineMagician.AddMagic(bloodFire);
+
+            this.enemies.Add(bloodlineMagician);
+        }
+
+        private void InitializeSecondBoss()
+        {
+            IEnemy fireArcher = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "FireArcher") as IEnemy;
+            IMagic fireArrow = this.MagicFactory.CreateMagic("FireArrow");
+            fireArcher.AddMagic(fireArrow);
+            IMagic bomb = this.MagicFactory.CreateMagic("Bomb");
+            fireArcher.AddMagic(bomb);
+            IMagic steadyShot = this.MagicFactory.CreateMagic("SteadyShot");
+            fireArcher.AddMagic(steadyShot);
+
+            this.enemies.Add(fireArcher);
+        }
+
+        private void InitializeFirstBoss()
+        {
+            IEnemy unholyWarrior = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "UnholyWarrior") as IEnemy;
+
+            IMagic swordThrowMagic = this.MagicFactory.CreateMagic("SwordThrow");
+            unholyWarrior.AddMagic(swordThrowMagic);
+            IMagic furiousRush = this.MagicFactory.CreateMagic("FuriousRush");
+            unholyWarrior.AddMagic(furiousRush);
+
+            this.enemies.Add(unholyWarrior);
         }
     }
 }

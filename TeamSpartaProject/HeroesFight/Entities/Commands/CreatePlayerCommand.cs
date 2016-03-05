@@ -3,7 +3,6 @@
     using System;
 
     using HeroesFight.Enum;
-    using HeroesFight.GameObjects.Heroes;
 
     using Interfaces;
     using States;
@@ -22,14 +21,14 @@
 
         public void Execute(IDatabase database, State currentState)
         {
-            Type heroType;
+            ClassHeroEnum heroType;
             switch (this.CommandParameters[0].ToString())
             {
                 case "Archer":
-                    heroType = typeof(Archer);
+                    heroType = ClassHeroEnum.Archer;
                     break;
                 case "Warrior":
-                    heroType = typeof(Warrior);
+                    heroType = ClassHeroEnum.Warrior;
                     break;
                 default:
                     throw new ArgumentException("Unknown hero type.");

@@ -7,7 +7,7 @@
 
     public class Enemy : Hero, IEnemy
     {
-        public Enemy(Image image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower, StateEnum wantedState)
+        public Enemy(Bitmap image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower, StateEnum wantedState)
             : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower)
         {
             this.WantedState = wantedState;

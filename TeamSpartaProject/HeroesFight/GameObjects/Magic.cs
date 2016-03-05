@@ -8,7 +8,7 @@
 
     public class Magic : GameObject, IMagic
     {
-        public Magic(Image image, string name, int attackDamage, int manaCost, int healthCost, StateEnum magicLevelWanted, ClassHeroEnum classHeroWanted)
+        public Magic(Bitmap image, string name, int attackDamage, int manaCost, int healthCost, StateEnum magicLevelWanted, ClassHeroEnum classHeroWanted)
             : base(image)
         {
             this.Name = name;

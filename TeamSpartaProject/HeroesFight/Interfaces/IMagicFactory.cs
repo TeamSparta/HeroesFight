@@ -2,6 +2,6 @@
 {
     public interface IMagicFactory
     {
-        IMagic GetMagic(string magicName, IDatabase database);
+        IMagic CreateMagic(string magicName);
     }
 }

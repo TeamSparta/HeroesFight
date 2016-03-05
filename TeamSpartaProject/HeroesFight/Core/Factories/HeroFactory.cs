@@ -1,26 +1,26 @@
 ﻿namespace HeroesFight.Core.Factories
 {
     using System;
-    using System.Drawing;
 
     using HeroesFight.Enum;
     using HeroesFight.GameObjects.Heroes;
     using HeroesFight.Interfaces;
+    using HeroesFight.Properties;
 
     public class HeroFactory : IHeroFactory
     {
-        public IHero CreateHero(Type heroType, string heroName)
+        public IHero CreateHero(ClassHeroEnum heroType, string heroName)
         {
             IHero hero;
-            switch (heroType.Name)
+            switch (heroType)
             {
-                case "Warrior":
+                case ClassHeroEnum.Warrior:
                     hero = new Warrior(heroName);
                     break;
-                case "Archer":
+                case ClassHeroEnum.Archer:
                     hero = new Archer(heroName);
                     break;
-                case "Enemy":
+                case ClassHeroEnum.Enemy:
                     hero = this.CreateEnemy(heroName);
                     break;
                 default:
@@ -32,14 +32,18 @@
 
         private IEnemy CreateEnemy(string heroName)
         {
-            // ToDo: Fulfill switch case here.
             IEnemy enemy;
             switch (heroName)
             {
                 case "UnholyWarrior":
-                    enemy = new Enemy(Image.FromFile("UnholyWarrior"), "Unholy Warrior", 100, 600, 50, 70, StateEnum.FirstLevelRoundOneState);
+                    enemy = new Enemy(Resources.UnholyWarrior, "Unholy Warrior", 100, 600, 50, 70, StateEnum.FirstLevelRoundOneState);
                     break;
-
+                case "FireArcher":
+                    enemy = new Enemy(Resources.FireArcher, "Unholy Warrior", 140, 550, 140, 50, StateEnum.FirstLevelRoundTwoState);
+                    break;
+                case "BloodLineMagician":
+                    enemy = new Enemy(Resources.BloodlineMagician, "Unholy Warrior", 140, 550, 140, 50, StateEnum.FirstLevelRoundTwoState);
+                    break;
                 default:
                     throw new ArgumentException("Unknown type of hero.");
             }

@@ -83,6 +83,16 @@ namespace HeroesFight.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BloodlineMagician {
+            get {
+                object obj = ResourceManager.GetObject("BloodlineMagician", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CounterStrickeMagicIcon {
             get {
                 object obj = ResourceManager.GetObject("CounterStrickeMagicIcon", resourceCulture);
@@ -96,6 +106,16 @@ namespace HeroesFight.Properties {
         internal static System.Drawing.Bitmap EndGameBackground {
             get {
                 object obj = ResourceManager.GetObject("EndGameBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FireArcher {
+            get {
+                object obj = ResourceManager.GetObject("FireArcher", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,36 +183,6 @@ namespace HeroesFight.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RoundOneEnemy {
-            get {
-                object obj = ResourceManager.GetObject("RoundOneEnemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RoundThreeEnemy {
-            get {
-                object obj = ResourceManager.GetObject("RoundThreeEnemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap RoundTwoEnemy {
-            get {
-                object obj = ResourceManager.GetObject("RoundTwoEnemy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap StartGameBackground {
             get {
                 object obj = ResourceManager.GetObject("StartGameBackground", resourceCulture);
@@ -216,6 +206,16 @@ namespace HeroesFight.Properties {
         internal static System.Drawing.Bitmap ThreeShotMagicIcon {
             get {
                 object obj = ResourceManager.GetObject("ThreeShotMagicIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UnholyWarrior {
+            get {
+                object obj = ResourceManager.GetObject("UnholyWarrior", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

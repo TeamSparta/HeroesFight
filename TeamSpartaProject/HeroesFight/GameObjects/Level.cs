@@ -4,7 +4,7 @@
 
     public class Level : GameObject
     {
-        public Level(Image image)
+        public Level(Bitmap image)
             : base(image)
         {
         }

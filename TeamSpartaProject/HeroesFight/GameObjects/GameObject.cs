@@ -4,11 +4,11 @@
 
     public abstract class GameObject
     {
-        protected GameObject(Image sprite)
+        protected GameObject(Bitmap sprite)
         {
             this.Sprite = sprite;
         }
 
-        public Image Sprite { get; set; }
+        public Bitmap Sprite { get; set; }
     }
 }

@@ -148,13 +148,13 @@
   <data name="PoisonStrikeMagicIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PoisonStrikeMagicIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RoundOneEnemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="UnholyWarrior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RoundOneEnemy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RoundThreeEnemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="BloodlineMagician" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RoundThreeEnemy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RoundTwoEnemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="FireArcher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RoundTwoEnemy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StartGameBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
