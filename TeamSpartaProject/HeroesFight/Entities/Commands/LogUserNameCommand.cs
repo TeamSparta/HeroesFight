@@ -28,7 +28,7 @@
                 throw new InvalidStateException();
             }
 
-            Regex nameRegex = new Regex(@"([\w]+){3,20}$");
+            Regex nameRegex = new Regex(@"^\w{3,20}$");
             string playerName = (currentState as StartGameState).PlayerNameTextBox.Text;
             database.AddPlayerName(playerName);
             if (!nameRegex.IsMatch(playerName))
@@ -39,7 +39,7 @@
             }
             else
             {
-                StateManager.ChangeCurrentState(StateEnum.PickClassState);
+                StateManager.ChangeCurrentState(StateEnum.PickCharacterState);
             }
         }
     }

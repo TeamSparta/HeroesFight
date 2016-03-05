@@ -39,7 +39,7 @@
                     CurrentState = new StartGameState(CommandDispatcher);
                     CurrentState.Show();
                     break;
-                case StateEnum.PickClassState:
+                case StateEnum.PickCharacterState:
                     CurrentState.Hide();
                     CurrentState = new SelectCharacterState(CommandDispatcher);
                     CurrentState.Show();

@@ -4,7 +4,7 @@
     {
         StartGameState,
         PickNameState,
-        PickClassState,
+        PickCharacterState,
         FirstLevelRoundOneState,
         FirstLevelRoundTwoState,
         FirstLevelRoundThreeState,

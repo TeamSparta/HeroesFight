@@ -8,6 +8,11 @@
 
     public class Magic : GameObject, IMagic
     {
+        private int attackDamage;
+        private int manaCost;
+        private int healthCost;
+        private string name;
+
         public Magic(Bitmap image, string name, int attackDamage, int manaCost, int healthCost, StateEnum magicLevelWanted, ClassHeroEnum classHeroWanted)
             : base(image)
         {
@@ -19,18 +24,39 @@
             this.ClassHeroWanted = classHeroWanted;
         }
 
-        public string Name { get; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("name", "Name of magic cannot be null or whitespace.");
+                }
+
+                this.name = value;
+            }
+        }
 
         public int AttackDamage
         {
             get
             {
-                throw new NotImplementedException();
+                return this.attackDamage;
             }
 
             private set
             {
-                throw new NotImplementedException();
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("attack damage", "Attack damage cannot be less than 0.");
+                }
+
+                this.attackDamage = value;
             }
         }
 
@@ -38,12 +64,17 @@
         {
             get
             {
-                throw new NotImplementedException();
+                return this.manaCost;
             }
 
             private set
             {
-                throw new NotImplementedException();
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("mana cost", "Mana cost cannot be less than 0.");
+                }
+
+                this.manaCost = value;
             }
         }
 
@@ -51,12 +82,17 @@
         {
             get
             {
-                throw new NotImplementedException();
+                return this.healthCost;
             }
 
             private set
             {
-                throw new NotImplementedException();
+                if (value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("health cost", "Health cost cannot be less than 0.");
+                }
+
+                this.healthCost = value;
             }
         }
 

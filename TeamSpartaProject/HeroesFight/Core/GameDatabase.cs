@@ -42,7 +42,7 @@
 
             private set
             {
-                Regex nameRegex = new Regex(@"([\w]+){3,20}$");
+                Regex nameRegex = new Regex(@"^\w{3,20}$");
 
                 if (nameRegex.IsMatch(value))
                 {
