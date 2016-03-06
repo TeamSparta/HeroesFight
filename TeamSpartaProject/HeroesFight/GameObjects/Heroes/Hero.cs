@@ -4,11 +4,12 @@
     using System.Collections.Generic;
     using System.Drawing;
 
+    using HeroesFight.Enum;
     using HeroesFight.Interfaces;
 
     public abstract class Hero : GameObject, IHero
     {
-        private IList<IMagic> magics; 
+        private readonly IList<IMagic> magics; 
 
         protected Hero(Bitmap image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
             : base(image)
@@ -30,6 +31,8 @@
         public int ManaPoints { get; set; }
 
         public int ShieldPower { get; set; }
+
+        public ClassHeroEnum ClassHero { get; }
 
         public IEnumerable<IMagic> Magics
         {

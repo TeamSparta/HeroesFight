@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using HeroesFight.Enum;
+
     /// <summary>
     /// Base interface for all hero units.
     /// </summary>
@@ -31,6 +33,8 @@
         /// Shield to reduce every attack power.
         /// </summary>
         int ShieldPower { get; }
+
+        ClassHeroEnum ClassHero { get; }
 
         /// <summary>
         /// Contains all magics for the current hero.

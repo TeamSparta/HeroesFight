@@ -18,5 +18,7 @@
         /// Method used to update database.
         /// </summary>
         void Update();
+
+        void Initialize();
     }
 }

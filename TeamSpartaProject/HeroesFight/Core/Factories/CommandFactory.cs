@@ -27,6 +27,9 @@
                 case Constants.CreatePlayerCommandName:
                     command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
+                case Constants.InitializeLevelOneCommandName:
+                    command = new InitializeLevelOneCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    break;
                 default:
                     throw new ArgumentException("Command not supported!");
             }

@@ -23,6 +23,8 @@
             StateManager stateManager = new StateManager(commandDispatcher);
 
             // ToDo: find better relationship here: the StateManager class is static which means our engine runs only on static class. :/
+            // ToDo: Should add another field which shows the current hero's class.
+            // ToDo: Set initialize level logic.
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
         }

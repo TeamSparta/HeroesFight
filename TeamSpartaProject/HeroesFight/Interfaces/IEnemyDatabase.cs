@@ -10,16 +10,9 @@
         IEnumerable<IEnemy> Enemies { get; }
 
         /// <summary>
-        /// Contains all enemies magics.
+        /// Finds an enemy by level.
         /// </summary>
-        IEnumerable<IMagic> EnemyMagics { get; }
-
-
-        /// <summary>
-        /// Gets an enemy magic by name.
-        /// </summary>
-        /// <param name="magicName">The name of the magic which has to be found.</param>
         /// <returns></returns>
-        IMagic GetEnemyMagic(string magicName);
+        IEnemy GetCurrentLevelEnemy();
     }
 }

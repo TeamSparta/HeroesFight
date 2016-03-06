@@ -2,6 +2,8 @@
 {
     public class Constants
     {
+        public const string InitializeLevelOneCommandName = "InitializeLevelOne";
+
         public const string ContinueToBattleCommandName = "ContinueToBattle";
 
         public const string StartGameCommandName = "StartGame";

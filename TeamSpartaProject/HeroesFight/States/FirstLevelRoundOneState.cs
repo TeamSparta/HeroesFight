@@ -17,13 +17,27 @@
         private void OnBattleButtonClick(object sender, EventArgs e)
         {
             this.Btn_Attack.Visible = false;
-            /*
-            this.CommandDispatcher(InitializeLevelOneCommand);
-            */
+
+            // ToDo: Check image transparency.
+            this.CommandDistpatcher.ProcessCommand("InitializeLevelOne", null);
         }
 
         private void FirstLevelForm_Load(object sender, EventArgs e)
         {
+           playerPictureBox.Visible = false;
+           enemyPictureBox.Visible = false;
+           firstSpellPictureBox.Visible = false;
+           secondSpellPictureox.Visible = false;
+        }
+
+        private void OnFistMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "firstSpell" });
+        }
+
+        private void OnSecondSpellClick(object sender, EventArgs e)
+        {
+            this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "secondSpell" });
         }
     }
 }

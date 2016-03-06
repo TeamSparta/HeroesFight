@@ -49,6 +49,12 @@
                     CurrentState = new FirstLevelRoundOneState(CommandDispatcher);
                     CurrentState.Show();
                     break;
+                    case StateEnum.FirstLevelRoundTwoState:
+                    CurrentState.Hide();
+
+                    // CurrentState = new TestState();
+                    CurrentState.Show();
+                    break;
             }
         }
     }

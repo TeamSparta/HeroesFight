@@ -42,5 +42,12 @@
         /// </summary>
         /// <param name="playerName"></param>
         void AddPlayerName(string playerName);
+
+        /// <summary>
+        /// Gets current player magic by passed id.
+        /// </summary>
+        /// <param name="id">Zero-based id.</param>
+        /// <returns></returns>
+        IMagic GetCurrentMagicById(int id);
     }
 }
