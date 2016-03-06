@@ -39,6 +39,9 @@
                 case Constants.UpdateCommandName:
                     command = new UpdateCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
+                case Constants.EnemyAttackCommandName:
+                    command = new EnemyAttackCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    break;
                 default:
                     throw new ArgumentException("Command not supported!");
             }

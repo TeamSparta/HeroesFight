@@ -2,6 +2,8 @@
 {
     public class Constants
     {
+        public const string EnemyAttackCommandName = "EnemyAttack";
+
         public const string AttackCommandName = "Attack";
 
         public const string CommandSuffix = "Command";

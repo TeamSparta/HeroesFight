@@ -30,7 +30,6 @@
         {
             this.Btn_Attack.Visible = false;
 
-            // ToDo: Check image transparency.
             this.CommandDistpatcher.ProcessCommand("InitializeLevelOne", null);
         }
 
@@ -38,12 +37,17 @@
         {
             this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
             this.CommandDistpatcher.ProcessCommand("Update", null);
+            this.CommandDistpatcher.ProcessCommand("EnemyAttack", null);
+            this.CommandDistpatcher.ProcessCommand("Update", null);
         }
 
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
             this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
             this.CommandDistpatcher.ProcessCommand("Update", null);
+            this.CommandDistpatcher.ProcessCommand("EnemyAttack", null);
+            this.CommandDistpatcher.ProcessCommand("Update", null);
+
         }
     }
 }

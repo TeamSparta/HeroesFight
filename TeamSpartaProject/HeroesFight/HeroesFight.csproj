@@ -49,6 +49,7 @@
     <Compile Include="Core\Factories\MagicFactory.cs" />
     <Compile Include="Entities\Commands\AttackCommand.cs" />
     <Compile Include="Entities\Commands\CreatePlayerCommand.cs" />
+    <Compile Include="Entities\Commands\EnemyAttackCommand.cs" />
     <Compile Include="Entities\Commands\ExitGameCommand.cs" />
     <Compile Include="Entities\Commands\InitializeLevelOneCommand.cs" />
     <Compile Include="Entities\Commands\LogUserNameCommand.cs" />

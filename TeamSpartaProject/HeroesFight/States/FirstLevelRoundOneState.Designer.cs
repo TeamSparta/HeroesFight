@@ -161,9 +161,11 @@
             // 
             this.enemyAttackInfoLabel.AutoSize = true;
             this.enemyAttackInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.enemyAttackInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.enemyAttackInfoLabel.ForeColor = System.Drawing.Color.Maroon;
             this.enemyAttackInfoLabel.Location = new System.Drawing.Point(235, 223);
             this.enemyAttackInfoLabel.Name = "enemyAttackInfoLabel";
-            this.enemyAttackInfoLabel.Size = new System.Drawing.Size(35, 13);
+            this.enemyAttackInfoLabel.Size = new System.Drawing.Size(45, 16);
             this.enemyAttackInfoLabel.TabIndex = 11;
             this.enemyAttackInfoLabel.Text = "label1";
             this.enemyAttackInfoLabel.Visible = false;

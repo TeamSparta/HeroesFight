@@ -28,7 +28,10 @@
 
             // ToDo: find better relationship here: the StateManager class is static which means our engine runs only on static class. :/
             // ToDo: Should add another field which shows the current hero's class.
-            // ToDo: Set initialize level logic.
+            // ToDo: Perform validation on casting magics.
+            // ToDo: Improve magics and mana costs.
+            // ToDo: Set level transition logic (aka load next level/state).
+            // ToDo: Get an endgame screen.
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
         }
