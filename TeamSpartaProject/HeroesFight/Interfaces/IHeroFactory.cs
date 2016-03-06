@@ -1,8 +1,10 @@
 ﻿namespace HeroesFight.Interfaces
 {
-    using System;
+    #region
 
     using HeroesFight.Enum;
+
+    #endregion
 
     public interface IHeroFactory
     {

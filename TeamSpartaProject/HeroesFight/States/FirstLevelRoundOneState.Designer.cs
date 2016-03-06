@@ -37,6 +37,8 @@
             this.playerHpLabel = new System.Windows.Forms.Label();
             this.enemyHpLabel = new System.Windows.Forms.Label();
             this.enemyManaLabel = new System.Windows.Forms.Label();
+            this.playerAttackInfoLabel = new System.Windows.Forms.Label();
+            this.enemyAttackInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPictureox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
@@ -104,6 +106,7 @@
             // 
             // playerHpLabel
             // 
+            this.playerHpLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.playerHpLabel.AutoSize = true;
             this.playerHpLabel.BackColor = System.Drawing.Color.Red;
             this.playerHpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -141,13 +144,40 @@
             this.enemyManaLabel.Text = "enemyManaLabel";
             this.enemyManaLabel.Visible = false;
             // 
+            // playerAttackInfoLabel
+            // 
+            this.playerAttackInfoLabel.AutoSize = true;
+            this.playerAttackInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerAttackInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerAttackInfoLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.playerAttackInfoLabel.Location = new System.Drawing.Point(235, 301);
+            this.playerAttackInfoLabel.Name = "playerAttackInfoLabel";
+            this.playerAttackInfoLabel.Size = new System.Drawing.Size(45, 16);
+            this.playerAttackInfoLabel.TabIndex = 10;
+            this.playerAttackInfoLabel.Text = "label1";
+            this.playerAttackInfoLabel.Visible = false;
+            // 
+            // enemyAttackInfoLabel
+            // 
+            this.enemyAttackInfoLabel.AutoSize = true;
+            this.enemyAttackInfoLabel.BackColor = System.Drawing.Color.Transparent;
+            this.enemyAttackInfoLabel.Location = new System.Drawing.Point(235, 223);
+            this.enemyAttackInfoLabel.Name = "enemyAttackInfoLabel";
+            this.enemyAttackInfoLabel.Size = new System.Drawing.Size(35, 13);
+            this.enemyAttackInfoLabel.TabIndex = 11;
+            this.enemyAttackInfoLabel.Text = "label1";
+            this.enemyAttackInfoLabel.Visible = false;
+            // 
             // FirstLevelRoundOneState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackgroundImage = global::HeroesFight.Properties.Resources.LevelOneBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
+            this.Controls.Add(this.enemyAttackInfoLabel);
+            this.Controls.Add(this.playerAttackInfoLabel);
             this.Controls.Add(this.enemyManaLabel);
             this.Controls.Add(this.enemyHpLabel);
             this.Controls.Add(this.playerHpLabel);
@@ -181,5 +211,7 @@
         public System.Windows.Forms.Label playerManaLabel;
         public System.Windows.Forms.Label enemyHpLabel;
         public System.Windows.Forms.Label enemyManaLabel;
+        public System.Windows.Forms.Label playerAttackInfoLabel;
+        public System.Windows.Forms.Label enemyAttackInfoLabel;
     }
 }

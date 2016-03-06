@@ -1,5 +1,7 @@
 ﻿namespace HeroesFight.GameObjects.Heroes
 {
+    #region
+
     using System;
     using System.Collections.Generic;
     using System.Drawing;
@@ -7,9 +9,11 @@
     using HeroesFight.Enum;
     using HeroesFight.Interfaces;
 
+    #endregion
+
     public abstract class Hero : GameObject, IHero
     {
-        private readonly IList<IMagic> magics; 
+        private readonly IList<IMagic> magics;
 
         protected Hero(Bitmap image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
             : base(image)
@@ -22,17 +26,11 @@
             this.magics = new List<IMagic>();
         }
 
-        public string Name { get; }
-
         public int AttackPoints { get; set; }
 
-        public int HealthPoints { get; set; }
-
-        public int ManaPoints { get; set; }
-
-        public int ShieldPower { get; set; }
-
         public ClassHeroEnum ClassHero { get; }
+
+        public int HealthPoints { get; set; }
 
         public IEnumerable<IMagic> Magics
         {
@@ -41,6 +39,12 @@
                 return this.magics;
             }
         }
+
+        public int ManaPoints { get; set; }
+
+        public string Name { get; }
+
+        public int ShieldPower { get; set; }
 
         public void AddMagic(IMagic magic)
         {
@@ -54,7 +58,7 @@
 
         public virtual void PerformAttack(IHero enemy)
         {
-            enemy.HealthPoints -= this.AttackPoints - enemy.ShieldPower;
+            enemy.HealthPoints -= this.AttackPoints - (enemy.ShieldPower / 2);
         }
 
         public virtual void PerformMagic(IHero enemy, IMagic magic)

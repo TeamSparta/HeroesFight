@@ -1,5 +1,7 @@
 ﻿namespace HeroesFight.Entities.Commands
 {
+    #region
+
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
@@ -7,6 +9,8 @@
     using HeroesFight.Interfaces;
     using HeroesFight.States;
     using HeroesFight.Utilities;
+
+    #endregion
 
     public class LogUserNameCommand : ICommand
     {
@@ -35,7 +39,7 @@
             {
                 MessageBox.Show(
                     @"Name should be between 3 and 20 characters long and should consist only letters and digits. Please try again!");
-                    (currentState as StartGameState).PlayerNameTextBox.Clear();
+                (currentState as StartGameState).PlayerNameTextBox.Clear();
             }
             else
             {

@@ -1,8 +1,12 @@
 ﻿namespace HeroesFight.Core
 {
+    #region
+
     using HeroesFight.Entities;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
+
+    #endregion
 
     public class CommandDispatcher : ICommandDispatcher
     {
@@ -11,7 +15,7 @@
             this.Database = database;
         }
 
-        public IDatabase Database { get; private set; }
+        public IDatabase Database { get; }
 
         public void ProcessCommand(string commandName, object[] commandParameters)
         {

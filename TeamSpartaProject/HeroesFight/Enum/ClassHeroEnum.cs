@@ -2,8 +2,10 @@
 {
     public enum ClassHeroEnum
     {
-        Warrior,
-        Archer,
+        Warrior, 
+
+        Archer, 
+
         Enemy
     }
 }

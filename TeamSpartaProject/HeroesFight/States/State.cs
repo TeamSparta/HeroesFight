@@ -1,8 +1,12 @@
 ﻿namespace HeroesFight.States
 {
+    #region
+
+    using System;
+    using System.Drawing;
     using System.Windows.Forms;
 
-    using HeroesFight.Interfaces;
+    #endregion
 
     public class State : Form
     {
@@ -16,21 +20,18 @@
             Application.Exit();
         }
 
-        #region
         private void InitializeComponent()
         {
             this.SuspendLayout();
-            // 
-            // State
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "State";
-            this.Load += new System.EventHandler(this.State_Load);
-            this.ResumeLayout(false);
 
+            // State
+            this.ClientSize = new Size(284, 262);
+            this.Name = "State";
+            this.Load += this.State_Load;
+            this.ResumeLayout(false);
         }
-#endregion
-        private void State_Load(object sender, System.EventArgs e)
+
+        private void State_Load(object sender, EventArgs e)
         {
         }
     }

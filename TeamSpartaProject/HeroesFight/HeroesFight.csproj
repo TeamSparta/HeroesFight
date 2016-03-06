@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Core\Factories\HeroFactory.cs" />
     <Compile Include="Core\Factories\MagicFactory.cs" />
+    <Compile Include="Entities\Commands\AttackCommand.cs" />
     <Compile Include="Entities\Commands\CreatePlayerCommand.cs" />
     <Compile Include="Entities\Commands\ExitGameCommand.cs" />
     <Compile Include="Entities\Commands\InitializeLevelOneCommand.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Core\Factories\CommandFactory.cs" />
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
+    <Compile Include="Entities\Commands\UpdateCommand.cs" />
     <Compile Include="Enum\ClassHeroEnum.cs" />
     <Compile Include="Interfaces\IEnemyDatabase.cs" />
     <Compile Include="Interfaces\IMagicFactory.cs" />

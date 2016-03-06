@@ -1,8 +1,12 @@
 ﻿namespace HeroesFight.GameObjects.Heroes
 {
+    #region
+
     using System.Drawing;
 
     using HeroesFight.Interfaces;
+
+    #endregion
 
     public abstract class Player : Hero, IPlayer
     {

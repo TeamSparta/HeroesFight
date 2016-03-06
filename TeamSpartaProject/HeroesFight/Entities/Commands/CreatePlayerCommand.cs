@@ -1,11 +1,14 @@
 ﻿namespace HeroesFight.Entities.Commands
 {
+    #region
+
     using System;
 
     using HeroesFight.Enum;
+    using HeroesFight.Interfaces;
+    using HeroesFight.States;
 
-    using Interfaces;
-    using States;
+    #endregion
 
     public class CreatePlayerCommand : ICommand
     {
@@ -15,9 +18,9 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; private set; }
+        public string CommandName { get; }
 
-        public object[] CommandParameters { get; private set; }
+        public object[] CommandParameters { get; }
 
         public void Execute(IDatabase database, State currentState)
         {

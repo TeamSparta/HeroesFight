@@ -1,60 +1,64 @@
 ﻿namespace HeroesFight.Interfaces
 {
+    #region
+
     using System.Collections.Generic;
 
     using HeroesFight.Enum;
 
+    #endregion
+
     /// <summary>
-    /// Base interface for all hero units.
+    ///     Base interface for all hero units.
     /// </summary>
     public interface IHero
     {
         /// <summary>
-        /// Name used inside the game
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
-        /// Attack power of the hero.
+        ///     Attack power of the hero.
         /// </summary>
         int AttackPoints { get; }
-
-        /// <summary>
-        /// Health points of the hero.
-        /// </summary>
-        int HealthPoints { get; set; }
-
-        /// <summary>
-        /// Mana points of the hero.
-        /// </summary>
-        int ManaPoints { get; }
-
-        /// <summary>
-        /// Shield to reduce every attack power.
-        /// </summary>
-        int ShieldPower { get; }
 
         ClassHeroEnum ClassHero { get; }
 
         /// <summary>
-        /// Contains all magics for the current hero.
+        ///     Health points of the hero.
+        /// </summary>
+        int HealthPoints { get; set; }
+
+        /// <summary>
+        ///     Contains all magics for the current hero.
         /// </summary>
         IEnumerable<IMagic> Magics { get; }
 
         /// <summary>
-        /// Method used to add magic to current hero champion pool.
+        ///     Mana points of the hero.
+        /// </summary>
+        int ManaPoints { get; }
+
+        /// <summary>
+        ///     Name used inside the game
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        ///     Shield to reduce every attack power.
+        /// </summary>
+        int ShieldPower { get; }
+
+        /// <summary>
+        ///     Method used to add magic to current hero champion pool.
         /// </summary>
         /// <param name="magic">Magic to be added.</param>
         void AddMagic(IMagic magic);
 
         /// <summary>
-        /// Performs attack logic on given enemy.
+        ///     Performs attack logic on given enemy.
         /// </summary>
         /// <param name="enemy">Enemy to be attacked.</param>
         void PerformAttack(IHero enemy);
 
         /// <summary>
-        /// Performs magic attack logic on given enemy.
+        ///     Performs magic attack logic on given enemy.
         /// </summary>
         /// <param name="enemy">Enemy to be attacked.</param>
         /// <param name="magic">Magic to be performed.</param>

@@ -1,6 +1,10 @@
 ﻿namespace HeroesFight.GameObjects
 {
+    #region
+
     using System.Drawing;
+
+    #endregion
 
     public abstract class GameObject
     {

@@ -2,12 +2,18 @@
 {
     public enum StateEnum
     {
-        StartGameState,
-        PickNameState,
-        PickCharacterState,
-        FirstLevelRoundOneState,
-        FirstLevelRoundTwoState,
-        FirstLevelRoundThreeState,
+        StartGameState, 
+
+        PickNameState, 
+
+        PickCharacterState, 
+
+        FirstLevelRoundOneState, 
+
+        FirstLevelRoundTwoState, 
+
+        FirstLevelRoundThreeState, 
+
         ExitGameState
     }
 }

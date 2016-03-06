@@ -1,7 +1,11 @@
 ﻿namespace HeroesFight.States
 {
+    #region
+
     using HeroesFight.Enum;
     using HeroesFight.Interfaces;
+
+    #endregion
 
     public class StateManager
     {
@@ -13,6 +17,8 @@
         }
 
         public static ICommandDispatcher CommandDispatcher { get; private set; }
+
+        public static State CurrentState { get; private set; }
 
         public static State InitialState
         {
@@ -27,8 +33,6 @@
                 return initialState;
             }
         }
-
-        public static State CurrentState { get; private set; }
 
         public static void ChangeCurrentState(StateEnum state)
         {
@@ -49,7 +53,7 @@
                     CurrentState = new FirstLevelRoundOneState(CommandDispatcher);
                     CurrentState.Show();
                     break;
-                    case StateEnum.FirstLevelRoundTwoState:
+                case StateEnum.FirstLevelRoundTwoState:
                     CurrentState.Hide();
 
                     // CurrentState = new TestState();

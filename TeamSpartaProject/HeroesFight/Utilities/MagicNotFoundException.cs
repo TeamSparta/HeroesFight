@@ -1,6 +1,10 @@
 ﻿namespace HeroesFight.Utilities
 {
+    #region
+
     using System;
+
+    #endregion
 
     public class MagicNotFoundException : Exception
     {

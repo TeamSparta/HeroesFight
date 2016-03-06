@@ -1,5 +1,7 @@
 ﻿namespace HeroesFight
 {
+    #region
+
     using System;
 
     using HeroesFight.Core;
@@ -7,10 +9,12 @@
     using HeroesFight.Interfaces;
     using HeroesFight.States;
 
+    #endregion
+
     internal static class HeroesFightEntryPoint
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main()

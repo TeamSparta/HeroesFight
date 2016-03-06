@@ -1,7 +1,10 @@
 ﻿namespace HeroesFight.Interfaces
 {
-    using HeroesFight.Core;
+    #region
+
     using HeroesFight.Entities;
+
+    #endregion
 
     public interface ICommandFactory
     {

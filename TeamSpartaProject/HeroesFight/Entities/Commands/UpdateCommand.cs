@@ -2,19 +2,17 @@
 {
     #region
 
-    using System;
     using System.Drawing;
-    using System.Windows.Forms;
 
-    using HeroesFight.GameObjects;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
+    using HeroesFight.Utilities;
 
     #endregion
 
-    public class InitializeLevelOneCommand : ICommand
+    public class UpdateCommand : ICommand
     {
-        public InitializeLevelOneCommand(string commandName, object[] commandParameters)
+        public UpdateCommand(string commandName, object[] commandParameters)
         {
             this.CommandName = commandName;
             this.CommandParameters = commandParameters;
@@ -24,33 +22,28 @@
 
         public object[] CommandParameters { get; }
 
-        public static void Draw(IDatabase database, FirstLevelRoundOneState state)
-        {
-            var graphics = state.CreateGraphics();
-
-            DrawPlayerInfo(database, state, graphics);
-
-            DrawEnemyInfo(database, state, graphics);
-        }
-
         public void Execute(IDatabase database, State currentState)
         {
-            // ToDo: Try to make drawing more generic. Use base class.
             var state = currentState as FirstLevelRoundOneState;
 
             if (state == null)
             {
-                throw new ArgumentNullException("State cannot be null!");
+                throw new InvalidStateException();
             }
 
-            LoadImages(database, state);
-
-            Draw(database, state);
-
-            SetVisibility(state);
+            this.Draw(database, state);
         }
 
-        private static void DrawEnemyInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
+        private void Draw(IDatabase database, FirstLevelRoundOneState state)
+        {
+            var graphics = state.CreateGraphics();
+
+            this.DrawPlayerInfo(database, state, graphics);
+
+            this.DrawEnemyInfo(database, state, graphics);
+        }
+
+        private void DrawEnemyInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
         {
             var enemy = database.GetCurrentLevelEnemy();
 
@@ -83,11 +76,12 @@
                 500, 
                 20);
 
+            // ToDo: Fix the bug with bars.
             state.enemyHpLabel.Text = enemy.HealthPoints.ToString();
             state.enemyManaLabel.Text = enemy.ManaPoints.ToString();
         }
 
-        private static void DrawPlayerInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
+        private void DrawPlayerInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
         {
             Rectangle hpBarRectangle = new Rectangle(60, 55, 250, 20);
             Rectangle manaBarRectangle = new Rectangle(60, 80, 250, 20);
@@ -120,33 +114,6 @@
 
             state.playerHpLabel.Text = database.Player.HealthPoints.ToString();
             state.playerManaLabel.Text = database.Player.ManaPoints.ToString();
-        }
-
-        private static void LoadImages(IDatabase database, FirstLevelRoundOneState state)
-        {
-            state.enemyPictureBox.Image = (database.GetCurrentLevelEnemy() as GameObject).Sprite;
-            state.enemyPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            state.playerPictureBox.Image = (database.Player as GameObject).Sprite;
-            state.playerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            state.firstSpellPictureBox.Image = (database.GetCurrentMagicById(0) as GameObject).Sprite;
-            state.firstSpellPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            state.secondSpellPictureox.Image = (database.GetCurrentMagicById(1) as GameObject).Sprite;
-            state.secondSpellPictureox.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        private static void SetVisibility(FirstLevelRoundOneState state)
-        {
-            state.playerHpLabel.Visible = true;
-            state.playerManaLabel.Visible = true;
-            state.enemyHpLabel.Visible = true;
-            state.enemyManaLabel.Visible = true;
-            state.playerPictureBox.Visible = true;
-            state.enemyPictureBox.Visible = true;
-            state.firstSpellPictureBox.Visible = true;
-            state.secondSpellPictureox.Visible = true;
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿namespace HeroesFight.Core
 {
+    #region
+
     using System.Windows.Forms;
 
     using HeroesFight.Interfaces;
     using HeroesFight.States;
+
+    #endregion
 
     public class HeroesFightEngine : IRunnable
     {

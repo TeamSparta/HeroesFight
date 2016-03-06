@@ -1,6 +1,10 @@
 ﻿namespace HeroesFight.Interfaces
 {
+    #region
+
     using HeroesFight.States;
+
+    #endregion
 
     public interface ICommand
     {

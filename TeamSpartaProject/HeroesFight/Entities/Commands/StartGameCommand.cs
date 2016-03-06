@@ -1,9 +1,13 @@
 ﻿namespace HeroesFight.Entities.Commands
 {
+    #region
+
     using System;
 
     using HeroesFight.Interfaces;
     using HeroesFight.States;
+
+    #endregion
 
     public class StartGameCommand : ICommand
     {
@@ -13,9 +17,9 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; private set; }
+        public string CommandName { get; }
 
-        public object[] CommandParameters { get; private set; }
+        public object[] CommandParameters { get; }
 
         public void Execute(IDatabase database, State currentState)
         {
