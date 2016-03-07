@@ -65,6 +65,12 @@
     <Compile Include="Interfaces\IMagicFactory.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IPlayerDatabase.cs" />
+    <Compile Include="States\ExitGameState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="States\FirstLevelRoundTwoState.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
     <Compile Include="Interfaces\ICommandDispatcher.cs" />
@@ -107,6 +113,12 @@
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\InvalidStateException.cs" />
     <Compile Include="Utilities\MagicNotFoundException.cs" />
+    <EmbeddedResource Include="States\ExitGameState.resx">
+      <DependentUpon>ExitGameState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="States\FirstLevelRoundTwoState.resx">
+      <DependentUpon>FirstLevelRoundTwoState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="States\StartGameState.resx">
       <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>

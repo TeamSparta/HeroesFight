@@ -47,7 +47,7 @@
                         heroName, 
                         100, 
                         600, 
-                        50, 
+                        100, 
                         70, 
                         StateEnum.FirstLevelRoundOneState);
                     break;

@@ -2,6 +2,8 @@
 {
     #region
 
+    using System;
+
     using HeroesFight.Interfaces;
     using HeroesFight.States;
     using HeroesFight.Utilities;
@@ -29,34 +31,52 @@
                 throw new InvalidStateException();
             }
 
+            string magicName = this.CommandParameters[0].ToString();
+            IMagic magic;
+            switch (magicName)
+            {
+                case "firstMagic":
+                    magic = database.GetCurrentMagicById(0);
+                    break;
+                case "secondMagic":
+                    magic = database.GetCurrentMagicById(1);
+
+                    break;
+                case "thirdMagic":
+                    magic = database.GetCurrentMagicById(2);
+
+                    break;
+                case "fourthMagic":
+                    magic = database.GetCurrentMagicById(3);
+                    break;
+                default:
+                    throw  new ArgumentException("Magic not supported!");
+            }
+
             int playerManaBeforeAttack = database.Player.ManaPoints;
             var currentEnemy = database.GetCurrentLevelEnemy();
             int enemyHealthBeforeAttack = currentEnemy.HealthPoints;
 
-            string magicName = this.CommandParameters[0].ToString();
-            switch (magicName)
+            if (playerManaBeforeAttack < magic.ManaCost)
             {
-                case "firstMagic":
-                    database.Player.PerformMagic(currentEnemy, database.GetCurrentMagicById(0));
-                    break;
-                case "secondMagic":
-                    database.Player.PerformMagic(currentEnemy, database.GetCurrentMagicById(1));
-                    break;
-                case "thirdMagic":
-                    database.Player.PerformMagic(currentEnemy, database.GetCurrentMagicById(2));
-                    break;
-                case "fourthMagic":
-                    database.Player.PerformMagic(currentEnemy, database.GetCurrentMagicById(3));
-                    break;
+                state.playerAttackInfoLabel.Text = $"Not enough mana. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
             }
+            else if (database.Player.HealthPoints < magic.HealthCost)
+            {
+                state.playerAttackInfoLabel.Text = $"Not enough health. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
+            }
+            else
+            {
+                database.Player.PerformMagic(currentEnemy, magic);
 
-            int enemyHealthAfterAttack = currentEnemy.HealthPoints;
-            int playerManaAfterAttack = database.Player.ManaPoints;
+                int enemyHealthAfterAttack = currentEnemy.HealthPoints;
+                int playerManaAfterAttack = database.Player.ManaPoints;
 
-            state.playerAttackInfoLabel.Text =
-                $"You attacked {currentEnemy.Name} for {enemyHealthBeforeAttack - enemyHealthAfterAttack} damage "
-                + $"({playerManaBeforeAttack - playerManaAfterAttack} mana)!";
-            state.playerAttackInfoLabel.Visible = true;
+                state.playerAttackInfoLabel.Text =
+                    $"You attacked {currentEnemy.Name} for {enemyHealthBeforeAttack - enemyHealthAfterAttack} damage "
+                    + $"({playerManaBeforeAttack - playerManaAfterAttack} mana)!";
+                state.playerAttackInfoLabel.Visible = true;
+            }
         }
     }
 }

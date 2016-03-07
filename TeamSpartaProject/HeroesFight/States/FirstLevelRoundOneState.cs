@@ -12,11 +12,11 @@
     {
         public FirstLevelRoundOneState(ICommandDispatcher commandDispatcher)
         {
-            this.CommandDistpatcher = commandDispatcher;
+            this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
         }
 
-        public ICommandDispatcher CommandDistpatcher { get; }
+        public ICommandDispatcher CommandDispatcher { get; }
 
         private void FirstLevelForm_Load(object sender, EventArgs e)
         {
@@ -24,30 +24,38 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
+
+            // ToDo: Create such command.
+            this.CommandDispatcher.ProcessCommand("InitializeLevelTwo", null);
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)
         {
             this.Btn_Attack.Visible = false;
 
-            this.CommandDistpatcher.ProcessCommand("InitializeLevelOne", null);
+            this.CommandDispatcher.ProcessCommand("InitializeLevelOne", null);
         }
 
-        private void OnFistMagicClick(object sender, EventArgs e)
+        private void OnFirstMagicClick(object sender, EventArgs e)
         {
-            this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
-            this.CommandDistpatcher.ProcessCommand("Update", null);
-            this.CommandDistpatcher.ProcessCommand("EnemyAttack", null);
-            this.CommandDistpatcher.ProcessCommand("Update", null);
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
+                this.CommandDispatcher.ProcessCommand("Update", null);
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
         }
 
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
-            this.CommandDistpatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            this.CommandDistpatcher.ProcessCommand("Update", null);
-            this.CommandDistpatcher.ProcessCommand("EnemyAttack", null);
-            this.CommandDistpatcher.ProcessCommand("Update", null);
-
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
+                this.CommandDispatcher.ProcessCommand("Update", null);
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
         }
     }
 }

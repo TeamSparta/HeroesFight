@@ -1,31 +1,20 @@
 ﻿namespace HeroesFight.States
 {
-    partial class FirstLevelRoundOneState
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+    using System;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+    using HeroesFight.Interfaces;
+
+    public class FirstLevelRoundTwoState : State
+    {
+        public FirstLevelRoundTwoState(ICommandDispatcher commandDispatcher)
         {
-            if (disposing && (this.components != null))
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
+            this.CommandDispatcher = commandDispatcher;
+            this.InitializeComponent();
         }
 
-        #region Windows Form Designer generated code
+        public ICommandDispatcher CommandDispatcher { get; }
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        #region
         private void InitializeComponent()
         {
             this.Btn_Attack = new System.Windows.Forms.Button();
@@ -39,10 +28,12 @@
             this.enemyManaLabel = new System.Windows.Forms.Label();
             this.playerAttackInfoLabel = new System.Windows.Forms.Label();
             this.enemyAttackInfoLabel = new System.Windows.Forms.Label();
+            this.thirdSpellPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPictureox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdSpellPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Attack
@@ -53,7 +44,6 @@
             this.Btn_Attack.TabIndex = 0;
             this.Btn_Attack.Text = "Battle!";
             this.Btn_Attack.UseVisualStyleBackColor = true;
-            this.Btn_Attack.Click += new System.EventHandler(this.OnBattleButtonClick);
             // 
             // firstSpellPictureBox
             // 
@@ -170,7 +160,16 @@
             this.enemyAttackInfoLabel.Text = "label1";
             this.enemyAttackInfoLabel.Visible = false;
             // 
-            // FirstLevelRoundOneState
+            // thirdSpellPictureBox
+            // 
+            this.thirdSpellPictureBox.Location = new System.Drawing.Point(152, 494);
+            this.thirdSpellPictureBox.Name = "thirdSpellPictureBox";
+            this.thirdSpellPictureBox.Size = new System.Drawing.Size(40, 40);
+            this.thirdSpellPictureBox.TabIndex = 12;
+            this.thirdSpellPictureBox.TabStop = false;
+            this.thirdSpellPictureBox.Click += new System.EventHandler(this.OnThirdMagicClick);
+            // 
+            // FirstLevelRoundTwoState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -178,6 +177,7 @@
             this.BackgroundImage = global::HeroesFight.Properties.Resources.LevelOneBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
+            this.Controls.Add(this.thirdSpellPictureBox);
             this.Controls.Add(this.enemyAttackInfoLabel);
             this.Controls.Add(this.playerAttackInfoLabel);
             this.Controls.Add(this.enemyManaLabel);
@@ -189,20 +189,19 @@
             this.Controls.Add(this.secondSpellPictureox);
             this.Controls.Add(this.firstSpellPictureBox);
             this.Controls.Add(this.Btn_Attack);
-            this.Name = "FirstLevelRoundOneState";
+            this.Name = "FirstLevelRoundTwoState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelForm";
-            this.Load += new System.EventHandler(this.FirstLevelForm_Load);
+            this.Load += new System.EventHandler(this.FirstLevelRoundTwoState_Load);
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPictureox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thirdSpellPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        #endregion
 
         private System.Windows.Forms.Button Btn_Attack;
         public System.Windows.Forms.PictureBox firstSpellPictureBox;
@@ -214,6 +213,50 @@
         public System.Windows.Forms.Label enemyHpLabel;
         public System.Windows.Forms.Label enemyManaLabel;
         public System.Windows.Forms.Label playerAttackInfoLabel;
+        public System.Windows.Forms.PictureBox thirdSpellPictureBox;
         public System.Windows.Forms.Label enemyAttackInfoLabel;
+        #endregion
+
+        private void OnFirstMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
+                this.CommandDispatcher.ProcessCommand("Update", null);
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void OnSecondSpellClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
+                this.CommandDispatcher.ProcessCommand("Update", null);
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void OnThirdMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "third" });
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
+                this.CommandDispatcher.ProcessCommand("Update", null);
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void FirstLevelRoundTwoState_Load(object sender, System.EventArgs e)
+        {
+            this.playerPictureBox.Visible = false;
+            this.enemyPictureBox.Visible = false;
+            this.firstSpellPictureBox.Visible = false;
+            this.secondSpellPictureox.Visible = false;
+            this.thirdSpellPictureBox.Visible = false;
+        }
     }
 }

@@ -108,8 +108,8 @@
                     magic = new Magic(
                         default(Bitmap), 
                         magicName, 
-                        70, 
-                        10, 
+                        90, 
+                        0, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
                         ClassHeroEnum.Enemy);
@@ -119,7 +119,7 @@
                         default(Bitmap), 
                         magicName, 
                         120, 
-                        30, 
+                        10, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
                         ClassHeroEnum.Enemy);
@@ -130,8 +130,8 @@
                     magic = new Magic(
                         default(Bitmap), 
                         magicName, 
-                        70, 
-                        10, 
+                        100, 
+                        0, 
                         0, 
                         StateEnum.FirstLevelRoundTwoState, 
                         ClassHeroEnum.Enemy);
@@ -141,7 +141,7 @@
                         default(Bitmap), 
                         magicName, 
                         120, 
-                        30, 
+                        20, 
                         0, 
                         StateEnum.FirstLevelRoundTwoState, 
                         ClassHeroEnum.Enemy);

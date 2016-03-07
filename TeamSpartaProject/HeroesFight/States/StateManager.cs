@@ -55,8 +55,11 @@
                     break;
                 case StateEnum.FirstLevelRoundTwoState:
                     CurrentState.Hide();
-
-                    // CurrentState = new TestState();
+                    CurrentState.Show();
+                    break;
+                case StateEnum.ExitGameState:
+                    CurrentState.Hide();
+                    CurrentState = new ExitGameState(CommandDispatcher);
                     CurrentState.Show();
                     break;
             }

@@ -25,7 +25,7 @@
             var state = currentState as FirstLevelRoundOneState;
             Random randomSpell = new Random();
             var possibleMagics = currentEnemy.Magics.Where(m => m.ManaCost <= currentEnemy.ManaPoints).ToList();
-            int randomSpellNumber = randomSpell.Next(0, possibleMagics.Count - 1);
+            int randomSpellNumber = randomSpell.Next(0, possibleMagics.Count);
 
             IMagic resultMagic = possibleMagics[randomSpellNumber];
             
