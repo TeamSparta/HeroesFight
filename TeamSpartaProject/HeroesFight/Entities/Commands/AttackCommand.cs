@@ -24,7 +24,7 @@
 
         public void Execute(IDatabase database, State currentState)
         {
-            var state = currentState as FirstLevelRoundOneState;
+            var state = currentState as FirstLevelRoundOneState; // TODO: don't understand why here is used FirstLevelRoundOneState
 
             if (state == null)
             {

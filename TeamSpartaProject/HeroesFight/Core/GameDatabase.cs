@@ -73,12 +73,12 @@
                 else
                 {
                     throw new ArgumentException(
-                        "Name should be between 3 and 20 characters long and should consist only letters and digits.");
+                        "Name should be between 3 and 20 characters long and should consist only of letters and digits.");
                 }
             }
         }
 
-        public IDictionary<StateEnum, IList<IMagic>> WarriorsMagicsByLevel { get; }
+        public IDictionary<StateEnum, IList<IMagic>> WarriorsMagicsByLevel { get; private set; }
 
         public void AddPlayer(IPlayer player)
         {

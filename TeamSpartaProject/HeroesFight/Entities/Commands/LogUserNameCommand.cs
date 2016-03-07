@@ -20,9 +20,9 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; }
+        public string CommandName { get; private set; }
 
-        public object[] CommandParameters { get; }
+        public object[] CommandParameters { get; private set; }
 
         public void Execute(IDatabase database, State currentState)
         {
@@ -32,19 +32,9 @@
                 throw new InvalidStateException();
             }
 
-            Regex nameRegex = new Regex(@"^\w{3,20}$");
-            string playerName = (currentState as StartGameState).PlayerNameTextBox.Text;
+            string playerName = this.CommandParameters[0].ToString();
             database.AddPlayerName(playerName);
-            if (!nameRegex.IsMatch(playerName))
-            {
-                MessageBox.Show(
-                    @"Name should be between 3 and 20 characters long and should consist only letters and digits. Please try again!");
-                (currentState as StartGameState).PlayerNameTextBox.Clear();
-            }
-            else
-            {
-                StateManager.ChangeCurrentState(StateEnum.PickCharacterState);
-            }
+            StateManager.ChangeCurrentState(StateEnum.PickCharacterState);
         }
     }
 }

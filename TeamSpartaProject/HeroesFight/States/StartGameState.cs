@@ -4,8 +4,10 @@
 
     using System;
     using System.Drawing;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
+    using HeroesFight.Enum;
     using HeroesFight.Interfaces;
     using HeroesFight.Properties;
     using HeroesFight.Utilities;
@@ -20,7 +22,7 @@
             this.InitializeComponent();
         }
 
-        public ICommandDispatcher CommandDispatcher { get; }
+        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         public Button ContinueButton { get; private set; }
 
@@ -45,7 +47,6 @@
 
             this.StartGameButton.Click += this.OnStartGameButtonClick;
             this.ExitGameButton.Click += this.OnExitButtonClick;
-            this.EnterYourNameLabel.Click += this.OnEnterNameLabelClick;
             this.ContinueButton.Click += this.OnContinueButtonClick;
         }
 
@@ -65,15 +66,14 @@
             this.StartGameButton.TabIndex = 0;
             this.StartGameButton.Text = "Start game";
             this.StartGameButton.UseVisualStyleBackColor = true;
-            this.StartGameButton.Click += this.OnStartGameButtonClick;
 
             // lbl_EnterYourName
             this.EnterYourNameLabel.AutoSize = true;
             this.EnterYourNameLabel.Font = new Font(
-                "Microsoft Sans Serif", 
-                10F, 
-                FontStyle.Regular, 
-                GraphicsUnit.Point, 
+                "Microsoft Sans Serif",
+                10F,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
                 204);
             this.EnterYourNameLabel.Location = new Point(324, 267);
             this.EnterYourNameLabel.Name = "EnterYourNameLabel";
@@ -83,10 +83,10 @@
 
             // txtBox_PlayerName
             this.PlayerNameTextBox.Font = new Font(
-                "Microsoft Sans Serif", 
-                10F, 
-                FontStyle.Regular, 
-                GraphicsUnit.Point, 
+                "Microsoft Sans Serif",
+                10F,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
                 204);
             this.PlayerNameTextBox.Location = new Point(322, 294);
             this.PlayerNameTextBox.Name = "PlayerNameTextBox";
@@ -130,11 +130,16 @@
         private void OnContinueButtonClick(object sender, EventArgs e)
         {
             string playerName = this.PlayerNameTextBox.Text;
-            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] { playerName });
-        }
+            Regex nameRegex = new Regex(@"^\w{3,20}$");
+            if (!nameRegex.IsMatch(playerName))
+            {
+                MessageBox.Show(
+                    @"Name should be between 3 and 20 characters long and should consist only of letters and digits. Please try again!");
+                this.PlayerNameTextBox.Clear();
+                return;
+            }
 
-        private void OnEnterNameLabelClick(object sender, EventArgs e)
-        {
+            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] { playerName });
         }
 
         private void OnExitButtonClick(object sender, EventArgs e)

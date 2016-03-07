@@ -30,8 +30,6 @@
         {
             this.label_Warrior = new System.Windows.Forms.Label();
             this.label_Archer = new System.Windows.Forms.Label();
-            this.radioBtn_Warrior = new System.Windows.Forms.RadioButton();
-            this.radioBtn_Archer = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Lbl_PickClass = new System.Windows.Forms.Label();
@@ -58,28 +56,6 @@
             this.label_Archer.Size = new System.Drawing.Size(50, 17);
             this.label_Archer.TabIndex = 1;
             this.label_Archer.Text = "Archer";
-            // 
-            // radioBtn_Warrior
-            // 
-            this.radioBtn_Warrior.AutoSize = true;
-            this.radioBtn_Warrior.Location = new System.Drawing.Point(143, 470);
-            this.radioBtn_Warrior.Name = "radioBtn_Warrior";
-            this.radioBtn_Warrior.Size = new System.Drawing.Size(59, 17);
-            this.radioBtn_Warrior.TabIndex = 2;
-            this.radioBtn_Warrior.TabStop = true;
-            this.radioBtn_Warrior.Text = "Warrior";
-            this.radioBtn_Warrior.UseVisualStyleBackColor = true;
-            // 
-            // radioBtn_Archer
-            // 
-            this.radioBtn_Archer.AutoSize = true;
-            this.radioBtn_Archer.Location = new System.Drawing.Point(592, 470);
-            this.radioBtn_Archer.Name = "radioBtn_Archer";
-            this.radioBtn_Archer.Size = new System.Drawing.Size(56, 17);
-            this.radioBtn_Archer.TabIndex = 3;
-            this.radioBtn_Archer.TabStop = true;
-            this.radioBtn_Archer.Text = "Archer";
-            this.radioBtn_Archer.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -124,14 +100,11 @@
             this.Controls.Add(this.Lbl_PickClass);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.radioBtn_Archer);
-            this.Controls.Add(this.radioBtn_Warrior);
             this.Controls.Add(this.label_Archer);
             this.Controls.Add(this.label_Warrior);
             this.Name = "SelectCharacterState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelRoundOneState";
-            this.Load += new System.EventHandler(this.SelectCharacterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -143,8 +116,6 @@
 
         private System.Windows.Forms.Label label_Warrior;
         private System.Windows.Forms.Label label_Archer;
-        private System.Windows.Forms.RadioButton radioBtn_Warrior;
-        private System.Windows.Forms.RadioButton radioBtn_Archer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label Lbl_PickClass;

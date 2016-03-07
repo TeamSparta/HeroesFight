@@ -15,11 +15,9 @@
         {
             this.InitializeComponent();
             this.CommandDispatcher = commandDispatcher;
-            string characterType = this.radioBtn_Warrior.Checked ? "Warrior" : "Archer";
-            this.InitializeCharacter(characterType);
         }
 
-        public ICommandDispatcher CommandDispatcher { get; }
+        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -49,10 +47,6 @@
         private void OnWarriorPictureBoxClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("CreatePlayer", new object[] { "Warrior" });
-        }
-
-        private void SelectCharacterForm_Load(object sender, EventArgs e)
-        {
         }
     }
 }
