@@ -36,7 +36,7 @@
 
         public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; private set; }
 
-        public ICommandFactory CommandFactory { get; private set;}
+        public ICommandFactory CommandFactory { get; private set; }
 
         public StateEnum CurrentPlayerProgress { get; private set; }
 
@@ -53,6 +53,8 @@
         public IMagicFactory MagicFactory { get; private set; }
 
         public IPlayer Player { get; private set; }
+
+        public IEnemy CurrentEnemy { get; private set; }
 
         public string PlayerName
         {
@@ -98,11 +100,12 @@
         public IEnemy GetCurrentLevelEnemy()
         {
             IEnemy currentEnemy = this.enemies.FirstOrDefault(e => e.WantedState == this.CurrentPlayerProgress);
-
             if (currentEnemy == null)
             {
                 throw new ArgumentNullException("Enemy cannot be null!");
             }
+
+            this.CurrentEnemy = currentEnemy;
 
             return currentEnemy;
         }

@@ -9,6 +9,11 @@
     public interface IEnemyDatabase
     {
         /// <summary>
+        /// Defines the current enemy the player is figthing with
+        /// </summary>
+        IEnemy CurrentEnemy { get; }
+
+        /// <summary>
         ///     Information for all enemies is loaded here.
         /// </summary>
         IEnumerable<IEnemy> Enemies { get; }

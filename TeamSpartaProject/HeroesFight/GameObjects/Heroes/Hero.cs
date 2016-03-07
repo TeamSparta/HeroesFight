@@ -13,6 +13,8 @@
 
     public abstract class Hero : GameObject, IHero
     {
+        private int healthPoints;
+
         private readonly IList<IMagic> magics;
 
         protected Hero(Bitmap image, string name, int attackPoints, int healthPoints, int manaPoints, int shieldPower)
@@ -24,13 +26,32 @@
             this.ManaPoints = manaPoints;
             this.ShieldPower = shieldPower;
             this.magics = new List<IMagic>();
+            this.IsAlive = true;
         }
 
         public int AttackPoints { get; set; }
 
         public ClassHeroEnum ClassHero { get; }
 
-        public int HealthPoints { get; set; }
+        public int HealthPoints
+        {
+            get
+            {
+                return this.healthPoints;
+            }
+            set
+            {
+                if (value <= 0)
+                {
+                    this.IsAlive = false;
+                    this.healthPoints = 0;
+                }
+                else
+                {
+                    this.healthPoints = value;
+                }
+            }
+        }
 
         public IEnumerable<IMagic> Magics
         {
@@ -42,9 +63,11 @@
 
         public int ManaPoints { get; set; }
 
-        public string Name { get; }
+        public string Name { get; private set; }
 
         public int ShieldPower { get; set; }
+
+        public bool IsAlive { get; set; }
 
         public void AddMagic(IMagic magic)
         {

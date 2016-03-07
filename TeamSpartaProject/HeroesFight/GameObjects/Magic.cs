@@ -56,7 +56,7 @@
             }
         }
 
-        public ClassHeroEnum ClassHeroWanted { get; }
+        public ClassHeroEnum ClassHeroWanted { get; private set; }
 
         public int HealthCost
         {
@@ -76,7 +76,7 @@
             }
         }
 
-        public StateEnum LevelWanted { get; }
+        public StateEnum LevelWanted { get; private set; }
 
         public int ManaCost
         {

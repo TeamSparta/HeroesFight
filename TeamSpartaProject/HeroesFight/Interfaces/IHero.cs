@@ -46,6 +46,11 @@
         int ShieldPower { get; }
 
         /// <summary>
+        /// Defines whether the hero is alive
+        /// </summary>
+        bool IsAlive { get; set; }
+
+        /// <summary>
         ///     Method used to add magic to current hero champion pool.
         /// </summary>
         /// <param name="magic">Magic to be added.</param>

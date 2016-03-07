@@ -37,23 +37,21 @@
         private void OnFirstMagicClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
-            {
-                this.CommandDispatcher.ProcessCommand("Update", null);
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
+
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+            this.CommandDispatcher.ProcessCommand("Update", null);
         }
 
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
-            {
+            //if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            //{
                 this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
-            }
+            //}
         }
     }
 }
