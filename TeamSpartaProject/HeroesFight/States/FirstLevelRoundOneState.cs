@@ -16,7 +16,7 @@
             this.InitializeComponent();
         }
 
-        public ICommandDispatcher CommandDispatcher { get; }
+        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         private void FirstLevelForm_Load(object sender, EventArgs e)
         {
@@ -24,6 +24,7 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
+            this.CommandDispatcher.Database.Initialize();
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)

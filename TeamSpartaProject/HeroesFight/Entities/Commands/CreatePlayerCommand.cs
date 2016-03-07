@@ -18,9 +18,9 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; }
+        public string CommandName { get; private set; }
 
-        public object[] CommandParameters { get; }
+        public object[] CommandParameters { get; private set; }
 
         public void Execute(IDatabase database, State currentState)
         {

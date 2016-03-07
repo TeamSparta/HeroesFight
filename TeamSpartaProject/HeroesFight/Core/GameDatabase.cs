@@ -32,12 +32,11 @@
             this.WarriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.ArchersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.CurrentPlayerProgress = StateEnum.FirstLevelRoundOneState;
-            this.Initialize();
         }
 
-        public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; }
+        public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; private set; }
 
-        public ICommandFactory CommandFactory { get; }
+        public ICommandFactory CommandFactory { get; private set;}
 
         public StateEnum CurrentPlayerProgress { get; private set; }
 
@@ -49,9 +48,9 @@
             }
         }
 
-        public IHeroFactory HeroFactory { get; }
+        public IHeroFactory HeroFactory { get; private set; }
 
-        public IMagicFactory MagicFactory { get; }
+        public IMagicFactory MagicFactory { get; private set; }
 
         public IPlayer Player { get; private set; }
 
@@ -151,10 +150,6 @@
 
         public void Initialize()
         {
-            this.InitializeWarriorMagics();
-
-            this.InitializeArcherMagics();
-
             this.InitializeFirstBoss();
 
             this.InitializeSecondBoss();
@@ -198,6 +193,7 @@
         {
             if (this.Player is Archer)
             {
+                this.InitializeArcherMagics();
                 List<IMagic> playerMagics = this.ArchersMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
 
                 foreach (IMagic magic in playerMagics)
@@ -207,6 +203,7 @@
             }
             else
             {
+                this.InitializeWarriorMagics();
                 List<IMagic> playerMagics = this.WarriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
 
                 foreach (IMagic magic in playerMagics)

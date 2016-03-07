@@ -27,13 +27,7 @@
             // State
             this.ClientSize = new Size(284, 262);
             this.Name = "State";
-            // this.Load += this.State_Load; TODO: to remove
             this.ResumeLayout(false);
         }
-
-        // TODO: to remov
-        //private void State_Load(object sender, EventArgs e)
-        //{
-        //}
     }
 }
