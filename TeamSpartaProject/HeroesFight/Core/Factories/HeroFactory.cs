@@ -46,7 +46,7 @@
                         Resources.UnholyWarrior, 
                         heroName, 
                         100, 
-                        600, 
+                        500, 
                         100, 
                         70, 
                         StateEnum.FirstLevelRoundOneState);
@@ -58,7 +58,7 @@
                         Resources.FireArcher, 
                         heroName, 
                         140, 
-                        550, 
+                        500, 
                         140, 
                         50, 
                         StateEnum.FirstLevelRoundTwoState);

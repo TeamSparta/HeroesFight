@@ -91,7 +91,6 @@
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Heroes\Hero.cs" />
     <Compile Include="GameObjects\Heroes\Player.cs" />
-    <Compile Include="GameObjects\Level.cs" />
     <Compile Include="GameObjects\Magic.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\IDatabase.cs" />

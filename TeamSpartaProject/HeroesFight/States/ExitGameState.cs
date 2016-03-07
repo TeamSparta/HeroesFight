@@ -15,7 +15,7 @@
             this.LoadEndGameInfo();
         }
 
-        public ICommandDispatcher CommandDispatcher { get; }
+        public ICommandDispatcher CommandDispatcher { get; private set; }
 
         private void LoadEndGameInfo()
         {
