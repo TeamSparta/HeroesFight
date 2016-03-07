@@ -4,9 +4,9 @@
 
     using HeroesFight.Interfaces;
 
-    public class FirstLevelRoundTwoState : State
+    public class FirstLevelRoundThreeState : State
     {
-        public FirstLevelRoundTwoState(ICommandDispatcher commandDispatcher)
+        public FirstLevelRoundThreeState(ICommandDispatcher commandDispatcher)
         {
             this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
@@ -29,13 +29,11 @@
             this.playerAttackInfoLabel = new System.Windows.Forms.Label();
             this.enemyAttackInfoLabel = new System.Windows.Forms.Label();
             this.thirdSpellPictureBox = new System.Windows.Forms.PictureBox();
-            this.fourthMagicPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPictureox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thirdSpellPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fourthMagicPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Btn_Attack
@@ -171,15 +169,6 @@
             this.thirdSpellPictureBox.TabStop = false;
             this.thirdSpellPictureBox.Click += new System.EventHandler(this.OnThirdMagicClick);
             // 
-            // fourthMagicPictureBox
-            // 
-            this.fourthMagicPictureBox.Location = new System.Drawing.Point(198, 494);
-            this.fourthMagicPictureBox.Name = "fourthMagicPictureBox";
-            this.fourthMagicPictureBox.Size = new System.Drawing.Size(40, 40);
-            this.fourthMagicPictureBox.TabIndex = 13;
-            this.fourthMagicPictureBox.TabStop = false;
-            this.fourthMagicPictureBox.Click += new System.EventHandler(this.OnFourthMagicClick);
-            // 
             // FirstLevelRoundTwoState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +177,6 @@
             this.BackgroundImage = global::HeroesFight.Properties.Resources.LevelOneBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
-            this.Controls.Add(this.fourthMagicPictureBox);
             this.Controls.Add(this.thirdSpellPictureBox);
             this.Controls.Add(this.enemyAttackInfoLabel);
             this.Controls.Add(this.playerAttackInfoLabel);
@@ -210,7 +198,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.enemyPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thirdSpellPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fourthMagicPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,7 +214,6 @@
         public System.Windows.Forms.Label enemyManaLabel;
         public System.Windows.Forms.Label playerAttackInfoLabel;
         public System.Windows.Forms.PictureBox thirdSpellPictureBox;
-        public System.Windows.Forms.PictureBox fourthMagicPictureBox;
         public System.Windows.Forms.Label enemyAttackInfoLabel;
         #endregion
 
@@ -255,18 +241,7 @@
 
         private void OnThirdMagicClick(object sender, EventArgs e)
         {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "thirdMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
-            {
-                this.CommandDispatcher.ProcessCommand("Update", null);
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
-        }
-
-        private void OnFourthMagicClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "fourthMagic" });
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "third" });
             if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
             {
                 this.CommandDispatcher.ProcessCommand("Update", null);
@@ -279,14 +254,9 @@
         {
             this.playerPictureBox.Visible = false;
             this.enemyPictureBox.Visible = false;
-            
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
             this.thirdSpellPictureBox.Visible = false;
-            this.fourthMagicPictureBox.Visible = false;
-
-            // ToDo: Create such command.
-            this.CommandDispatcher.ProcessCommand("InitializeLevelTwo", null);
         }
     }
 }

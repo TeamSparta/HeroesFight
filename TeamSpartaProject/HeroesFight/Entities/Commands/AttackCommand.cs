@@ -40,11 +40,9 @@
                     break;
                 case "secondMagic":
                     magic = database.GetCurrentMagicById(1);
-
                     break;
                 case "thirdMagic":
                     magic = database.GetCurrentMagicById(2);
-
                     break;
                 case "fourthMagic":
                     magic = database.GetCurrentMagicById(3);

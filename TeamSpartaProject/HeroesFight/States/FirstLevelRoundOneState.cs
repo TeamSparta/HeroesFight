@@ -24,9 +24,6 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
-
-            // ToDo: Create such command.
-            this.CommandDispatcher.ProcessCommand("InitializeLevelTwo", null);
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)
