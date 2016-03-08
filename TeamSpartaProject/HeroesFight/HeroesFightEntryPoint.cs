@@ -27,11 +27,13 @@
             StateManager stateManager = new StateManager(commandDispatcher);
 
             // ToDo: find better relationship here: the StateManager class is static which means our engine runs only on static class. :/
-            // ToDo: Perform validation on casting magics.
             // ToDo: Improve magics and mana costs.
-            // ToDo: Set level transition logic (aka load next level/state).
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
+
+            // BUG: Player bars do not update correctly when current state's digit are decreasing e.g. 100 -> 80
+            // BUG: Player bars do not initialize correctly when initializing new state.
+            // BUG: If we are about to die by the enemy and we kill it with next magic we end up losing the game.
         }
     }
 }

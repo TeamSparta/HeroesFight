@@ -16,7 +16,10 @@
 
     public class GameDatabase : IDatabase
     {
-        private readonly IList<IMagic> currentHeroesMagics;
+        private int startingHealth;
+
+        private int startingMana;
+
 
         private readonly IList<IEnemy> enemies;
 
@@ -28,7 +31,6 @@
             this.HeroFactory = heroFactory;
             this.MagicFactory = magicFactory;
             this.enemies = new List<IEnemy>();
-            this.currentHeroesMagics = new List<IMagic>();
             this.WarriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.ArchersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.CurrentPlayerProgress = StateEnum.PickCharacterState;
@@ -87,7 +89,8 @@
             {
                 throw new ArgumentException("Cannot add null player!");
             }
-
+            this.startingHealth = player.HealthPoints;
+            this.startingMana = player.ManaPoints;
             this.Player = player;
             this.InitializePlayerMagics();
         }
@@ -134,23 +137,6 @@
             return resultMagic;
         }
 
-        public IMagic GetEnemyMagic(string magicName)
-        {
-            if (string.IsNullOrEmpty(magicName))
-            {
-                throw new ArgumentException("Magic name cannot be empty or null!");
-            }
-
-            IMagic magic = this.currentHeroesMagics.FirstOrDefault(m => m.Name == magicName);
-
-            if (magic == null)
-            {
-                throw new MagicNotFoundException($"Magic with name {magicName} was not found!");
-            }
-
-            return magic;
-        }
-
         public void Initialize()
         {
             this.InitializeFirstBoss();
@@ -164,6 +150,8 @@
         {
             this.CurrentPlayerProgress++;
             this.UpdatePlayerMagics();
+            this.Player.HealthPoints = this.startingHealth;
+            this.Player.ManaPoints = this.startingMana;
         }
 
         private void InitializeArcherMagics()

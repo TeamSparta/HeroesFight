@@ -21,7 +21,7 @@
         {
             var commandInfo = new CommandInfo(commandName, commandParameters);
 
-            // TODO: may be unnecessary to create a new command every time, especially for attack commands for example, that repeat multiple times
+            // TODO: may be unnecessary to create a new command every time, especially for attack commands for example, that repeat multiple times.
             // Parses the input and transforms it into a command.
             var command = this.Database.CommandFactory.CreateCommand(commandInfo);
 

@@ -67,7 +67,6 @@
             this.secondSpellPictureox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-
         private void DrawEnemyInfo(Graphics graphics)
         {
             var enemy = this.CommandDispatcher.Database.GetCurrentLevelEnemy();
@@ -166,6 +165,10 @@
             {
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+            else
+            {
+                StateManager.CurrentState.Draw();
             }
         }
 

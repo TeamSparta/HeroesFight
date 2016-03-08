@@ -58,6 +58,11 @@
                     CurrentState = new FirstLevelRoundTwoState(CommandDispatcher);
                     CurrentState.Show();
                     break;
+                case StateEnum.FirstLevelRoundThreeState:
+                    CurrentState.Hide();
+                    CurrentState = new FirstLevelRoundThreeState(CommandDispatcher);
+                    CurrentState.Show();
+                    break;
                 case StateEnum.ExitGameState:
                     CurrentState.Hide();
                     CurrentState = new ExitGameState(CommandDispatcher);

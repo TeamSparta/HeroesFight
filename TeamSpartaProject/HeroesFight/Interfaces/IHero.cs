@@ -38,7 +38,7 @@
         /// <summary>
         ///     Mana points of the hero.
         /// </summary>
-        int ManaPoints { get; }
+        int ManaPoints { get; set; }
 
         /// <summary>
         ///     Name used inside the game

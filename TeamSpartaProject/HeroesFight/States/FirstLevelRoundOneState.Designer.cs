@@ -64,7 +64,7 @@
             this.firstSpellPictureBox.TabStop = false;
             this.firstSpellPictureBox.Click += new System.EventHandler(this.OnFirstMagicClick);
             // 
-            // secondSpellPictureox
+            // secondSpellPicturebox
             // 
             this.secondSpellPictureox.Location = new System.Drawing.Point(106, 494);
             this.secondSpellPictureox.Name = "secondSpellPictureox";

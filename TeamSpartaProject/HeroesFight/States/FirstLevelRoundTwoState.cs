@@ -44,6 +44,8 @@
             this.thirdSpellPictureBox.Visible = false;
 
             this.CommandDispatcher.ProcessCommand("Initialize", null);
+
+            this.Draw();
         }
 
 #region
@@ -76,7 +78,7 @@
             this.firstSpellPictureBox.TabStop = false;
             this.firstSpellPictureBox.Click += new System.EventHandler(this.OnFirstMagicClick);
             // 
-            // secondSpellPictureox
+            // secondSpellPicturebox
             // 
             this.secondSpellPictureox.Location = new System.Drawing.Point(106, 494);
             this.secondSpellPictureox.Name = "secondSpellPictureox";
@@ -349,21 +351,30 @@
 
         private void OnFirstMagicClick(object sender, EventArgs e)
         {
+            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            this.CommandDispatcher.ProcessCommand("Update", null);
+
+            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+            else
+            {
+                StateManager.CurrentState.Draw();
             }
         }
 
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
+            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
+
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
@@ -371,10 +382,13 @@
 
         private void OnThirdMagicClick(object sender, EventArgs e)
         {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "third" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
+
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "thirdMagic" });
+
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
