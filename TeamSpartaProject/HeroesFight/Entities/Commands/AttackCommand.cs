@@ -24,14 +24,6 @@
 
         public void Execute(IDatabase database, State currentState)
         {
-            var state = currentState as FirstLevelRoundOneState;
-
-                // TODO: don't understand why here is used FirstLevelRoundOneState
-            if (state == null)
-            {
-                throw new InvalidStateException();
-            }
-
             string magicName = this.CommandParameters[0].ToString();
             IMagic magic;
             switch (magicName)
@@ -56,6 +48,7 @@
             var currentEnemy = database.GetCurrentLevelEnemy();
             int enemyHealthBeforeAttack = currentEnemy.HealthPoints;
 
+            /*
             if (playerManaBeforeAttack < magic.ManaCost)
             {
                 state.playerAttackInfoLabel.Text =
@@ -68,16 +61,16 @@
             }
             else
             {
-                database.Player.PerformMagic(currentEnemy, magic);
-
                 int enemyHealthAfterAttack = currentEnemy.HealthPoints;
                 int playerManaAfterAttack = database.Player.ManaPoints;
-
                 state.playerAttackInfoLabel.Text =
                     $"You attacked {currentEnemy.Name} for {enemyHealthBeforeAttack - enemyHealthAfterAttack} damage "
                     + $"({playerManaBeforeAttack - playerManaAfterAttack} mana)!";
                 state.playerAttackInfoLabel.Visible = true;
             }
+            */
+
+            database.Player.PerformMagic(currentEnemy, magic);
         }
     }
 }

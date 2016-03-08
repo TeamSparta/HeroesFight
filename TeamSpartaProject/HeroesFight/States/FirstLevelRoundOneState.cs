@@ -158,10 +158,11 @@
 
         private void OnFirstMagicClick(object sender, EventArgs e)
         {
+            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
             this.CommandDispatcher.ProcessCommand("Update", null);
 
-            if (this.CommandDispatcher.Database.CurrentEnemy.IsAlive)
+            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
             {
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
@@ -170,19 +171,21 @@
 
         private void OnSecondMagicClick(object sender, EventArgs e)
         {
+            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
+
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
 
+            // ToDo: Check this case.
             // Imagine if you try to click on magic and you have no mana/health to perform it. It will be counted as a turn and the enemy will attack you. 
             // And basically you will have not be done anything(action) so I believe is not appropriate that way.
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
             {
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
-                if (this.CommandDispatcher.Database.CurrentEnemy.IsAlive)
-                {
-                    this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                    this.CommandDispatcher.ProcessCommand("Update", null);
-                }
             }
+
         }
     }
 }
