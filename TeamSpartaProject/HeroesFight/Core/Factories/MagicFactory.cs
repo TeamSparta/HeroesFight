@@ -24,7 +24,7 @@
                     magic = new Magic(
                         Resources.FistMagicIcon, 
                         magicName, 
-                        80, 
+                        140, 
                         0, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 

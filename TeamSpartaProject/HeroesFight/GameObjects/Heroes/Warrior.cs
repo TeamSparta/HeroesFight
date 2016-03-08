@@ -2,10 +2,9 @@
 {
     #region
 
-    using System.Collections.Generic;
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using HeroesFight.Enum;
     using HeroesFight.Properties;
 
     #endregion
@@ -20,12 +19,19 @@
 
         private const int StartingShieldPower = 80;
 
+        private const ClassHeroEnum WarriorClass = ClassHeroEnum.Warrior;
+
         private static readonly Bitmap Image = Resources.Warrior;
 
-        private IList<IMagic> magics = new List<IMagic>();
-
         public Warrior(string name)
-            : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShieldPower)
+            : base(
+                Image, 
+                name, 
+                StartingAttackPoints, 
+                StartingHealthPoints, 
+                StartingManaPoints, 
+                StartingShieldPower, 
+                WarriorClass)
         {
         }
     }

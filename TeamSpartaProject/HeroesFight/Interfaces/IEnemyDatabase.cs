@@ -9,7 +9,7 @@
     public interface IEnemyDatabase
     {
         /// <summary>
-        /// Defines the current enemy the player is figthing with
+        ///     Defines the current enemy the player is figthing with
         /// </summary>
         IEnemy CurrentEnemy { get; }
 

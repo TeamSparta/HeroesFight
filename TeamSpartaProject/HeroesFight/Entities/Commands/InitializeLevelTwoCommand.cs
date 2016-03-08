@@ -12,9 +12,9 @@
 
     #endregion
 
-    public class InitializeLevelOneCommand : ICommand
+    public class InitializeLevelTwoCommand : ICommand
     {
-        public InitializeLevelOneCommand(string commandName, object[] commandParameters)
+        public InitializeLevelTwoCommand(string commandName, object[] commandParameters)
         {
             this.CommandName = commandName;
             this.CommandParameters = commandParameters;
@@ -24,7 +24,7 @@
 
         public object[] CommandParameters { get; }
 
-        public static void Draw(IDatabase database, FirstLevelRoundOneState state)
+        public static void Draw(IDatabase database, FirstLevelRoundThreeState state)
         {
             var graphics = state.CreateGraphics();
 
@@ -35,8 +35,7 @@
 
         public void Execute(IDatabase database, State currentState)
         {
-            // ToDo: Try to make drawing more generic. Use base class.
-            var state = currentState as FirstLevelRoundOneState;
+            var state = currentState as FirstLevelRoundThreeState;
 
             if (state == null)
             {
@@ -50,7 +49,7 @@
             SetVisibility(state);
         }
 
-        private static void DrawEnemyInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
+        private static void DrawEnemyInfo(IDatabase database, FirstLevelRoundThreeState state, Graphics graphics)
         {
             var enemy = database.GetCurrentLevelEnemy();
 
@@ -87,7 +86,7 @@
             state.enemyManaLabel.Text = enemy.ManaPoints.ToString();
         }
 
-        private static void DrawPlayerInfo(IDatabase database, FirstLevelRoundOneState state, Graphics graphics)
+        private static void DrawPlayerInfo(IDatabase database, FirstLevelRoundThreeState state, Graphics graphics)
         {
             Rectangle hpBarRectangle = new Rectangle(60, 55, 250, 20);
             Rectangle manaBarRectangle = new Rectangle(60, 80, 250, 20);
@@ -122,7 +121,7 @@
             state.playerManaLabel.Text = database.Player.ManaPoints.ToString();
         }
 
-        private static void LoadImages(IDatabase database, FirstLevelRoundOneState state)
+        private static void LoadImages(IDatabase database, FirstLevelRoundThreeState state)
         {
             state.enemyPictureBox.Image = (database.GetCurrentLevelEnemy() as GameObject).Sprite;
             state.enemyPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -135,9 +134,12 @@
 
             state.secondSpellPictureox.Image = (database.GetCurrentMagicById(1) as GameObject).Sprite;
             state.secondSpellPictureox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            state.thirdSpellPictureBox.Image = (database.GetCurrentMagicById(2) as GameObject).Sprite;
+            state.thirdSpellPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        private static void SetVisibility(FirstLevelRoundOneState state)
+        private static void SetVisibility(FirstLevelRoundThreeState state)
         {
             state.playerHpLabel.Visible = true;
             state.playerManaLabel.Visible = true;
@@ -147,6 +149,7 @@
             state.enemyPictureBox.Visible = true;
             state.firstSpellPictureBox.Visible = true;
             state.secondSpellPictureox.Visible = true;
+            state.thirdSpellPictureBox.Visible = true;
         }
     }
 }

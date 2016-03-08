@@ -24,8 +24,9 @@
 
         public void Execute(IDatabase database, State currentState)
         {
-            var state = currentState as FirstLevelRoundOneState; // TODO: don't understand why here is used FirstLevelRoundOneState
+            var state = currentState as FirstLevelRoundOneState;
 
+                // TODO: don't understand why here is used FirstLevelRoundOneState
             if (state == null)
             {
                 throw new InvalidStateException();
@@ -48,7 +49,7 @@
                     magic = database.GetCurrentMagicById(3);
                     break;
                 default:
-                    throw  new ArgumentException("Magic not supported!");
+                    throw new ArgumentException("Magic not supported!");
             }
 
             int playerManaBeforeAttack = database.Player.ManaPoints;
@@ -57,11 +58,13 @@
 
             if (playerManaBeforeAttack < magic.ManaCost)
             {
-                state.playerAttackInfoLabel.Text = $"Not enough mana. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
+                state.playerAttackInfoLabel.Text =
+                    $"Not enough mana. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
             }
             else if (database.Player.HealthPoints < magic.HealthCost)
             {
-                state.playerAttackInfoLabel.Text = $"Not enough health. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
+                state.playerAttackInfoLabel.Text =
+                    $"Not enough health. {Math.Abs(playerManaBeforeAttack - magic.ManaCost)} needed.";
             }
             else
             {

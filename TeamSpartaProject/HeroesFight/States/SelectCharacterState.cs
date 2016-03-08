@@ -17,7 +17,7 @@
             this.CommandDispatcher = commandDispatcher;
         }
 
-        public ICommandDispatcher CommandDispatcher { get; private set; }
+        public ICommandDispatcher CommandDispatcher { get; }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {

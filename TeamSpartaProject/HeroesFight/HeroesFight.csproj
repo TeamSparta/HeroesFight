@@ -52,6 +52,8 @@
     <Compile Include="Entities\Commands\EnemyAttackCommand.cs" />
     <Compile Include="Entities\Commands\ExitGameCommand.cs" />
     <Compile Include="Entities\Commands\InitializeLevelOneCommand.cs" />
+    <Compile Include="Entities\Commands\InitializeLevelThreeCommand.cs" />
+    <Compile Include="Entities\Commands\InitializeLevelTwoCommand.cs" />
     <Compile Include="Entities\Commands\LogUserNameCommand.cs" />
     <Compile Include="Entities\Commands\StartGameCommand.cs" />
     <Compile Include="Core\CommandDispatcher.cs" />
@@ -71,14 +73,20 @@
     <Compile Include="States\FirstLevelRoundTwoState.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="States\FirstLevelRoundThreeState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="States\StartGameState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="States\State.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="States\StateManager.cs" />
     <Compile Include="Enum\StateEnum.cs" />
     <Compile Include="Interfaces\ICommandDispatcher.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Interfaces\IHeroFactory.cs" />
-    <Compile Include="States\StartGameState.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="States\FirstLevelRoundOneState.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,20 +114,14 @@
     <Compile Include="States\SelectCharacterState.Designer.cs">
       <DependentUpon>SelectCharacterState.cs</DependentUpon>
     </Compile>
-    <Compile Include="States\State.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\InvalidStateException.cs" />
     <Compile Include="Utilities\MagicNotFoundException.cs" />
     <EmbeddedResource Include="States\ExitGameState.resx">
       <DependentUpon>ExitGameState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="States\FirstLevelRoundTwoState.resx">
-      <DependentUpon>FirstLevelRoundTwoState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="States\StartGameState.resx">
-      <DependentUpon>StartGameState.cs</DependentUpon>
+    <EmbeddedResource Include="States\FirstLevelRoundThreeState.resx">
+      <DependentUpon>FirstLevelRoundThreeState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="States\FirstLevelRoundOneState.resx">
       <DependentUpon>FirstLevelRoundOneState.cs</DependentUpon>
@@ -137,8 +139,8 @@
     <EmbeddedResource Include="States\SelectCharacterState.resx">
       <DependentUpon>SelectCharacterState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="States\State.resx">
-      <DependentUpon>State.cs</DependentUpon>
+    <EmbeddedResource Include="States\StartGameState.resx">
+      <DependentUpon>StartGameState.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HeroesFightClassDiagram.cd" />
     <None Include="Properties\Settings.settings">

@@ -3,8 +3,6 @@
     #region
 
     using System.Drawing;
-    using System.Net.Mime;
-    using System.Windows.Forms;
 
     using HeroesFight.Interfaces;
     using HeroesFight.States;
@@ -20,15 +18,14 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; private set; }
+        public string CommandName { get; }
 
-        public object[] CommandParameters { get; private set; }
+        public object[] CommandParameters { get; }
 
         public void Execute(IDatabase database, State currentState)
         {
             if (!database.Player.IsAlive)
             {
-                Application.Exit();
             }
 
             var state = currentState as FirstLevelRoundOneState;

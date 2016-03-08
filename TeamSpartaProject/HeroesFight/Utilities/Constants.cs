@@ -2,8 +2,6 @@
 {
     public class Constants
     {
-        public const string EnemyAttackCommandName = "EnemyAttack";
-
         public const string AttackCommandName = "Attack";
 
         public const string CommandSuffix = "Command";
@@ -13,6 +11,8 @@
         public const string CreatePlayerCommandName = "CreatePlayer";
 
         public const string EndGameCommandName = "EndGame";
+
+        public const string EnemyAttackCommandName = "EnemyAttack";
 
         public const string InitializeLevelOneCommandName = "InitializeLevelOne";
 

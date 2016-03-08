@@ -16,9 +16,9 @@
 
     public class GameDatabase : IDatabase
     {
-        private readonly IList<IEnemy> enemies;
-
         private readonly IList<IMagic> currentHeroesMagics;
+
+        private readonly IList<IEnemy> enemies;
 
         private string playerName;
 
@@ -34,9 +34,11 @@
             this.CurrentPlayerProgress = StateEnum.FirstLevelRoundOneState;
         }
 
-        public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; private set; }
+        public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; }
 
-        public ICommandFactory CommandFactory { get; private set; }
+        public ICommandFactory CommandFactory { get; }
+
+        public IEnemy CurrentEnemy { get; private set; }
 
         public StateEnum CurrentPlayerProgress { get; private set; }
 
@@ -48,13 +50,11 @@
             }
         }
 
-        public IHeroFactory HeroFactory { get; private set; }
+        public IHeroFactory HeroFactory { get; }
 
-        public IMagicFactory MagicFactory { get; private set; }
+        public IMagicFactory MagicFactory { get; }
 
         public IPlayer Player { get; private set; }
-
-        public IEnemy CurrentEnemy { get; private set; }
 
         public string PlayerName
         {
@@ -79,7 +79,7 @@
             }
         }
 
-        public IDictionary<StateEnum, IList<IMagic>> WarriorsMagicsByLevel { get; private set; }
+        public IDictionary<StateEnum, IList<IMagic>> WarriorsMagicsByLevel { get; }
 
         public void AddPlayer(IPlayer player)
         {

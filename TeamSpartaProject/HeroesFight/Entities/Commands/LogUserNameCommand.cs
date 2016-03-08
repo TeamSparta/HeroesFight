@@ -2,9 +2,6 @@
 {
     #region
 
-    using System.Text.RegularExpressions;
-    using System.Windows.Forms;
-
     using HeroesFight.Enum;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
@@ -20,9 +17,9 @@
             this.CommandParameters = commandParameters;
         }
 
-        public string CommandName { get; private set; }
+        public string CommandName { get; }
 
-        public object[] CommandParameters { get; private set; }
+        public object[] CommandParameters { get; }
 
         public void Execute(IDatabase database, State currentState)
         {

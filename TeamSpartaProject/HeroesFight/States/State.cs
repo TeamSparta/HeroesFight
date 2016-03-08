@@ -10,11 +10,12 @@
 
     public class State : Form
     {
-        public State()
+        protected State()
         {
             this.InitializeComponent();
         }
 
+        // public abstract void Draw();
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
@@ -27,7 +28,12 @@
             // State
             this.ClientSize = new Size(284, 262);
             this.Name = "State";
+            this.Load += this.State_Load;
             this.ResumeLayout(false);
+        }
+
+        private void State_Load(object sender, EventArgs e)
+        {
         }
     }
 }

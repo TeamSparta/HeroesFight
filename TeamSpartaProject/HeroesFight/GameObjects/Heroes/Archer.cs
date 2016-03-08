@@ -2,16 +2,17 @@
 {
     #region
 
-    using System.Collections.Generic;
     using System.Drawing;
 
-    using HeroesFight.Interfaces;
+    using HeroesFight.Enum;
     using HeroesFight.Properties;
 
     #endregion
 
     public class Archer : Player
     {
+        private const ClassHeroEnum ArcherClass = ClassHeroEnum.Archer;
+
         private const int StartingAttackPoints = 80;
 
         private const int StartingHealthPoints = 400;
@@ -22,10 +23,15 @@
 
         private static readonly Bitmap Image = Resources.Archer;
 
-        private IList<IMagic> magics = new List<IMagic>();
-
         public Archer(string name)
-            : base(Image, name, StartingAttackPoints, StartingHealthPoints, StartingManaPoints, StartingShieldPower)
+            : base(
+                Image, 
+                name, 
+                StartingAttackPoints, 
+                StartingHealthPoints, 
+                StartingManaPoints, 
+                StartingShieldPower, 
+                ArcherClass)
         {
         }
     }

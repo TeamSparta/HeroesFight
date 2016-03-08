@@ -16,7 +16,7 @@
             this.InitializeComponent();
         }
 
-        public ICommandDispatcher CommandDispatcher { get; private set; }
+        public ICommandDispatcher CommandDispatcher { get; }
 
         private void FirstLevelForm_Load(object sender, EventArgs e)
         {
@@ -46,12 +46,15 @@
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            //if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
-            //{
+
+            // Imagine if you try to click on magic and you have no mana/health to perform it. It will be counted as a turn and the enemy will attack you. 
+            // And basically you will have not be done anything(action) so I believe is not appropriate that way.
+            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            {
                 this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
-            //}
+            }
         }
     }
 }

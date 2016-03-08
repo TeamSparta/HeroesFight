@@ -11,6 +11,8 @@
 
     public class Enemy : Hero, IEnemy
     {
+        private const ClassHeroEnum EnemyClass = ClassHeroEnum.Enemy;
+
         public Enemy(
             Bitmap image, 
             string name, 
@@ -19,7 +21,7 @@
             int manaPoints, 
             int shieldPower, 
             StateEnum wantedState)
-            : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower)
+            : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower, EnemyClass)
         {
             this.WantedState = wantedState;
         }

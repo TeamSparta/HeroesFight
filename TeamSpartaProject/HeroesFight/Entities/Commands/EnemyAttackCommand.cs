@@ -1,11 +1,14 @@
 ﻿namespace HeroesFight.Entities.Commands
 {
+    #region
+
     using System;
     using System.Linq;
-    using System.Threading;
 
     using HeroesFight.Interfaces;
     using HeroesFight.States;
+
+    #endregion
 
     public class EnemyAttackCommand : ICommand
     {
@@ -28,7 +31,7 @@
             int randomSpellNumber = randomSpell.Next(0, possibleMagics.Count);
 
             IMagic resultMagic = possibleMagics[randomSpellNumber];
-            
+
             int currentEnemyManaBeforeAttack = currentEnemy.ManaPoints;
             int playerHealthBeforeAttack = database.Player.HealthPoints;
 

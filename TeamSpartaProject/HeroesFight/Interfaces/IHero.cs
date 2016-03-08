@@ -26,6 +26,11 @@
         int HealthPoints { get; set; }
 
         /// <summary>
+        ///     Defines whether the hero is alive
+        /// </summary>
+        bool IsAlive { get; set; }
+
+        /// <summary>
         ///     Contains all magics for the current hero.
         /// </summary>
         IEnumerable<IMagic> Magics { get; }
@@ -44,11 +49,6 @@
         ///     Shield to reduce every attack power.
         /// </summary>
         int ShieldPower { get; }
-
-        /// <summary>
-        /// Defines whether the hero is alive
-        /// </summary>
-        bool IsAlive { get; set; }
 
         /// <summary>
         ///     Method used to add magic to current hero champion pool.
