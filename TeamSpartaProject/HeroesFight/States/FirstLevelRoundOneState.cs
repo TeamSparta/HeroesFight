@@ -60,10 +60,10 @@
             this.playerPictureBox.Image = (database.Player as GameObject).Sprite;
             this.playerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.firstSpellPictureBox.Image = (database.GetCurrentMagicById(0) as GameObject).Sprite;
+            this.firstSpellPictureBox.Image = (database.GetPlayerMagicById(0) as GameObject).Sprite;
             this.firstSpellPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.secondSpellPictureox.Image = (database.GetCurrentMagicById(1) as GameObject).Sprite;
+            this.secondSpellPictureox.Image = (database.GetPlayerMagicById(1) as GameObject).Sprite;
             this.secondSpellPictureox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -145,7 +145,7 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
-            this.CommandDispatcher.Database.Initialize();
+            this.CommandDispatcher.Database.InitializeData();
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)
@@ -157,11 +157,11 @@
 
         private void OnFirstMagicClick(object sender, EventArgs e)
         {
-            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
+            var prevProgress = this.CommandDispatcher.Database.CurrentState;
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
             this.CommandDispatcher.ProcessCommand("Update", null);
 
-            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
+            if (prevProgress == this.CommandDispatcher.Database.CurrentState)
             {
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
@@ -174,7 +174,7 @@
 
         private void OnSecondMagicClick(object sender, EventArgs e)
         {
-            var prevProgress = this.CommandDispatcher.Database.CurrentPlayerProgress;
+            var prevProgress = this.CommandDispatcher.Database.CurrentState;
 
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
 
@@ -183,7 +183,7 @@
             // And basically you will have not be done anything(action) so I believe is not appropriate that way.
             
             this.CommandDispatcher.ProcessCommand("Update", null);
-            if (prevProgress == this.CommandDispatcher.Database.CurrentPlayerProgress)
+            if (prevProgress == this.CommandDispatcher.Database.CurrentState)
             {
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);

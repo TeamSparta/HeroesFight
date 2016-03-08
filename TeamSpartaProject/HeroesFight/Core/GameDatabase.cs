@@ -10,18 +10,20 @@
     using HeroesFight.Enum;
     using HeroesFight.GameObjects.Heroes;
     using HeroesFight.Interfaces;
-    using HeroesFight.Utilities;
 
     #endregion
 
     public class GameDatabase : IDatabase
     {
+        private readonly IList<IEnemy> enemies;
+
+        private readonly IDictionary<StateEnum, IList<IMagic>> warriorsMagicsByLevel;
+
+        private readonly IDictionary<StateEnum, IList<IMagic>> archersMagicsByLevel;
+
         private int startingHealth;
 
         private int startingMana;
-
-
-        private readonly IList<IEnemy> enemies;
 
         private string playerName;
 
@@ -30,27 +32,13 @@
             this.CommandFactory = commandFactory;
             this.HeroFactory = heroFactory;
             this.MagicFactory = magicFactory;
+            this.CurrentState = StateEnum.PickCharacterState;
             this.enemies = new List<IEnemy>();
-            this.WarriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
-            this.ArchersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
-            this.CurrentPlayerProgress = StateEnum.PickCharacterState;
+            this.warriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
+            this.archersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
         }
-
-        public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; }
 
         public ICommandFactory CommandFactory { get; }
-
-        public IEnemy CurrentEnemy { get; private set; }
-
-        public StateEnum CurrentPlayerProgress { get; private set; }
-
-        public IEnumerable<IEnemy> Enemies
-        {
-            get
-            {
-                return this.enemies;
-            }
-        }
 
         public IHeroFactory HeroFactory { get; }
 
@@ -81,7 +69,7 @@
             }
         }
 
-        public IDictionary<StateEnum, IList<IMagic>> WarriorsMagicsByLevel { get; }
+        public StateEnum CurrentState { get; private set; }
 
         public void AddPlayer(IPlayer player)
         {
@@ -89,6 +77,7 @@
             {
                 throw new ArgumentException("Cannot add null player!");
             }
+
             this.startingHealth = player.HealthPoints;
             this.startingMana = player.ManaPoints;
             this.Player = player;
@@ -100,20 +89,7 @@
             this.PlayerName = inputName;
         }
 
-        public IEnemy GetCurrentLevelEnemy()
-        {
-            IEnemy currentEnemy = this.enemies.FirstOrDefault(e => e.WantedState == this.CurrentPlayerProgress);
-            if (currentEnemy == null)
-            {
-                throw new ArgumentNullException("Enemy cannot be null!");
-            }
-
-            this.CurrentEnemy = currentEnemy;
-
-            return currentEnemy;
-        }
-
-        public IMagic GetCurrentMagicById(int id)
+        public IMagic GetPlayerMagicById(int id)
         {
             if (id >= this.Player.Magics.Count() || id < 0)
             {
@@ -137,7 +113,7 @@
             return resultMagic;
         }
 
-        public void Initialize()
+        public void InitializeData()
         {
             this.InitializeFirstBoss();
 
@@ -148,24 +124,35 @@
 
         public void Update()
         {
-            this.CurrentPlayerProgress++;
+            this.CurrentState++;
             this.UpdatePlayerMagics();
             this.Player.HealthPoints = this.startingHealth;
             this.Player.ManaPoints = this.startingMana;
         }
 
+        public IEnemy GetCurrentLevelEnemy()
+        {
+            IEnemy currentEnemy = this.enemies.FirstOrDefault(e => e.WantedState == this.CurrentState);
+            if (currentEnemy == null)
+            {
+                throw new ArgumentNullException("Enemy cannot be null!");
+            }
+
+            return currentEnemy;
+        }
+
         private void InitializeArcherMagics()
         {
             IMagic counterShot = this.MagicFactory.CreateMagic("CounterShot");
-            this.ArchersMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { counterShot });
+            this.archersMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { counterShot });
             IMagic threeShot = this.MagicFactory.CreateMagic("ThreeShot");
-            this.ArchersMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(threeShot);
+            this.archersMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(threeShot);
 
             IMagic critShot = this.MagicFactory.CreateMagic("CritShot");
-            this.ArchersMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { critShot });
+            this.archersMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { critShot });
 
             IMagic mortalShot = this.MagicFactory.CreateMagic("MortalShot");
-            this.ArchersMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { mortalShot });
+            this.archersMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { mortalShot });
         }
 
         private void InitializeFirstBoss()
@@ -185,7 +172,7 @@
             if (this.Player is Archer)
             {
                 this.InitializeArcherMagics();
-                List<IMagic> playerMagics = this.ArchersMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
+                List<IMagic> playerMagics = this.archersMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
 
                 foreach (IMagic magic in playerMagics)
                 {
@@ -195,7 +182,7 @@
             else
             {
                 this.InitializeWarriorMagics();
-                List<IMagic> playerMagics = this.WarriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
+                List<IMagic> playerMagics = this.warriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].ToList();
 
                 foreach (IMagic magic in playerMagics)
                 {
@@ -236,22 +223,22 @@
         private void InitializeWarriorMagics()
         {
             IMagic fistAttack = this.MagicFactory.CreateMagic("FistAttack");
-            this.WarriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { fistAttack });
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { fistAttack });
             IMagic swordAttack = this.MagicFactory.CreateMagic("SwordAttack");
-            this.WarriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(swordAttack);
+            this.warriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(swordAttack);
 
             IMagic poisonStrike = this.MagicFactory.CreateMagic("PoisonStrike");
-            this.WarriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { poisonStrike });
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { poisonStrike });
 
             IMagic lightningStrike = this.MagicFactory.CreateMagic("LightningStrike");
-            this.WarriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { lightningStrike });
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { lightningStrike });
         }
 
         private void UpdatePlayerMagics()
         {
             if (this.Player is Archer)
             {
-                List<IMagic> nextMagics = this.ArchersMagicsByLevel[this.CurrentPlayerProgress].ToList();
+                List<IMagic> nextMagics = this.archersMagicsByLevel[this.CurrentState].ToList();
                 foreach (IMagic magic in nextMagics)
                 {
                     this.Player.AddMagic(magic);
@@ -259,7 +246,7 @@
             }
             else
             {
-                List<IMagic> nextMagics = this.WarriorsMagicsByLevel[this.CurrentPlayerProgress].ToList();
+                List<IMagic> nextMagics = this.warriorsMagicsByLevel[this.CurrentState].ToList();
                 foreach (IMagic magic in nextMagics)
                 {
                     this.Player.AddMagic(magic);

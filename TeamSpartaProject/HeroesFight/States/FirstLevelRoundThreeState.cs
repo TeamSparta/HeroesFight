@@ -149,16 +149,16 @@
             this.playerPictureBox.Image = (database.Player as GameObject).Sprite;
             this.playerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.firstSpellPictureBox.Image = (database.GetCurrentMagicById(0) as GameObject).Sprite;
+            this.firstSpellPictureBox.Image = (database.GetPlayerMagicById(0) as GameObject).Sprite;
             this.firstSpellPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.secondSpellPicturebox.Image = (database.GetCurrentMagicById(1) as GameObject).Sprite;
+            this.secondSpellPicturebox.Image = (database.GetPlayerMagicById(1) as GameObject).Sprite;
             this.secondSpellPicturebox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.thirdSpellPictureBox.Image = (database.GetCurrentMagicById(2) as GameObject).Sprite;
+            this.thirdSpellPictureBox.Image = (database.GetPlayerMagicById(2) as GameObject).Sprite;
             this.thirdSpellPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.fourthMagicPictureBox.Image = (database.GetCurrentMagicById(3) as GameObject).Sprite;
+            this.fourthMagicPictureBox.Image = (database.GetPlayerMagicById(3) as GameObject).Sprite;
             this.fourthMagicPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 

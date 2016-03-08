@@ -29,12 +29,12 @@
             {
                 StateManager.ChangeCurrentState(StateEnum.ExitGameState);
             }
-            else if (!database.CurrentEnemy.IsAlive && database.CurrentPlayerProgress != StateEnum.FirstLevelRoundThreeState)
+            else if (!database.GetCurrentLevelEnemy().IsAlive && database.CurrentState != StateEnum.FirstLevelRoundThreeState)
             {
                 database.Update();
-                StateManager.ChangeCurrentState(database.CurrentPlayerProgress);
+                StateManager.ChangeCurrentState(database.CurrentState);
             }
-            else if (!database.CurrentEnemy.IsAlive && database.CurrentPlayerProgress == StateEnum.FirstLevelRoundThreeState)
+            else if (!database.GetCurrentLevelEnemy().IsAlive && database.CurrentState == StateEnum.FirstLevelRoundThreeState)
             {
                 StateManager.ChangeCurrentState(StateEnum.ExitGameState);
             }

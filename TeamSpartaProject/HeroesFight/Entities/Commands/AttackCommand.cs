@@ -29,16 +29,16 @@
             switch (magicName)
             {
                 case "firstMagic":
-                    magic = database.GetCurrentMagicById(0);
+                    magic = database.GetPlayerMagicById(0);
                     break;
                 case "secondMagic":
-                    magic = database.GetCurrentMagicById(1);
+                    magic = database.GetPlayerMagicById(1);
                     break;
                 case "thirdMagic":
-                    magic = database.GetCurrentMagicById(2);
+                    magic = database.GetPlayerMagicById(2);
                     break;
                 case "fourthMagic":
-                    magic = database.GetCurrentMagicById(3);
+                    magic = database.GetPlayerMagicById(3);
                     break;
                 default:
                     throw new ArgumentException("Magic not supported!");
