@@ -44,8 +44,6 @@
             this.thirdSpellPictureBox.Visible = false;
 
             this.CommandDispatcher.ProcessCommand("Initialize", null);
-
-            this.Draw();
         }
 
 #region

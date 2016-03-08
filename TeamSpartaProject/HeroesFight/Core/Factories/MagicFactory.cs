@@ -54,7 +54,7 @@
                     magic = new Magic(
                         Resources.LightSwordMagicIcon, 
                         magicName, 
-                        140, 
+                        200, 
                         20, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
@@ -76,7 +76,7 @@
                     magic = new Magic(
                         Resources.ThreeShotMagicIcon, 
                         magicName, 
-                        120, 
+                        200, 
                         20, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 

@@ -33,7 +33,6 @@
 
             // BUG: Player bars do not update correctly when current state's digit are decreasing e.g. 100 -> 80
             // BUG: Player bars do not initialize correctly when initializing new state.
-            // BUG: If we are about to die by the enemy and we kill it with next magic we end up losing the game.
         }
     }
 }

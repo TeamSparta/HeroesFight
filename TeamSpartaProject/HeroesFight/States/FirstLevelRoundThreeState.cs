@@ -15,6 +15,7 @@
 
     public class FirstLevelRoundThreeState : State
     {
+        private readonly IEnemy currentEnemy;
         private Label enemyAttackInfoLabel;
         private Label enemyHpLabel;
         private Label enemyManaLabel;
@@ -27,12 +28,12 @@
         private PictureBox playerPictureBox;
         private PictureBox secondSpellPicturebox;
         private PictureBox thirdSpellPictureBox;
-        private Button Btn_Attack;
 
         public FirstLevelRoundThreeState(ICommandDispatcher commandDispatcher)
         {
             this.CommandDispatcher = commandDispatcher;
             this.InitializeComponent();
+            this.currentEnemy = this.CommandDispatcher.Database.GetCurrentLevelEnemy();
         }
 
         public ICommandDispatcher CommandDispatcher { get; }
@@ -57,8 +58,6 @@
 
         private void DrawEnemyInfo(Graphics graphics)
         {
-            var enemy = this.CommandDispatcher.Database.GetCurrentLevelEnemy();
-
             Rectangle hpBarRectangle = new Rectangle(493, 55, 250, 20);
             Rectangle manaBarRectangle = new Rectangle(493, 80, 250, 20);
 
@@ -82,14 +81,14 @@
                 81);
 
             graphics.DrawString(
-                $"{enemy.Name}",
+                $"{this.currentEnemy.Name}",
                 new Font(FontFamily.GenericMonospace, 18),
                 new SolidBrush(Color.SlateGray),
                 500,
                 20);
 
-            this.enemyHpLabel.Text = enemy.HealthPoints.ToString();
-            this.enemyManaLabel.Text = enemy.ManaPoints.ToString();
+            this.enemyHpLabel.Text = this.currentEnemy.HealthPoints.ToString();
+            this.enemyManaLabel.Text = this.currentEnemy.ManaPoints.ToString();
         }
 
         private void DrawPlayerInfo(Graphics graphics)
@@ -185,7 +184,6 @@
 
         private void InitializeComponent()
         {
-            this.Btn_Attack = new System.Windows.Forms.Button();
             this.firstSpellPictureBox = new System.Windows.Forms.PictureBox();
             this.secondSpellPicturebox = new System.Windows.Forms.PictureBox();
             this.playerPictureBox = new System.Windows.Forms.PictureBox();
@@ -205,15 +203,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.thirdSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fourthMagicPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Btn_Attack
-            // 
-            this.Btn_Attack.Location = new System.Drawing.Point(342, 246);
-            this.Btn_Attack.Name = "Btn_Attack";
-            this.Btn_Attack.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Attack.TabIndex = 0;
-            this.Btn_Attack.Text = "Battle!";
-            this.Btn_Attack.UseVisualStyleBackColor = true;
             // 
             // firstSpellPictureBox
             // 
@@ -364,7 +353,6 @@
             this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.secondSpellPicturebox);
             this.Controls.Add(this.firstSpellPictureBox);
-            this.Controls.Add(this.Btn_Attack);
             this.Name = "FirstLevelRoundThreeState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelForm";
@@ -383,9 +371,10 @@
         private void OnFirstMagicClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            this.CommandDispatcher.ProcessCommand("Update", null);
+
+            if (this.currentEnemy.HealthPoints > 0)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
@@ -394,9 +383,9 @@
         private void OnFourthMagicClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "fourthMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (this.currentEnemy.HealthPoints > 0)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
@@ -405,9 +394,9 @@
         private void OnSecondSpellClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (this.currentEnemy.HealthPoints > 0)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
@@ -416,9 +405,10 @@
         private void OnThirdMagicClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("Attack", new object[] { "thirdMagic" });
-            if (!this.playerAttackInfoLabel.Text.StartsWith("Not enough"))
+            this.CommandDispatcher.ProcessCommand("Update", null);
+
+            if (this.currentEnemy.HealthPoints > 0)
             {
-                this.CommandDispatcher.ProcessCommand("Update", null);
                 this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
                 this.CommandDispatcher.ProcessCommand("Update", null);
             }
