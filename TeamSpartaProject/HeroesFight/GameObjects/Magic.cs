@@ -27,7 +27,7 @@
             int manaCost, 
             int healthCost, 
             StateEnum magicLevelWanted, 
-            ClassHeroEnum classHeroWanted)
+            HeroClass classHeroWanted)
             : base(image)
         {
             this.Name = name;
@@ -56,7 +56,7 @@
             }
         }
 
-        public ClassHeroEnum ClassHeroWanted { get; }
+        public HeroClass ClassHeroWanted { get; }
 
         public int HealthCost
         {

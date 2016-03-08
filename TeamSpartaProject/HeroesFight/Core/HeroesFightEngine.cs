@@ -24,7 +24,6 @@
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(StateManager.InitialState);
 
-            // Application.Run(new State());
             // How a usual game engine state goes:
             // 1. Read a input.
             // 2. Parse the input and transform it to command.

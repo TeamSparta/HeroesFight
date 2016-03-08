@@ -14,14 +14,14 @@
     {
         public void Execute(IDatabase database, State currentState, CommandInfo commandInfo)
         {
-            ClassHeroEnum heroType;
+            HeroClass heroType;
             switch (commandInfo.CommandParameters[0].ToString())
             {
                 case "Archer":
-                    heroType = ClassHeroEnum.Archer;
+                    heroType = HeroClass.Archer;
                     break;
                 case "Warrior":
-                    heroType = ClassHeroEnum.Warrior;
+                    heroType = HeroClass.Warrior;
                     break;
                 default:
                     throw new ArgumentException("Unknown hero type.");

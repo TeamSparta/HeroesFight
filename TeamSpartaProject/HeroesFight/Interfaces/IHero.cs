@@ -18,7 +18,7 @@
         /// </summary>
         int AttackPoints { get; }
 
-        ClassHeroEnum ClassHero { get; }
+        HeroClass ClassHero { get; }
 
         /// <summary>
         ///     Health points of the hero.

@@ -24,7 +24,7 @@
             int healthPoints, 
             int manaPoints, 
             int shieldPower, 
-            ClassHeroEnum heroClass)
+            HeroClass heroClass)
             : base(image)
         {
             this.Name = name;
@@ -39,7 +39,7 @@
 
         public int AttackPoints { get; set; }
 
-        public ClassHeroEnum ClassHero { get; }
+        public HeroClass ClassHero { get; }
 
         public int HealthPoints
         {

@@ -1,6 +1,6 @@
 ﻿namespace HeroesFight.Enum
 {
-    public enum ClassHeroEnum
+    public enum HeroClass
     {
         Warrior, 
 

@@ -19,7 +19,7 @@
         /// <summary>
         ///     The specified class the current hero has to be in order to train this magic.
         /// </summary>
-        ClassHeroEnum ClassHeroWanted { get; }
+        HeroClass ClassHeroWanted { get; }
 
         /// <summary>
         ///     Cost to perform the chosen magic in health points.

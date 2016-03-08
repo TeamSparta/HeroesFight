@@ -13,18 +13,18 @@
 
     public class HeroFactory : IHeroFactory
     {
-        public IHero CreateHero(ClassHeroEnum heroType, string heroName)
+        public IHero CreateHero(HeroClass heroType, string heroName)
         {
             IHero hero;
             switch (heroType)
             {
-                case ClassHeroEnum.Warrior:
+                case HeroClass.Warrior:
                     hero = new Warrior(heroName);
                     break;
-                case ClassHeroEnum.Archer:
+                case HeroClass.Archer:
                     hero = new Archer(heroName);
                     break;
-                case ClassHeroEnum.Enemy:
+                case HeroClass.Enemy:
                     hero = this.CreateEnemy(heroName);
                     break;
                 default:

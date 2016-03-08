@@ -28,7 +28,7 @@
                         0, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Warrior);
+                        HeroClass.Warrior);
                     break;
                 case "SwordAttack":
                     magic = new Magic(
@@ -38,7 +38,7 @@
                         10, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Warrior);
+                        HeroClass.Warrior);
                     break;
                 case "PoisonStrike":
                     magic = new Magic(
@@ -48,7 +48,7 @@
                         15, 
                         5, 
                         StateEnum.FirstLevelRoundTwoState, 
-                        ClassHeroEnum.Warrior);
+                        HeroClass.Warrior);
                     break;
                 case "LightningStrike":
                     magic = new Magic(
@@ -58,7 +58,7 @@
                         20, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Warrior);
+                        HeroClass.Warrior);
                     break;
 
                 // Archer spells
@@ -70,7 +70,7 @@
                         10, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Archer);
+                        HeroClass.Archer);
                     break;
                 case "ThreeShot":
                     magic = new Magic(
@@ -80,7 +80,7 @@
                         20, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Archer);
+                        HeroClass.Archer);
                     break;
                 case "CritShot":
                     magic = new Magic(
@@ -90,7 +90,7 @@
                         35, 
                         5, 
                         StateEnum.FirstLevelRoundTwoState, 
-                        ClassHeroEnum.Archer);
+                        HeroClass.Archer);
                     break;
                 case "MortalShot":
                     magic = new Magic(
@@ -100,7 +100,7 @@
                         40, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Archer);
+                        HeroClass.Archer);
                     break;
 
                 // UnholyWarrior spells
@@ -112,7 +112,7 @@
                         0, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "FuriousRush":
                     magic = new Magic(
@@ -122,7 +122,7 @@
                         10, 
                         0, 
                         StateEnum.FirstLevelRoundOneState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
 
                 // FireArcher spells
@@ -134,7 +134,7 @@
                         0, 
                         0, 
                         StateEnum.FirstLevelRoundTwoState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "Bomb":
                     magic = new Magic(
@@ -144,7 +144,7 @@
                         20, 
                         0, 
                         StateEnum.FirstLevelRoundTwoState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "SteadyShot":
                     magic = new Magic(
@@ -154,7 +154,7 @@
                         30, 
                         0, 
                         StateEnum.FirstLevelRoundTwoState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
 
                 // BloodlineMagician spells
@@ -166,7 +166,7 @@
                         30, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "BloodPool":
                     magic = new Magic(
@@ -176,7 +176,7 @@
                         45, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "MagicArc":
                     magic = new Magic(
@@ -186,7 +186,7 @@
                         80, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
                 case "BloodFire":
                     magic = new Magic(
@@ -196,7 +196,7 @@
                         120, 
                         0, 
                         StateEnum.FirstLevelRoundThreeState, 
-                        ClassHeroEnum.Enemy);
+                        HeroClass.Enemy);
                     break;
 
                 default:

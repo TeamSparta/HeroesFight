@@ -15,15 +15,15 @@
 
     public class StartGameState : State
     {
-        public Button ContinueButton;
+        private Button continueButton;
 
-        public Label EnterYourNameLabel;
+        private Label enterYourNameLabel;
 
-        public Button ExitGameButton;
+        private Button exitGameButton;
 
-        public TextBox PlayerNameTextBox;
+        private TextBox playerNameTextBox;
 
-        public Button StartGameButton;
+        private Button startGameButton;
 
         public StartGameState(ICommandDispatcher commandDispatcher)
         {
@@ -33,6 +33,16 @@
 
         public ICommandDispatcher CommandDispatcher { get; }
 
+        public override void Initialize()
+        {
+            this.startGameButton.Visible = false;
+            this.exitGameButton.Visible = false;
+
+            this.enterYourNameLabel.Visible = true;
+            this.playerNameTextBox.Visible = true;
+            this.continueButton.Visible = true;
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             this.OnExitButtonClick(null, e);
@@ -40,81 +50,81 @@
 
         private void HeroesFightStartState_Load(object sender, EventArgs e)
         {
-            this.EnterYourNameLabel.Visible = false;
-            this.PlayerNameTextBox.Visible = false;
-            this.ContinueButton.Visible = false;
+            this.enterYourNameLabel.Visible = false;
+            this.playerNameTextBox.Visible = false;
+            this.continueButton.Visible = false;
 
-            this.StartGameButton.Click += this.OnStartGameButtonClick;
-            this.ExitGameButton.Click += this.OnExitButtonClick;
-            this.ContinueButton.Click += this.OnContinueButtonClick;
+            this.startGameButton.Click += this.OnStartGameButtonClick;
+            this.exitGameButton.Click += this.OnExitButtonClick;
+            this.continueButton.Click += this.OnContinueButtonClick;
         }
 
 #region
         private void InitializeComponent()
         {
-            this.StartGameButton = new System.Windows.Forms.Button();
-            this.EnterYourNameLabel = new System.Windows.Forms.Label();
-            this.PlayerNameTextBox = new System.Windows.Forms.TextBox();
-            this.ContinueButton = new System.Windows.Forms.Button();
-            this.ExitGameButton = new System.Windows.Forms.Button();
+            this.startGameButton = new System.Windows.Forms.Button();
+            this.enterYourNameLabel = new System.Windows.Forms.Label();
+            this.playerNameTextBox = new System.Windows.Forms.TextBox();
+            this.continueButton = new System.Windows.Forms.Button();
+            this.exitGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // StartGameButton
+            // startGameButton
             // 
-            this.StartGameButton.Location = new System.Drawing.Point(324, 200);
-            this.StartGameButton.Name = "StartGameButton";
-            this.StartGameButton.Size = new System.Drawing.Size(117, 27);
-            this.StartGameButton.TabIndex = 0;
-            this.StartGameButton.Text = "Start game!";
-            this.StartGameButton.UseVisualStyleBackColor = true;
+            this.startGameButton.Location = new System.Drawing.Point(324, 200);
+            this.startGameButton.Name = "startGameButton";
+            this.startGameButton.Size = new System.Drawing.Size(117, 27);
+            this.startGameButton.TabIndex = 0;
+            this.startGameButton.Text = "Start game!";
+            this.startGameButton.UseVisualStyleBackColor = true;
             // 
-            // EnterYourNameLabel
+            // enterYourNameLabel
             // 
-            this.EnterYourNameLabel.AutoSize = true;
-            this.EnterYourNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EnterYourNameLabel.Location = new System.Drawing.Point(324, 267);
-            this.EnterYourNameLabel.Name = "EnterYourNameLabel";
-            this.EnterYourNameLabel.Size = new System.Drawing.Size(117, 17);
-            this.EnterYourNameLabel.TabIndex = 2;
-            this.EnterYourNameLabel.Text = "Enter your name:";
+            this.enterYourNameLabel.AutoSize = true;
+            this.enterYourNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.enterYourNameLabel.Location = new System.Drawing.Point(324, 267);
+            this.enterYourNameLabel.Name = "enterYourNameLabel";
+            this.enterYourNameLabel.Size = new System.Drawing.Size(117, 17);
+            this.enterYourNameLabel.TabIndex = 2;
+            this.enterYourNameLabel.Text = "Enter your name:";
             // 
-            // PlayerNameTextBox
+            // playerNameTextBox
             // 
-            this.PlayerNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PlayerNameTextBox.Location = new System.Drawing.Point(322, 294);
-            this.PlayerNameTextBox.Name = "PlayerNameTextBox";
-            this.PlayerNameTextBox.Size = new System.Drawing.Size(119, 23);
-            this.PlayerNameTextBox.TabIndex = 3;
-            this.PlayerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.playerNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.playerNameTextBox.Location = new System.Drawing.Point(322, 294);
+            this.playerNameTextBox.Name = "playerNameTextBox";
+            this.playerNameTextBox.Size = new System.Drawing.Size(119, 23);
+            this.playerNameTextBox.TabIndex = 3;
+            this.playerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ContinueButton
+            // continueButton
             // 
-            this.ContinueButton.Location = new System.Drawing.Point(322, 323);
-            this.ContinueButton.Name = "ContinueButton";
-            this.ContinueButton.Size = new System.Drawing.Size(119, 27);
-            this.ContinueButton.TabIndex = 4;
-            this.ContinueButton.Text = "Continue";
-            this.ContinueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Location = new System.Drawing.Point(322, 323);
+            this.continueButton.Name = "continueButton";
+            this.continueButton.Size = new System.Drawing.Size(119, 27);
+            this.continueButton.TabIndex = 4;
+            this.continueButton.Text = "Continue";
+            this.continueButton.UseVisualStyleBackColor = true;
             // 
-            // ExitGameButton
+            // exitGameButton
             // 
-            this.ExitGameButton.Location = new System.Drawing.Point(324, 233);
-            this.ExitGameButton.Name = "ExitGameButton";
-            this.ExitGameButton.Size = new System.Drawing.Size(117, 27);
-            this.ExitGameButton.TabIndex = 5;
-            this.ExitGameButton.Text = "Exit";
-            this.ExitGameButton.UseVisualStyleBackColor = true;
+            this.exitGameButton.Location = new System.Drawing.Point(324, 233);
+            this.exitGameButton.Name = "exitGameButton";
+            this.exitGameButton.Size = new System.Drawing.Size(117, 27);
+            this.exitGameButton.TabIndex = 5;
+            this.exitGameButton.Text = "Exit";
+            this.exitGameButton.UseVisualStyleBackColor = true;
             // 
             // StartGameState
             // 
             this.BackgroundImage = global::HeroesFight.Properties.Resources.StartGameBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
-            this.Controls.Add(this.ExitGameButton);
-            this.Controls.Add(this.ContinueButton);
-            this.Controls.Add(this.PlayerNameTextBox);
-            this.Controls.Add(this.EnterYourNameLabel);
-            this.Controls.Add(this.StartGameButton);
+            this.Controls.Add(this.exitGameButton);
+            this.Controls.Add(this.continueButton);
+            this.Controls.Add(this.playerNameTextBox);
+            this.Controls.Add(this.enterYourNameLabel);
+            this.Controls.Add(this.startGameButton);
             this.DoubleBuffered = true;
             this.Name = "StartGameState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -128,13 +138,13 @@
 
         private void OnContinueButtonClick(object sender, EventArgs e)
         {
-            string playerName = this.PlayerNameTextBox.Text;
+            string playerName = this.playerNameTextBox.Text;
             Regex nameRegex = new Regex(@"^\w{3,20}$");
             if (!nameRegex.IsMatch(playerName))
             {
                 MessageBox.Show(
                     @"Name should be between 3 and 20 characters long and should consist only of letters and digits. Please try again!");
-                this.PlayerNameTextBox.Clear();
+                this.playerNameTextBox.Clear();
                 return;
             }
 

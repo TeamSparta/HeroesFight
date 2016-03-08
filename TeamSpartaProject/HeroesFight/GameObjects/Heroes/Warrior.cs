@@ -19,7 +19,7 @@
 
         private const int StartingShieldPower = 80;
 
-        private const ClassHeroEnum WarriorClass = ClassHeroEnum.Warrior;
+        private const HeroClass WarriorClass = HeroClass.Warrior;
 
         private static readonly Bitmap Image = Resources.Warrior;
 

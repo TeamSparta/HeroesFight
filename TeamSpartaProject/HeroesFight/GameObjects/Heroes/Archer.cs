@@ -11,7 +11,7 @@
 
     public class Archer : Player
     {
-        private const ClassHeroEnum ArcherClass = ClassHeroEnum.Archer;
+        private const HeroClass ArcherClass = HeroClass.Archer;
 
         private const int StartingAttackPoints = 80;
 

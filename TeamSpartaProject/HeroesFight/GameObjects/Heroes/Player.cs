@@ -18,7 +18,7 @@
             int healthPoints, 
             int manaPoints, 
             int shieldPower, 
-            ClassHeroEnum heroClass)
+            HeroClass heroClass)
             : base(image, name, attackPoints, healthPoints, manaPoints, shieldPower, heroClass)
         {
         }

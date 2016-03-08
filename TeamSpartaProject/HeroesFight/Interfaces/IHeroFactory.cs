@@ -8,6 +8,6 @@
 
     public interface IHeroFactory
     {
-        IHero CreateHero(ClassHeroEnum heroType, string heroName);
+        IHero CreateHero(HeroClass heroType, string heroName);
     }
 }

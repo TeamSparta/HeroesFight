@@ -60,7 +60,7 @@
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
     <Compile Include="Entities\Commands\UpdateCommand.cs" />
-    <Compile Include="Enum\ClassHeroEnum.cs" />
+    <Compile Include="Enum\HeroClass.cs" />
     <Compile Include="Interfaces\IEnemyDatabase.cs" />
     <Compile Include="Interfaces\IMagicFactory.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />

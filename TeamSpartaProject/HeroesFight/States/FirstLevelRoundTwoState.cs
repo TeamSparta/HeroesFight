@@ -3,13 +3,11 @@
     #region
 
     using System;
-    using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
     using HeroesFight.GameObjects;
     using HeroesFight.Interfaces;
-    using HeroesFight.Properties;
 
     #endregion
 

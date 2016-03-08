@@ -11,7 +11,7 @@
 
     public class Enemy : Hero, IEnemy
     {
-        private const ClassHeroEnum EnemyClass = ClassHeroEnum.Enemy;
+        private const HeroClass EnemyClass = HeroClass.Enemy;
 
         public Enemy(
             Bitmap image, 

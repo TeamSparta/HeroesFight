@@ -18,13 +18,8 @@
             {
                 throw new ArgumentException("Not expected state was passed!");
             }
-
-            startGameState.StartGameButton.Visible = false;
-            startGameState.ExitGameButton.Visible = false;
-
-            startGameState.EnterYourNameLabel.Visible = true;
-            startGameState.PlayerNameTextBox.Visible = true;
-            startGameState.ContinueButton.Visible = true;
+            
+            startGameState.Initialize();
         }
     }
 }

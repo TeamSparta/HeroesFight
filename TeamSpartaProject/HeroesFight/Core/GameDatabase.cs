@@ -196,7 +196,7 @@
 
         private void InitializeFirstBoss()
         {
-            IEnemy unholyWarrior = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "UnholyWarrior") as IEnemy;
+            IEnemy unholyWarrior = this.HeroFactory.CreateHero(HeroClass.Enemy, "UnholyWarrior") as IEnemy;
 
             IMagic swordThrowMagic = this.MagicFactory.CreateMagic("SwordThrow");
             unholyWarrior.AddMagic(swordThrowMagic);
@@ -208,7 +208,7 @@
 
         private void InitializeSecondBoss()
         {
-            IEnemy fireArcher = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "FireArcher") as IEnemy;
+            IEnemy fireArcher = this.HeroFactory.CreateHero(HeroClass.Enemy, "FireArcher") as IEnemy;
             IMagic fireArrow = this.MagicFactory.CreateMagic("FireArrow");
             fireArcher.AddMagic(fireArrow);
             IMagic bomb = this.MagicFactory.CreateMagic("Bomb");
@@ -221,7 +221,7 @@
 
         private void InitializeThirdBoss()
         {
-            IEnemy bloodlineMagician = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "BloodLineMagician") as IEnemy;
+            IEnemy bloodlineMagician = this.HeroFactory.CreateHero(HeroClass.Enemy, "BloodLineMagician") as IEnemy;
 
             IMagic bloodDrain = this.MagicFactory.CreateMagic("BloodDrain");
             bloodlineMagician.AddMagic(bloodDrain);
