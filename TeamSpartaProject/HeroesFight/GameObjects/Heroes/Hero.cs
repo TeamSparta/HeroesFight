@@ -85,7 +85,10 @@
                 throw new ArgumentNullException("Cannot add magic which is null.");
             }
 
-            this.magics.Add(magic);
+            if (!this.magics.Contains(magic))
+            {
+                this.magics.Add(magic);
+            }
         }
 
         public virtual void PerformAttack(IHero enemy)

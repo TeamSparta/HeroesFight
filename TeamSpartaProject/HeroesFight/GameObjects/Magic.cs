@@ -10,7 +10,7 @@
 
     #endregion
 
-    public class Magic : GameObject, IMagic
+    public class Magic : GameObject, IMagic, IEquatable<IMagic>
     {
         private int attackDamage;
 
@@ -112,6 +112,11 @@
 
                 this.name = value;
             }
+        }
+
+        public bool Equals(IMagic other)
+        {
+            return this.name == other.Name;
         }
     }
 }

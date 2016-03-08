@@ -51,9 +51,7 @@
     <Compile Include="Entities\Commands\CreatePlayerCommand.cs" />
     <Compile Include="Entities\Commands\EnemyAttackCommand.cs" />
     <Compile Include="Entities\Commands\ExitGameCommand.cs" />
-    <Compile Include="Entities\Commands\InitializeLevelOneCommand.cs" />
-    <Compile Include="Entities\Commands\InitializeLevelThreeCommand.cs" />
-    <Compile Include="Entities\Commands\InitializeLevelTwoCommand.cs" />
+    <Compile Include="Entities\Commands\InitializeCommand.cs" />
     <Compile Include="Entities\Commands\LogUserNameCommand.cs" />
     <Compile Include="Entities\Commands\StartGameCommand.cs" />
     <Compile Include="Core\CommandDispatcher.cs" />
@@ -136,11 +134,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="States\FirstLevelRoundTwoState.resx">
+      <DependentUpon>FirstLevelRoundTwoState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="States\SelectCharacterState.resx">
       <DependentUpon>SelectCharacterState.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="States\StartGameState.resx">
       <DependentUpon>StartGameState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="States\State.resx">
+      <DependentUpon>State.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="HeroesFightClassDiagram.cd" />
     <None Include="Properties\Settings.settings">

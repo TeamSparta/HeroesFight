@@ -105,6 +105,7 @@
             this.Name = "SelectCharacterState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelRoundOneState";
+            this.Load += new System.EventHandler(this.SelectCharacterState_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

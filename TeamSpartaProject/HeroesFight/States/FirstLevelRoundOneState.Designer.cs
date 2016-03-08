@@ -71,7 +71,7 @@
             this.secondSpellPictureox.Size = new System.Drawing.Size(40, 40);
             this.secondSpellPictureox.TabIndex = 2;
             this.secondSpellPictureox.TabStop = false;
-            this.secondSpellPictureox.Click += new System.EventHandler(this.OnSecondSpellClick);
+            this.secondSpellPictureox.Click += new System.EventHandler(this.OnSecondMagicClick);
             // 
             // playerPictureBox
             // 

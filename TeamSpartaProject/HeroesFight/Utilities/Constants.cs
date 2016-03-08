@@ -14,7 +14,7 @@
 
         public const string EnemyAttackCommandName = "EnemyAttack";
 
-        public const string InitializeLevelOneCommandName = "InitializeLevelOne";
+        public const string InitializeLevelCommandName = "Initialize";
 
         public const string InvalidStateExceptionMessage = "Not expected state was passed!";
 

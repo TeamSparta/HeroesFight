@@ -15,7 +15,14 @@
             this.InitializeComponent();
         }
 
-        // public abstract void Draw();
+        public virtual void Draw()
+        {
+        }
+
+        public virtual void Initialize()
+        {
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             Application.Exit();
@@ -24,12 +31,14 @@
         private void InitializeComponent()
         {
             this.SuspendLayout();
-
+            // 
             // State
-            this.ClientSize = new Size(284, 262);
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "State";
-            this.Load += this.State_Load;
+            this.Load += new System.EventHandler(this.State_Load);
             this.ResumeLayout(false);
+
         }
 
         private void State_Load(object sender, EventArgs e)

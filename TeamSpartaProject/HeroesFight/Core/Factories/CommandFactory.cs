@@ -30,8 +30,8 @@
                 case Constants.CreatePlayerCommandName:
                     command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
-                case Constants.InitializeLevelOneCommandName:
-                    command = new InitializeLevelOneCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                case Constants.InitializeLevelCommandName:
+                    command = new InitializeCommand(commandInfo.CommandName, commandInfo.CommandParameters);
                     break;
                 case Constants.AttackCommandName:
                     command = new AttackCommand(commandInfo.CommandName, commandInfo.CommandParameters);

@@ -24,21 +24,6 @@
             Application.Exit();
         }
 
-        private void InitializeCharacter(string characterType)
-        {
-            ////switch (characterType)
-            ////{
-            ////    case "Warrior":
-            ////        GameDatabase.Player = new Warrior();
-            ////        break;
-            ////    case "Archer":
-            ////        GameDatabase.Player = new Archer();
-            ////        break;
-            ////    default:
-            ////        throw new ArgumentException("There is no such character.");
-            ////}
-        }
-
         private void OnArcherPictureBoxClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("CreatePlayer", new object[] { "Archer" });
@@ -47,6 +32,10 @@
         private void OnWarriorPictureBoxClick(object sender, EventArgs e)
         {
             this.CommandDispatcher.ProcessCommand("CreatePlayer", new object[] { "Warrior" });
+        }
+
+        private void SelectCharacterState_Load(object sender, EventArgs e)
+        {
         }
     }
 }

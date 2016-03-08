@@ -39,6 +39,7 @@
 
             IHero player = database.HeroFactory.CreateHero(heroType, database.PlayerName);
             database.AddPlayer(player as IPlayer);
+            database.Update();
             StateManager.ChangeCurrentState(StateEnum.FirstLevelRoundOneState);
         }
     }

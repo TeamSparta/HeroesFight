@@ -31,7 +31,7 @@
             this.currentHeroesMagics = new List<IMagic>();
             this.WarriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.ArchersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
-            this.CurrentPlayerProgress = StateEnum.FirstLevelRoundOneState;
+            this.CurrentPlayerProgress = StateEnum.PickCharacterState;
         }
 
         public IDictionary<StateEnum, IList<IMagic>> ArchersMagicsByLevel { get; }
