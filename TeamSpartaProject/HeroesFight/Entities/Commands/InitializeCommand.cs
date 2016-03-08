@@ -14,17 +14,7 @@
 
     public class InitializeCommand : ICommand
     {
-        public InitializeCommand(string commandName, object[] commandParameters)
-        {
-            this.CommandName = commandName;
-            this.CommandParameters = commandParameters;
-        }
-
-        public string CommandName { get; }
-
-        public object[] CommandParameters { get; }
-
-        public void Execute(IDatabase database, State currentState)
+        public void Execute(IDatabase database, State currentState, CommandInfo commandInfo)
         {
             currentState.Initialize();
         }

@@ -145,7 +145,6 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
-            this.CommandDispatcher.Database.InitializeData();
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)

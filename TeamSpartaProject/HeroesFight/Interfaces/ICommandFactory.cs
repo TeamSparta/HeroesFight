@@ -8,6 +8,6 @@
 
     public interface ICommandFactory
     {
-        ICommand CreateCommand(CommandInfo commandInfo);
+        ICommand CreateCommand(string commandName);
     }
 }

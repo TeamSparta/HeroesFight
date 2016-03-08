@@ -13,17 +13,7 @@
 
     public class UpdateCommand : ICommand
     {
-        public UpdateCommand(string commandName, object[] commandParameters)
-        {
-            this.CommandName = commandName;
-            this.CommandParameters = commandParameters;
-        }
-
-        public string CommandName { get; }
-
-        public object[] CommandParameters { get; }
-
-        public void Execute(IDatabase database, State currentState)
+        public void Execute(IDatabase database, State currentState, CommandInfo commandInfo)
         {
             if (!database.Player.IsAlive)
             {

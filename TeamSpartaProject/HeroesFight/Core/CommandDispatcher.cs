@@ -19,14 +19,13 @@
 
         public void ProcessCommand(string commandName, object[] commandParameters)
         {
+            // Parses the input data.
             var commandInfo = new CommandInfo(commandName, commandParameters);
 
             // TODO: may be unnecessary to create a new command every time, especially for attack commands for example, that repeat multiple times.
-            // Parses the input and transforms it into a command.
-            var command = this.Database.CommandFactory.CreateCommand(commandInfo);
+            var command = this.Database.CommandFactory.CreateCommand(commandInfo.CommandName);
 
-            // Executes command and updates the database.
-            command.Execute(this.Database, StateManager.CurrentState);
+            command.Execute(this.Database, StateManager.CurrentState, commandInfo);
         }
     }
 }

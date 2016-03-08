@@ -12,19 +12,9 @@
 
     public class AttackCommand : ICommand
     {
-        public AttackCommand(string commandName, object[] commandParameters)
+        public void Execute(IDatabase database, State currentState, CommandInfo commandInfo)
         {
-            this.CommandName = commandName;
-            this.CommandParameters = commandParameters;
-        }
-
-        public string CommandName { get; }
-
-        public object[] CommandParameters { get; }
-
-        public void Execute(IDatabase database, State currentState)
-        {
-            string magicName = this.CommandParameters[0].ToString();
+            string magicName = commandInfo.CommandParameters[0].ToString();
             IMagic magic;
             switch (magicName)
             {

@@ -36,6 +36,7 @@
             this.enemies = new List<IEnemy>();
             this.warriorsMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
             this.archersMagicsByLevel = new Dictionary<StateEnum, IList<IMagic>>();
+            this.Initialize();
         }
 
         public ICommandFactory CommandFactory { get; }
@@ -113,7 +114,7 @@
             return resultMagic;
         }
 
-        public void InitializeData()
+        public void Initialize()
         {
             this.InitializeFirstBoss();
 
@@ -155,16 +156,18 @@
             this.archersMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { mortalShot });
         }
 
-        private void InitializeFirstBoss()
+        private void InitializeWarriorMagics()
         {
-            IEnemy unholyWarrior = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "UnholyWarrior") as IEnemy;
+            IMagic fistAttack = this.MagicFactory.CreateMagic("FistAttack");
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { fistAttack });
+            IMagic swordAttack = this.MagicFactory.CreateMagic("SwordAttack");
+            this.warriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(swordAttack);
 
-            IMagic swordThrowMagic = this.MagicFactory.CreateMagic("SwordThrow");
-            unholyWarrior.AddMagic(swordThrowMagic);
-            IMagic furiousRush = this.MagicFactory.CreateMagic("FuriousRush");
-            unholyWarrior.AddMagic(furiousRush);
+            IMagic poisonStrike = this.MagicFactory.CreateMagic("PoisonStrike");
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { poisonStrike });
 
-            this.enemies.Add(unholyWarrior);
+            IMagic lightningStrike = this.MagicFactory.CreateMagic("LightningStrike");
+            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { lightningStrike });
         }
 
         private void InitializePlayerMagics()
@@ -189,6 +192,18 @@
                     this.Player.AddMagic(magic);
                 }
             }
+        }
+
+        private void InitializeFirstBoss()
+        {
+            IEnemy unholyWarrior = this.HeroFactory.CreateHero(ClassHeroEnum.Enemy, "UnholyWarrior") as IEnemy;
+
+            IMagic swordThrowMagic = this.MagicFactory.CreateMagic("SwordThrow");
+            unholyWarrior.AddMagic(swordThrowMagic);
+            IMagic furiousRush = this.MagicFactory.CreateMagic("FuriousRush");
+            unholyWarrior.AddMagic(furiousRush);
+
+            this.enemies.Add(unholyWarrior);
         }
 
         private void InitializeSecondBoss()
@@ -218,20 +233,6 @@
             bloodlineMagician.AddMagic(bloodFire);
 
             this.enemies.Add(bloodlineMagician);
-        }
-
-        private void InitializeWarriorMagics()
-        {
-            IMagic fistAttack = this.MagicFactory.CreateMagic("FistAttack");
-            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundOneState, new List<IMagic> { fistAttack });
-            IMagic swordAttack = this.MagicFactory.CreateMagic("SwordAttack");
-            this.warriorsMagicsByLevel[StateEnum.FirstLevelRoundOneState].Add(swordAttack);
-
-            IMagic poisonStrike = this.MagicFactory.CreateMagic("PoisonStrike");
-            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundTwoState, new List<IMagic> { poisonStrike });
-
-            IMagic lightningStrike = this.MagicFactory.CreateMagic("LightningStrike");
-            this.warriorsMagicsByLevel.Add(StateEnum.FirstLevelRoundThreeState, new List<IMagic> { lightningStrike });
         }
 
         private void UpdatePlayerMagics()

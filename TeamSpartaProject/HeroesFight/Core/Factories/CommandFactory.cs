@@ -13,34 +13,34 @@
 
     public class CommandFactory : ICommandFactory
     {
-        public virtual ICommand CreateCommand(CommandInfo commandInfo)
+        public virtual ICommand CreateCommand(string commandName)
         {
             ICommand command;
-            switch (commandInfo.CommandName)
+            switch (commandName)
             {
                 case Constants.StartGameCommandName:
-                    command = new StartGameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new StartGameCommand();
                     break;
                 case Constants.EndGameCommandName:
-                    command = new ExitGameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new ExitGameCommand();
                     break;
                 case Constants.LogUserNameCommandName:
-                    command = new LogUserNameCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new LogUserNameCommand();
                     break;
                 case Constants.CreatePlayerCommandName:
-                    command = new CreatePlayerCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new CreatePlayerCommand();
                     break;
                 case Constants.InitializeLevelCommandName:
-                    command = new InitializeCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new InitializeCommand();
                     break;
                 case Constants.AttackCommandName:
-                    command = new AttackCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new AttackCommand();
                     break;
                 case Constants.UpdateCommandName:
-                    command = new UpdateCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new UpdateCommand();
                     break;
                 case Constants.EnemyAttackCommandName:
-                    command = new EnemyAttackCommand(commandInfo.CommandName, commandInfo.CommandParameters);
+                    command = new EnemyAttackCommand();
                     break;
                 default:
                     throw new ArgumentException("Command not supported!");

@@ -14,7 +14,7 @@
         /// </summary>
         IMagicFactory MagicFactory { get; }
 
-        void InitializeData();
+        void Initialize();
 
         /// <summary>
         ///     Method used to update database.

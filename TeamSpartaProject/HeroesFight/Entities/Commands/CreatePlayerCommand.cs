@@ -12,20 +12,10 @@
 
     public class CreatePlayerCommand : ICommand
     {
-        public CreatePlayerCommand(string commandName, object[] commandParameters)
-        {
-            this.CommandName = commandName;
-            this.CommandParameters = commandParameters;
-        }
-
-        public string CommandName { get; }
-
-        public object[] CommandParameters { get; }
-
-        public void Execute(IDatabase database, State currentState)
+        public void Execute(IDatabase database, State currentState, CommandInfo commandInfo)
         {
             ClassHeroEnum heroType;
-            switch (this.CommandParameters[0].ToString())
+            switch (commandInfo.CommandParameters[0].ToString())
             {
                 case "Archer":
                     heroType = ClassHeroEnum.Archer;
