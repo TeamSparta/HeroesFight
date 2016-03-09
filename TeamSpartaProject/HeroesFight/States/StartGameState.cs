@@ -59,7 +59,32 @@
             this.continueButton.Click += this.OnContinueButtonClick;
         }
 
-#region
+        private void OnContinueButtonClick(object sender, EventArgs e)
+        {
+            string playerName = this.playerNameTextBox.Text;
+            Regex nameRegex = new Regex(@"^\w{3,20}$");
+            if (!nameRegex.IsMatch(playerName))
+            {
+                MessageBox.Show(
+                    @"Name should be between 3 and 20 characters long and should consist only of letters and digits. Please try again!");
+                this.playerNameTextBox.Clear();
+                return;
+            }
+
+            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] { playerName });
+        }
+
+        private void OnExitButtonClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand(Constants.EndGameCommandName, null);
+        }
+
+        private void OnStartGameButtonClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null);
+        }
+
+        #region
         private void InitializeComponent()
         {
             this.startGameButton = new System.Windows.Forms.Button();
@@ -133,32 +158,6 @@
             this.PerformLayout();
 
         }
-
-#endregion
-
-        private void OnContinueButtonClick(object sender, EventArgs e)
-        {
-            string playerName = this.playerNameTextBox.Text;
-            Regex nameRegex = new Regex(@"^\w{3,20}$");
-            if (!nameRegex.IsMatch(playerName))
-            {
-                MessageBox.Show(
-                    @"Name should be between 3 and 20 characters long and should consist only of letters and digits. Please try again!");
-                this.playerNameTextBox.Clear();
-                return;
-            }
-
-            this.CommandDispatcher.ProcessCommand(Constants.LogUserNameCommandName, new object[] { playerName });
-        }
-
-        private void OnExitButtonClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand(Constants.EndGameCommandName, null);
-        }
-
-        private void OnStartGameButtonClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand(Constants.StartGameCommandName, null);
-        }
+        #endregion
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace HeroesFight.Enum
+﻿namespace HeroesFight.Enums
 {
     public enum HeroClass
     {

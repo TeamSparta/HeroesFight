@@ -2,7 +2,7 @@
 {
     #region
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
 
     #endregion
 

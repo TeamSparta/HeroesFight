@@ -4,7 +4,7 @@
 
     using System.Drawing;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
     using HeroesFight.Utilities;
@@ -30,7 +30,7 @@
             }
             else
             {
-                currentState.Draw();
+                currentState.Update();
             }
         }
     }

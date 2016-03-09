@@ -36,6 +36,15 @@
 
         private void SelectCharacterState_Load(object sender, EventArgs e)
         {
+            this.warriorTooltip.SetToolTip(
+                this.warriorPictureBox,
+                "Warrior is typical combat unit. Has a strong attack power and high armour.");
+            this.warriorTooltip.ShowAlways = true;
+            this.warriorTooltip.ReshowDelay = 500;
+
+            this.archerTooltip.SetToolTip(this.archerPictureBox, "Archer is swift and fast. Huge attack power which comes at it price.");
+            this.archerTooltip.ShowAlways = true;
+            this.archerTooltip.ReshowDelay = 500;
         }
     }
 }

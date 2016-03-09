@@ -4,8 +4,9 @@
 
     using System;
     using System.Drawing;
+    using System.Text;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
     using HeroesFight.Interfaces;
 
     #endregion
@@ -117,6 +118,18 @@
         public bool Equals(IMagic other)
         {
             return this.name == other.Name;
+        }
+
+        public override string ToString()
+        {
+            string magicInfo = string.Format(
+                "{0}\nAttack power: {1}\nMana cost: {2}\nHealth cost: {3}",
+                this.Name,
+                this.AttackDamage,
+                this.ManaCost,
+                this.HealthCost);
+
+            return magicInfo;
         }
     }
 }

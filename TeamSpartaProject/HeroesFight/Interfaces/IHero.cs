@@ -4,7 +4,7 @@
 
     using System.Collections.Generic;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
 
     #endregion
 

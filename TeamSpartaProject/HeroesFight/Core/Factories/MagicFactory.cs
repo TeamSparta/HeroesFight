@@ -4,7 +4,7 @@
 
     using System.Drawing;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
     using HeroesFight.GameObjects;
     using HeroesFight.Interfaces;
     using HeroesFight.Properties;

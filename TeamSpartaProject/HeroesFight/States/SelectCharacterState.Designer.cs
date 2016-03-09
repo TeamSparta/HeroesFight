@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label_Warrior = new System.Windows.Forms.Label();
             this.label_Archer = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.warriorPictureBox = new System.Windows.Forms.PictureBox();
+            this.archerPictureBox = new System.Windows.Forms.PictureBox();
             this.Lbl_PickClass = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.warriorTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.archerTooltip = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.warriorPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Warrior
@@ -57,27 +60,27 @@
             this.label_Archer.TabIndex = 1;
             this.label_Archer.Text = "Archer";
             // 
-            // pictureBox1
+            // warriorPictureBox
             // 
-            this.pictureBox1.Image = global::HeroesFight.Properties.Resources.Warrior;
-            this.pictureBox1.Location = new System.Drawing.Point(83, 155);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 295);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.OnWarriorPictureBoxClick);
+            this.warriorPictureBox.Image = global::HeroesFight.Properties.Resources.Warrior;
+            this.warriorPictureBox.Location = new System.Drawing.Point(83, 155);
+            this.warriorPictureBox.Name = "warriorPictureBox";
+            this.warriorPictureBox.Size = new System.Drawing.Size(186, 295);
+            this.warriorPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.warriorPictureBox.TabIndex = 4;
+            this.warriorPictureBox.TabStop = false;
+            this.warriorPictureBox.Click += new System.EventHandler(this.OnWarriorPictureBoxClick);
             // 
-            // pictureBox2
+            // archerPictureBox
             // 
-            this.pictureBox2.Image = global::HeroesFight.Properties.Resources.Archer;
-            this.pictureBox2.Location = new System.Drawing.Point(536, 155);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(186, 295);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.OnArcherPictureBoxClick);
+            this.archerPictureBox.Image = global::HeroesFight.Properties.Resources.Archer;
+            this.archerPictureBox.Location = new System.Drawing.Point(536, 155);
+            this.archerPictureBox.Name = "archerPictureBox";
+            this.archerPictureBox.Size = new System.Drawing.Size(186, 295);
+            this.archerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.archerPictureBox.TabIndex = 5;
+            this.archerPictureBox.TabStop = false;
+            this.archerPictureBox.Click += new System.EventHandler(this.OnArcherPictureBoxClick);
             // 
             // Lbl_PickClass
             // 
@@ -98,16 +101,16 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(793, 584);
             this.Controls.Add(this.Lbl_PickClass);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.archerPictureBox);
+            this.Controls.Add(this.warriorPictureBox);
             this.Controls.Add(this.label_Archer);
             this.Controls.Add(this.label_Warrior);
             this.Name = "SelectCharacterState";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FirstLevelRoundOneState";
             this.Load += new System.EventHandler(this.SelectCharacterState_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.warriorPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,8 +120,10 @@
 
         private System.Windows.Forms.Label label_Warrior;
         private System.Windows.Forms.Label label_Archer;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox warriorPictureBox;
+        private System.Windows.Forms.PictureBox archerPictureBox;
         private System.Windows.Forms.Label Lbl_PickClass;
+        private System.Windows.Forms.ToolTip warriorTooltip;
+        private System.Windows.Forms.ToolTip archerTooltip;
     }
 }

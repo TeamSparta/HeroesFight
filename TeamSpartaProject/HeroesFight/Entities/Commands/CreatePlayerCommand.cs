@@ -4,7 +4,7 @@
 
     using System;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
     using HeroesFight.Interfaces;
     using HeroesFight.States;
 

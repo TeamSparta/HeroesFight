@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Btn_Attack = new System.Windows.Forms.Button();
             this.firstSpellPictureBox = new System.Windows.Forms.PictureBox();
             this.secondSpellPictureox = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,10 @@
             this.enemyManaLabel = new System.Windows.Forms.Label();
             this.playerAttackInfoLabel = new System.Windows.Forms.Label();
             this.enemyAttackInfoLabel = new System.Windows.Forms.Label();
+            this.firstMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.secondMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.playerTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.enemyTooltip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPictureox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
@@ -64,7 +69,7 @@
             this.firstSpellPictureBox.TabStop = false;
             this.firstSpellPictureBox.Click += new System.EventHandler(this.OnFirstMagicClick);
             // 
-            // secondSpellPicturebox
+            // secondSpellPictureox
             // 
             this.secondSpellPictureox.Location = new System.Drawing.Point(106, 494);
             this.secondSpellPictureox.Name = "secondSpellPictureox";
@@ -215,5 +220,9 @@
         public System.Windows.Forms.Label enemyManaLabel;
         public System.Windows.Forms.Label playerAttackInfoLabel;
         public System.Windows.Forms.Label enemyAttackInfoLabel;
+        private System.Windows.Forms.ToolTip firstMagicTooltip;
+        private System.Windows.Forms.ToolTip secondMagicTooltip;
+        private System.Windows.Forms.ToolTip playerTooltip;
+        private System.Windows.Forms.ToolTip enemyTooltip;
     }
 }

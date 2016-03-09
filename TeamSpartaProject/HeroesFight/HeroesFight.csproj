@@ -60,7 +60,7 @@
     <Compile Include="Core\GameDatabase.cs" />
     <Compile Include="Core\HeroesFightEngine.cs" />
     <Compile Include="Entities\Commands\UpdateCommand.cs" />
-    <Compile Include="Enum\HeroClass.cs" />
+    <Compile Include="Enums\HeroClass.cs" />
     <Compile Include="Interfaces\IEnemyDatabase.cs" />
     <Compile Include="Interfaces\IMagicFactory.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
@@ -81,7 +81,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="States\StateManager.cs" />
-    <Compile Include="Enum\StateEnum.cs" />
+    <Compile Include="Enums\StateEnum.cs" />
     <Compile Include="Interfaces\ICommandDispatcher.cs" />
     <Compile Include="Interfaces\ICommandFactory.cs" />
     <Compile Include="Interfaces\IHeroFactory.cs" />

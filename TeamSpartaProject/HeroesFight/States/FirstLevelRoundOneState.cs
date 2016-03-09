@@ -7,6 +7,7 @@
     using System.Windows.Forms;
 
     using HeroesFight.GameObjects;
+    using HeroesFight.GameObjects.Heroes;
     using HeroesFight.Interfaces;
 
     #endregion
@@ -20,6 +21,12 @@
         }
 
         public ICommandDispatcher CommandDispatcher { get; }
+
+        public override void Update()
+        {
+            this.UpdateHeroesGameInfo();
+            this.Draw();
+        }
 
         public override void Draw()
         {
@@ -37,6 +44,10 @@
             this.Draw();
 
             this.SetVisibility();
+            
+            this.UpdateHeroesGameInfo();
+
+            this.UpdateMagicsGameInfo();
         }
 
         private void SetVisibility()
@@ -145,6 +156,26 @@
             this.enemyPictureBox.Visible = false;
             this.firstSpellPictureBox.Visible = false;
             this.secondSpellPictureox.Visible = false;
+        }
+
+        private void UpdateMagicsGameInfo()
+        {
+            IMagic firstMagic = this.CommandDispatcher.Database.GetPlayerMagicById(0);
+            this.firstMagicTooltip.SetToolTip(this.firstSpellPictureBox, (firstMagic as Magic).ToString());
+
+            IMagic secondMagic = this.CommandDispatcher.Database.GetPlayerMagicById(1);
+            this.firstMagicTooltip.SetToolTip(this.secondSpellPictureox, (secondMagic as Magic).ToString());
+        }
+
+        private void UpdateHeroesGameInfo()
+        {
+            IEnemy enemy = this.CommandDispatcher.Database.GetCurrentLevelEnemy();
+            string enemyInfo = "Fearsome warrior part of the army of the undead and unholy horde.\n"
+                               + (enemy as Hero).ToString();
+            this.enemyTooltip.SetToolTip(this.enemyPictureBox, enemyInfo);
+
+            IPlayer player = this.CommandDispatcher.Database.Player;
+            this.playerTooltip.SetToolTip(this.playerPictureBox, (player as Hero).ToString());
         }
 
         private void OnBattleButtonClick(object sender, EventArgs e)

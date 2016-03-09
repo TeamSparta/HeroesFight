@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Drawing;
 
-    using HeroesFight.Enum;
+    using HeroesFight.Enums;
     using HeroesFight.Interfaces;
 
     #endregion
@@ -101,6 +101,19 @@
             enemy.HealthPoints -= magic.AttackDamage - enemy.ShieldPower;
             this.HealthPoints -= magic.HealthCost;
             this.ManaPoints -= magic.ManaCost;
+        }
+
+        public override string ToString()
+        {
+            string heroInfo = string.Format(
+                "{0}\nAttack power: {1}\nMana points: {2}\nHealth points: {3}\nShield power: {4}",
+                this.Name,
+                this.AttackPoints,
+                this.HealthPoints,
+                this.ManaPoints,
+                this.ShieldPower);
+
+            return heroInfo;
         }
     }
 }
