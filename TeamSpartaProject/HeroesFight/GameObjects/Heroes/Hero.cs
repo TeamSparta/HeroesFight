@@ -106,7 +106,7 @@
         public override string ToString()
         {
             string heroInfo = string.Format(
-                "{0}\nAttack power: {1}\nMana points: {2}\nHealth points: {3}\nShield power: {4}",
+                "{0}\nAttack power: {1}\nHealth points: {2}\nMana points: {3}\nShield power: {4}",
                 this.Name,
                 this.AttackPoints,
                 this.HealthPoints,

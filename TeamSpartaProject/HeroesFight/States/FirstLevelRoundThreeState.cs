@@ -8,8 +8,8 @@
     using System.Windows.Forms;
 
     using HeroesFight.GameObjects;
+    using HeroesFight.GameObjects.Heroes;
     using HeroesFight.Interfaces;
-    using HeroesFight.Properties;
 
     #endregion
 
@@ -27,6 +27,13 @@
         private Label playerManaLabel;
         private PictureBox playerPictureBox;
         private PictureBox secondSpellPicturebox;
+        private ToolTip playerTooltip;
+        private IContainer components;
+        private ToolTip enemyTooltip;
+        private ToolTip firstMagicTooltip;
+        private ToolTip secondMagicTooltip;
+        private ToolTip thirdMagicTooltip;
+        private ToolTip fourthMagicTooltip;
         private PictureBox thirdSpellPictureBox;
 
         public FirstLevelRoundThreeState(ICommandDispatcher commandDispatcher)
@@ -37,6 +44,13 @@
         }
 
         public ICommandDispatcher CommandDispatcher { get; }
+
+        public override void Update()
+        {
+            this.UpdateHeroesGameInfo();
+
+            this.Draw();
+        }
 
         public override void Draw()
         {
@@ -54,6 +68,10 @@
             this.Draw();
 
             this.SetVisibility();
+
+            this.UpdateHeroesGameInfo();
+
+            this.UpdateMagicsGameInfo();
         }
 
         private void DrawEnemyInfo(Graphics graphics)
@@ -182,8 +200,82 @@
             this.CommandDispatcher.ProcessCommand("Initialize", null);
         }
 
+        private void OnFirstMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
+            this.CommandDispatcher.ProcessCommand("Update", null);
+
+            if (this.currentEnemy.HealthPoints > 0)
+            {
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void OnFourthMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "fourthMagic" });
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (this.currentEnemy.HealthPoints > 0)
+            {
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void OnSecondSpellClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
+            this.CommandDispatcher.ProcessCommand("Update", null);
+            if (this.currentEnemy.HealthPoints > 0)
+            {
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void OnThirdMagicClick(object sender, EventArgs e)
+        {
+            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "thirdMagic" });
+            this.CommandDispatcher.ProcessCommand("Update", null);
+
+            if (this.currentEnemy.HealthPoints > 0)
+            {
+                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
+                this.CommandDispatcher.ProcessCommand("Update", null);
+            }
+        }
+
+        private void UpdateHeroesGameInfo()
+        {
+            IEnemy enemy = this.CommandDispatcher.Database.GetCurrentLevelEnemy();
+            string enemyInfo = "Cruel and powerful this is how you describe the leader of the Bloodline clan.\n"
+                               + (enemy as Hero).ToString();
+            this.enemyTooltip.SetToolTip(this.enemyPictureBox, enemyInfo);
+
+            IPlayer player = this.CommandDispatcher.Database.Player;
+            this.playerTooltip.SetToolTip(this.playerPictureBox, (player as Hero).ToString());
+        }
+
+        private void UpdateMagicsGameInfo()
+        {
+            IMagic firstMagic = this.CommandDispatcher.Database.GetPlayerMagicById(0);
+            this.firstMagicTooltip.SetToolTip(this.firstSpellPictureBox, (firstMagic as Magic).ToString());
+
+            IMagic secondMagic = this.CommandDispatcher.Database.GetPlayerMagicById(1);
+            this.secondMagicTooltip.SetToolTip(this.secondSpellPicturebox, (secondMagic as Magic).ToString());
+
+            IMagic thirdMagic = this.CommandDispatcher.Database.GetPlayerMagicById(2);
+            this.thirdMagicTooltip.SetToolTip(this.thirdSpellPictureBox, (thirdMagic as Magic).ToString());
+
+            IMagic fourhtMagic = this.CommandDispatcher.Database.GetPlayerMagicById(3);
+            this.fourthMagicTooltip.SetToolTip(this.thirdSpellPictureBox, (fourhtMagic as Magic).ToString());
+        }
+
+        #region
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.firstSpellPictureBox = new System.Windows.Forms.PictureBox();
             this.secondSpellPicturebox = new System.Windows.Forms.PictureBox();
             this.playerPictureBox = new System.Windows.Forms.PictureBox();
@@ -196,6 +288,12 @@
             this.enemyAttackInfoLabel = new System.Windows.Forms.Label();
             this.thirdSpellPictureBox = new System.Windows.Forms.PictureBox();
             this.fourthMagicPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.enemyTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.firstMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.secondMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.thirdMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.fourthMagicTooltip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.firstSpellPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.secondSpellPicturebox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
@@ -365,53 +463,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fourthMagicPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
-        private void OnFirstMagicClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "firstMagic" });
-            this.CommandDispatcher.ProcessCommand("Update", null);
-
-            if (this.currentEnemy.HealthPoints > 0)
-            {
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
-        }
-
-        private void OnFourthMagicClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "fourthMagic" });
-            this.CommandDispatcher.ProcessCommand("Update", null);
-            if (this.currentEnemy.HealthPoints > 0)
-            {
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
-        }
-
-        private void OnSecondSpellClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "secondMagic" });
-            this.CommandDispatcher.ProcessCommand("Update", null);
-            if (this.currentEnemy.HealthPoints > 0)
-            {
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
-        }
-
-        private void OnThirdMagicClick(object sender, EventArgs e)
-        {
-            this.CommandDispatcher.ProcessCommand("Attack", new object[] { "thirdMagic" });
-            this.CommandDispatcher.ProcessCommand("Update", null);
-
-            if (this.currentEnemy.HealthPoints > 0)
-            {
-                this.CommandDispatcher.ProcessCommand("EnemyAttack", null);
-                this.CommandDispatcher.ProcessCommand("Update", null);
-            }
-        }
+        #endregion
     }
 }

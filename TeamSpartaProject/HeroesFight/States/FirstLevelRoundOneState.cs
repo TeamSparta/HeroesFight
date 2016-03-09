@@ -164,7 +164,7 @@
             this.firstMagicTooltip.SetToolTip(this.firstSpellPictureBox, (firstMagic as Magic).ToString());
 
             IMagic secondMagic = this.CommandDispatcher.Database.GetPlayerMagicById(1);
-            this.firstMagicTooltip.SetToolTip(this.secondSpellPictureox, (secondMagic as Magic).ToString());
+            this.secondMagicTooltip.SetToolTip(this.secondSpellPictureox, (secondMagic as Magic).ToString());
         }
 
         private void UpdateHeroesGameInfo()
