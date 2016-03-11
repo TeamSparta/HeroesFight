@@ -269,7 +269,7 @@
             this.thirdMagicTooltip.SetToolTip(this.thirdSpellPictureBox, (thirdMagic as Magic).ToString());
 
             IMagic fourhtMagic = this.CommandDispatcher.Database.GetPlayerMagicById(3);
-            this.fourthMagicTooltip.SetToolTip(this.thirdSpellPictureBox, (fourhtMagic as Magic).ToString());
+            this.fourthMagicTooltip.SetToolTip(this.fourthMagicPictureBox, (fourhtMagic as Magic).ToString());
         }
 
         #region

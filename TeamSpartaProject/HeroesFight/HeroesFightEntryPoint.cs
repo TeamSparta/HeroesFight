@@ -28,6 +28,7 @@
 
             // ToDo: find better relationship here: the StateManager class is static which means our engine runs only on static class. :/
             // ToDo: Improve magics and mana costs.
+            // ToDo: We can display result from the attack if we dont we might want to delete some labels in first level states.
             IRunnable engine = new HeroesFightEngine(stateManager);
             engine.Run();
 
